@@ -16,25 +16,31 @@ namespace Internship2024.View
     public partial class AreaLandingView : Form, IAreaLandingView
     {
         public AreaLandingPresenter Presenter { get; set; }
-        public UltraGrid GridAreaLanding { get => this.gridAreaLanding; }
+        public UltraGrid UGAreaLanding { get => this.ugAreaLanding; }
 
         public AreaLandingView()
         {
             InitializeComponent();
             Internship2024DB objTran = new Internship2024DB();
-            if (objTran == null)
-            {
-                MessageBox.Show("Error Connecting to Database", "Database Connection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            AreaLandingService service = new AreaLandingService(objTran);
-            this.Presenter = new AreaLandingPresenter(this, service);
+
+            AreaLandingRepository repository = new AreaLandingRepository(objTran);
+            this.Presenter = new AreaLandingPresenter(this, repository);
             this.Presenter.InitializePage();
         }
 
         private void btnAuditLog_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ugAreaLanding_InitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+
         }
     }
 }

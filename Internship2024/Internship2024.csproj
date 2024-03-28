@@ -60,10 +60,11 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Area.cs" />
     <Compile Include="Presenter\AreaLandingPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\AreaLandingService.cs" />
+    <Compile Include="Repository\AreaLandingRepository.cs" />
     <Compile Include="View\AreaLandingView.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -48,6 +48,10 @@
     <Compile Include="ClassFiles\pl_stringRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="scripts\create_table.sql" />
+    <Content Include="scripts\seed_data.sql" />
+    <Content Include="scripts\sp_get_all_area_rows.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
