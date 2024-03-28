@@ -28,6 +28,7 @@ namespace Internship2024
 
             try
             {
+                objTran.BeginTransaction();
 
                 pl_object objpl_object = new pl_object(objTran);
                 pl_objectRow objpl_objectRow = objpl_object.GetRow("name = 'test_name2'");
@@ -35,7 +36,6 @@ namespace Internship2024
                 pl_string objpl_string = new pl_string(objTran);
                 pl_stringRow objpl_stringRow = null;
 
-                objTran.BeginTransaction(); 
                 if (objpl_objectRow != null)
                 {
                     MessageBox.Show(objpl_objectRow.Table_name);
