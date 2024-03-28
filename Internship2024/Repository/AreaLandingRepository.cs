@@ -7,18 +7,18 @@ namespace Internship2024.Services
 {
     public class AreaLandingRepository
     {
-        Internship2024DB objTran = null;
+        Internship2024DB _objTran = null;
         
         public AreaLandingRepository(Internship2024DB objTran)
         {
-            this.objTran = objTran;
+            _objTran = objTran;
         }
 
         public List<Area> getAllAreaRows()
         {
             try
             {
-                SqlCommand cmd1 = objTran.CreateCommand("select table_pid, name from pl_object where table_name = 'Department'");
+                SqlCommand cmd1 = _objTran.CreateCommand("select table_pid, name from pl_object where table_name = 'Department'");
                 SqlDataReader reader1 = cmd1.ExecuteReader();
                 Dictionary<string, string> departmentIdToNameMap = new Dictionary<string, string>();
 
@@ -30,7 +30,7 @@ namespace Internship2024.Services
                 }
                 reader1.Close();
 
-                SqlCommand cmd2 = objTran.CreateCommand("sp_get_all_area_rows", true);
+                SqlCommand cmd2 = _objTran.CreateCommand("sp_get_all_area_rows", true);
                 SqlDataReader reader2 = cmd2.ExecuteReader();
                 List<Area> result = new List<Area>();
 
