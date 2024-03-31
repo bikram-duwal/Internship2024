@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>App.DAL</RootNamespace>
     <AssemblyName>App.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassFiles\EquipmentStatus.cs" />
+    <Compile Include="ClassFiles\EquipmentStatusRow.cs" />
+    <Compile Include="ClassFiles\EquipmentType.cs" />
+    <Compile Include="ClassFiles\EquipmentTypeRow.cs" />
     <Compile Include="ClassFiles\Internship2024DB.cs" />
+    <Compile Include="ClassFiles\Make.cs" />
+    <Compile Include="ClassFiles\MakeRow.cs" />
+    <Compile Include="ClassFiles\Meter.cs" />
+    <Compile Include="ClassFiles\MeterRow.cs" />
+    <Compile Include="ClassFiles\Model.cs" />
+    <Compile Include="ClassFiles\ModelRow.cs" />
     <Compile Include="ClassFiles\pl_object.cs" />
     <Compile Include="ClassFiles\pl_objectRow.cs" />
     <Compile Include="ClassFiles\pl_string.cs" />
