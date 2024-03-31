@@ -3,9 +3,6 @@ using Internship2024.Services;
 using Internship2024.View;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Internship2024.Presenter
@@ -13,18 +10,18 @@ namespace Internship2024.Presenter
     public class AreaLandingPresenter
     {
         IAreaLandingView _view;
-        AreaLandingRepository _areaLandingService;
-        public AreaLandingPresenter(IAreaLandingView view, AreaLandingRepository areaLandingService)
+        IAreaLandingService _service;
+        public AreaLandingPresenter(IAreaLandingView view, IAreaLandingService areaLandingService)
         {
             _view = view;
-            _areaLandingService = areaLandingService;
+            _service = areaLandingService;
         }
 
         public void InitializePage()
         {
             try
             {
-                List<Area> rows = _areaLandingService.getAllAreaRows();
+                List<Area> rows = _service.getAllAreaRows();
                 _view.UGAreaLanding.DataSource = rows;
             }
             catch (Exception ex)

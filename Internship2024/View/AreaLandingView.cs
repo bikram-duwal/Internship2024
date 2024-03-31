@@ -17,7 +17,8 @@ namespace Internship2024.View
             Internship2024DB objTran = new Internship2024DB();
 
             AreaLandingRepository repository = new AreaLandingRepository(objTran);
-            this.Presenter = new AreaLandingPresenter(this, repository);
+            AreaLandingService service = new AreaLandingService(repository);
+            this.Presenter = new AreaLandingPresenter(this, service) ;
             this.Presenter.InitializePage();
         }
 
