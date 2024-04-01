@@ -65,6 +65,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AreaLandingRepository.cs" />
+    <Compile Include="Repository\IAreaLandingRepository.cs" />
     <Compile Include="Services\AreaLandingService.cs" />
     <Compile Include="Services\IAreaLandingService.cs" />
     <Compile Include="View\AreaLandingView.cs">

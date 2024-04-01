@@ -1,10 +1,9 @@
 ﻿using Internship2024.Model;
-using Internship2024.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace Internship2024.Services
+namespace Internship2024.Repository
 {
     public class AreaLandingRepository: IAreaLandingRepository
     {

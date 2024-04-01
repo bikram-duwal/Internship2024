@@ -55,10 +55,9 @@ namespace Internship2024.View
             // btnAuditLog
             // 
             this.btnAuditLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAuditLog.Location = new System.Drawing.Point(15, 13);
-            this.btnAuditLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAuditLog.Location = new System.Drawing.Point(22, 20);
             this.btnAuditLog.Name = "btnAuditLog";
-            this.btnAuditLog.Size = new System.Drawing.Size(109, 26);
+            this.btnAuditLog.Size = new System.Drawing.Size(164, 41);
             this.btnAuditLog.TabIndex = 0;
             this.btnAuditLog.Text = "Audit Log";
             this.btnAuditLog.Click += new System.EventHandler(this.btnAuditLog_Click);
@@ -66,20 +65,19 @@ namespace Internship2024.View
             // btnEdit
             // 
             this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Location = new System.Drawing.Point(638, 13);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEdit.Location = new System.Drawing.Point(957, 20);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(78, 26);
+            this.btnEdit.Size = new System.Drawing.Size(117, 41);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnCreate
             // 
             this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreate.Location = new System.Drawing.Point(720, 13);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCreate.Location = new System.Drawing.Point(1080, 20);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(78, 26);
+            this.btnCreate.Size = new System.Drawing.Size(117, 41);
             this.btnCreate.TabIndex = 2;
             this.btnCreate.Text = "Create";
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -146,10 +144,9 @@ namespace Internship2024.View
             this.ugAreaLanding.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
             this.ugAreaLanding.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
             this.ugAreaLanding.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.ugAreaLanding.Location = new System.Drawing.Point(14, 13);
-            this.ugAreaLanding.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ugAreaLanding.Location = new System.Drawing.Point(21, 20);
             this.ugAreaLanding.Name = "ugAreaLanding";
-            this.ugAreaLanding.Size = new System.Drawing.Size(811, 401);
+            this.ugAreaLanding.Size = new System.Drawing.Size(1216, 627);
             this.ugAreaLanding.TabIndex = 3;
             this.ugAreaLanding.Text = "ultraGrid1";
             // 
@@ -160,20 +157,18 @@ namespace Internship2024.View
             this.ultraGroupBox1.Controls.Add(this.btnAuditLog);
             this.ultraGroupBox1.Controls.Add(this.btnEdit);
             this.ultraGroupBox1.Controls.Add(this.btnCreate);
-            this.ultraGroupBox1.Location = new System.Drawing.Point(14, 427);
-            this.ultraGroupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ultraGroupBox1.Location = new System.Drawing.Point(21, 667);
             this.ultraGroupBox1.Name = "ultraGroupBox1";
-            this.ultraGroupBox1.Size = new System.Drawing.Size(811, 49);
+            this.ultraGroupBox1.Size = new System.Drawing.Size(1216, 77);
             this.ultraGroupBox1.TabIndex = 4;
             // 
             // AreaLandingView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 484);
+            this.ClientSize = new System.Drawing.Size(1250, 756);
             this.Controls.Add(this.ultraGroupBox1);
             this.Controls.Add(this.ugAreaLanding);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AreaLandingView";
             this.Text = "Area";
             ((System.ComponentModel.ISupportInitialize)(this.ugAreaLanding)).EndInit();

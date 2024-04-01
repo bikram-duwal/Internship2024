@@ -1,5 +1,6 @@
 ﻿using Infragistics.Win.UltraWinGrid;
 using Internship2024.Presenter;
+using Internship2024.Repository;
 using Internship2024.Services;
 using System;
 using System.Windows.Forms;
@@ -28,6 +29,11 @@ namespace Internship2024.View
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
         {
 
         }
