@@ -17,10 +17,10 @@ namespace Internship2024
             InitializeComponent();
         }
 
-        Internship2024DB objTran = null;
+        InternTaskDbContext objTran = null;
         private void frmMain_Load(object sender, EventArgs e)
         {
-            objTran = new Internship2024DB();
+            objTran = new InternTaskDbContext();
             if(objTran != null )
             {
                 MessageBox.Show($"Connected to: {objTran.Connection.Database}");

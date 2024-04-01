@@ -37,14 +37,14 @@ namespace Internship2024
 		public const string Deleted_byColumnName = "deleted_by";
 
 		// Instance fields
-		private Internship2024DB _db;
+		private InternTaskDbContext _db;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="pl_object"/> 
-		/// class with the specified <see cref="Internship2024DB"/>.
+		/// class with the specified <see cref="InternTaskDbContext"/>.
 		/// </summary>
-		/// <param name="db">The <see cref="Internship2024DB"/> object.</param>
-		public pl_object(Internship2024DB db)
+		/// <param name="db">The <see cref="InternTaskDbContext"/> object.</param>
+		public pl_object(InternTaskDbContext db)
 		{
 			_db = db;
 		}
@@ -52,8 +52,8 @@ namespace Internship2024
 		/// <summary>
 		/// Gets the database object that this table belongs to.
 		///	</summary>
-		///	<value>The <see cref="Internship2024DB"/> object.</value>
-		protected Internship2024DB Database
+		///	<value>The <see cref="InternTaskDbContext"/> object.</value>
+		protected InternTaskDbContext Database
 		{
 			get { return _db; }
 		}
