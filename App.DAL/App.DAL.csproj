@@ -41,7 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassFiles\EquipmentStatus.cs" />
+    <Compile Include="ClassFiles\EquipmentStatusRow.cs" />
+    <Compile Include="ClassFiles\EquipmentType.cs" />
+    <Compile Include="ClassFiles\EquipmentTypeRow.cs" />
     <Compile Include="ClassFiles\Internship2024DB.cs" />
+    <Compile Include="ClassFiles\Make.cs" />
+    <Compile Include="ClassFiles\MakeRow.cs" />
+    <Compile Include="ClassFiles\Meter.cs" />
+    <Compile Include="ClassFiles\MeterRow.cs" />
+    <Compile Include="ClassFiles\Model.cs" />
+    <Compile Include="ClassFiles\ModelRow.cs" />
+    <Compile Include="ClassFiles\pl_combo_value.cs" />
+    <Compile Include="ClassFiles\pl_combo_valueRow.cs" />
     <Compile Include="ClassFiles\pl_object.cs" />
     <Compile Include="ClassFiles\pl_objectRow.cs" />
     <Compile Include="ClassFiles\pl_string.cs" />

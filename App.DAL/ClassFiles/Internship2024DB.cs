@@ -54,8 +54,9 @@ namespace Internship2024
                 password = xmlN.ChildNodes[3].FirstChild.Value;
             }
 
-            return new SqlConnection("Initial Catalog=" + dbString + ";Data Source=" + srvString +
-                ";user id= " + userName + ";password = " + password);
+            return new SqlConnection("Initial Catalog=" + dbString + ";Data Source=" + srvString 
+                + ";user id= " + userName + ";password = " + password
+                );
         }
 
         public SqlParameter AddParameter(SqlCommand cmd, string paramName,
