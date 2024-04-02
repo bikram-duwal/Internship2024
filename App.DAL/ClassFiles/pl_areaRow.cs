@@ -21,7 +21,7 @@ namespace Internship2024
 	/// Do not change this source code manually. Update the <see cref="pl_areaRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class pl_areaRow
+	public class pl_areaRow
 	{
 		private long _id;
 		private long _table_pid;

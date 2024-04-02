@@ -85,7 +85,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo._pl_area_GetAll", true);
+			return _db.CreateCommand("dbo.pl_area_GetAll", true);
 		}
 
 		/// <summary>
@@ -200,7 +200,7 @@ namespace Internship2024
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
 		public virtual pl_areaRow GetByPrimaryKey(long id)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_GetByPrimaryKey", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_area_GetByPrimaryKey", true);
 			AddParameter(cmd, "Id", id);
 			pl_areaRow[] tempArray = MapRecords(cmd);
 			return 0 == tempArray.Length ? null : tempArray[0];
@@ -212,7 +212,7 @@ namespace Internship2024
 		/// <param name="value">The <see cref="pl_areaRow"/> object to be inserted.</param>
 		public virtual void Insert(pl_areaRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_area_Insert", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Name", value.Name);
@@ -237,7 +237,7 @@ namespace Internship2024
 		/// <returns>true if the record was updated; otherwise, false.</returns>
 		public virtual bool Update(pl_areaRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_Update", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_area_Update", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Name", value.Name);
@@ -345,7 +345,7 @@ namespace Internship2024
 		/// <returns>true if the record was deleted; otherwise, false.</returns>
 		public virtual bool DeleteByPrimaryKey(long id)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_DeleteByPrimaryKey", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_area_DeleteByPrimaryKey", true);
 			AddParameter(cmd, "Id", id);
 			return 0 < cmd.ExecuteNonQuery();
 		}
@@ -382,7 +382,7 @@ namespace Internship2024
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo._pl_area_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo.pl_area_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>

@@ -23,7 +23,7 @@ namespace Internship2024
 	/// Do not change this source code. Update the <see cref="pl_booleanCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class pl_boolean
+	public class pl_boolean
 	{
 		// Constants
 		public const string Table_pidColumnName = "table_pid";
@@ -78,7 +78,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo._pl_boolean_GetAll", true);
+			return _db.CreateCommand("dbo.pl_boolean_GetAll", true);
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace Internship2024
 		/// <param name="value">The <see cref="pl_booleanRow"/> object to be inserted.</param>
 		public virtual void Insert(pl_booleanRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_boolean_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_boolean_Insert", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Column_type", value.Column_type);
@@ -232,7 +232,7 @@ namespace Internship2024
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo._pl_boolean_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo.pl_boolean_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>

@@ -23,7 +23,7 @@ namespace Internship2024
 	/// Do not change this source code. Update the <see cref="pl_objectCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class pl_object
+	public class pl_object
 	{
 		// Constants
 		public const string Table_pidColumnName = "table_pid";
@@ -83,7 +83,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo._pl_object_GetAll", true);
+			return _db.CreateCommand("dbo.pl_object_GetAll", true);
 		}
 
 		/// <summary>
@@ -198,7 +198,7 @@ namespace Internship2024
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
 		public virtual pl_objectRow GetByPrimaryKey(long table_pid)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_GetByPrimaryKey", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_GetByPrimaryKey", true);
 			AddParameter(cmd, "Table_pid", table_pid);
 			pl_objectRow[] tempArray = MapRecords(cmd);
 			return 0 == tempArray.Length ? null : tempArray[0];
@@ -210,7 +210,7 @@ namespace Internship2024
 		/// <param name="value">The <see cref="pl_objectRow"/> object to be inserted.</param>
 		public virtual void Insert(pl_objectRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_Insert", true);
 			AddParameter(cmd, "Table_name", value.Table_name);
 			AddParameter(cmd, "Name", value.Name);
 			AddParameter(cmd, "Created_by",
@@ -234,7 +234,7 @@ namespace Internship2024
 		/// <returns>true if the record was updated; otherwise, false.</returns>
 		public virtual bool Update(pl_objectRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_Update", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_Update", true);
 			AddParameter(cmd, "Table_name", value.Table_name);
 			AddParameter(cmd, "Name", value.Name);
 			AddParameter(cmd, "Created_by",
@@ -341,7 +341,7 @@ namespace Internship2024
 		/// <returns>true if the record was deleted; otherwise, false.</returns>
 		public virtual bool DeleteByPrimaryKey(long table_pid)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_DeleteByPrimaryKey", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_DeleteByPrimaryKey", true);
 			AddParameter(cmd, "Table_pid", table_pid);
 			return 0 < cmd.ExecuteNonQuery();
 		}
@@ -378,7 +378,7 @@ namespace Internship2024
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo._pl_object_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo.pl_object_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>

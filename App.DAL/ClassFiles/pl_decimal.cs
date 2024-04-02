@@ -23,7 +23,7 @@ namespace Internship2024
 	/// Do not change this source code. Update the <see cref="pl_decimalCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class pl_decimal
+	public class pl_decimal
 	{
 		// Constants
 		public const string Table_pidColumnName = "table_pid";
@@ -191,7 +191,7 @@ namespace Internship2024
 		/// <param name="value">The <see cref="pl_decimalRow"/> object to be inserted.</param>
 		public virtual void Insert(pl_decimalRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_decimal_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_decimal_Insert", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Column_type", value.Column_type);
@@ -232,7 +232,7 @@ namespace Internship2024
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo._pl_decimal_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo.pl_decimal_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>

@@ -21,7 +21,7 @@ namespace Internship2024
 	/// Do not change this source code manually. Update the <see cref="pl_objectRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class pl_objectRow
+	public class pl_objectRow
 	{
 		private long _table_pid;
 		private string _table_name;
