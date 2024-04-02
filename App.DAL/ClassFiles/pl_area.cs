@@ -1,4 +1,4 @@
-// <fileinfo name="pl_objectCollection_Base.cs">
+// <fileinfo name="pl_areaCollection_Base.cs">
 //		<copyright>
 //			All rights reserved.
 //		</copyright>
@@ -16,34 +16,36 @@ using System.Data.SqlClient;
 namespace Internship2024
 {
 	/// <summary>
-	/// The base class for <see cref="pl_objectCollection"/>. Provides methods 
+	/// The base class for <see cref="pl_areaCollection"/>. Provides methods 
 	/// for common database table operations. 
 	/// </summary>
 	/// <remarks>
-	/// Do not change this source code. Update the <see cref="pl_objectCollection"/>
+	/// Do not change this source code. Update the <see cref="pl_areaCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class pl_object
+	public class pl_area
 	{
 		// Constants
+		public const string IdColumnName = "id";
 		public const string Table_pidColumnName = "table_pid";
-		public const string Table_nameColumnName = "table_name";
 		public const string NameColumnName = "name";
-		public const string Created_byColumnName = "created_by";
-		public const string Modified_dateColumnName = "modified_date";
-		public const string Modified_byColumnName = "modified_by";
-		public const string Deleted_dateColumnName = "deleted_date";
-		public const string Deleted_byColumnName = "deleted_by";
+		public const string Unique_codeColumnName = "unique_code";
+		public const string Area_codeColumnName = "area_code";
+		public const string DescriptionColumnName = "description";
+		public const string Is_for_dispensingColumnName = "is_for_dispensing";
+		public const string Department_idColumnName = "department_id";
+		public const string StatusColumnName = "status";
+		
 
 		// Instance fields
 		private Internship2024DB _db;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="pl_object"/> 
+		/// Initializes a new instance of the <see cref="pl_area"/> 
 		/// class with the specified <see cref="Internship2024DB"/>.
 		/// </summary>
 		/// <param name="db">The <see cref="Internship2024DB"/> object.</param>
-		public pl_object(Internship2024DB db)
+		public pl_area(Internship2024DB db)
 		{
 			_db = db;
 		}
@@ -58,17 +60,17 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets an array of all records from the <c>pl_object</c> table.
+		/// Gets an array of all records from the <c>pl_area</c> table.
 		/// </summary>
-		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		public virtual pl_objectRow[] GetAll()
+		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
+		public virtual pl_areaRow[] GetAll()
 		{
 			return MapRecords(CreateGetAllCommand());
 		}
 
 		/// <summary>
 		/// Gets a <see cref="System.Data.DataTable"/> object that 
-		/// includes all records from the <c>pl_object</c> table.
+		/// includes all records from the <c>pl_area</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		public virtual DataTable GetAllAsDataTable()
@@ -78,46 +80,46 @@ namespace Internship2024
 
 		/// <summary>
 		/// Creates and returns an <see cref="System.Data.SqlCommand"/> object that is used
-		/// to retrieve all records from the <c>pl_object</c> table.
+		/// to retrieve all records from the <c>pl_area</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo._pl_object_GetAll", true);
+			return _db.CreateCommand("dbo._pl_area_GetAll", true);
 		}
 
 		/// <summary>
-		/// Gets the first <see cref="pl_objectRow"/> objects that 
+		/// Gets the first <see cref="pl_areaRow"/> objects that 
 		/// match the search condition.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example: 
 		/// <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
-		/// <returns>An instance of <see cref="pl_objectRow"/> or null reference 
+		/// <returns>An instance of <see cref="pl_areaRow"/> or null reference 
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
-		public pl_objectRow GetRow(string whereSql)
+		public pl_areaRow GetRow(string whereSql)
 		{
 			int totalRecordCount = -1;
-			pl_objectRow[] rows = GetAsArray(whereSql, null, 0, 1, ref totalRecordCount);
+			pl_areaRow[] rows = GetAsArray(whereSql, null, 0, 1, ref totalRecordCount);
 			return 0 == rows.Length ? null : rows[0];
 		}
 
 		/// <summary>
-		/// Gets an array of <see cref="pl_objectRow"/> objects that 
+		/// Gets an array of <see cref="pl_areaRow"/> objects that 
 		/// match the search condition, in the the specified sort order.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example: 
 		/// <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
 		/// <param name="orderBySql">The column name(s) followed by "ASC" (ascending) or "DESC" (descending).
 		/// Columns are sorted in ascending order by default. For example: <c>"LastName ASC, FirstName ASC"</c>.</param>
-		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		public pl_objectRow[] GetAsArray(string whereSql, string orderBySql)
+		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
+		public pl_areaRow[] GetAsArray(string whereSql, string orderBySql)
 		{
 			int totalRecordCount = -1;
 			return GetAsArray(whereSql, orderBySql, 0, int.MaxValue, ref totalRecordCount);
 		}
 
 		/// <summary>
-		/// Gets an array of <see cref="pl_objectRow"/> objects that 
+		/// Gets an array of <see cref="pl_areaRow"/> objects that 
 		/// match the search condition, in the the specified sort order.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example:
@@ -128,8 +130,8 @@ namespace Internship2024
 		/// <param name="length">The number of records to return.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
-		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		public virtual pl_objectRow[] GetAsArray(string whereSql, string orderBySql,
+		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
+		public virtual pl_areaRow[] GetAsArray(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
 			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
@@ -182,7 +184,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetCommand(string whereSql, string orderBySql)
 		{
-			string sql = "SELECT * FROM [dbo].[pl_object]";
+			string sql = "SELECT * FROM [dbo].[pl_area]";
 			if(null != whereSql && 0 < whereSql.Length)
 				sql += " WHERE " + whereSql;
 			if(null != orderBySql && 0 < orderBySql.Length)
@@ -191,68 +193,70 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets <see cref="pl_objectRow"/> by the primary key.
+		/// Gets <see cref="pl_areaRow"/> by the primary key.
 		/// </summary>
-		/// <param name="table_pid">The <c>table_pid</c> column value.</param>
-		/// <returns>An instance of <see cref="pl_objectRow"/> or null reference 
+		/// <param name="id">The <c>id</c> column value.</param>
+		/// <returns>An instance of <see cref="pl_areaRow"/> or null reference 
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
-		public virtual pl_objectRow GetByPrimaryKey(long table_pid)
+		public virtual pl_areaRow GetByPrimaryKey(long id)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_GetByPrimaryKey", true);
-			AddParameter(cmd, "Table_pid", table_pid);
-			pl_objectRow[] tempArray = MapRecords(cmd);
+			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_GetByPrimaryKey", true);
+			AddParameter(cmd, "Id", id);
+			pl_areaRow[] tempArray = MapRecords(cmd);
 			return 0 == tempArray.Length ? null : tempArray[0];
 		}
 
 		/// <summary>
-		/// Adds a new record into the <c>pl_object</c> table.
+		/// Adds a new record into the <c>pl_area</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="pl_objectRow"/> object to be inserted.</param>
-		public virtual void Insert(pl_objectRow value)
+		/// <param name="value">The <see cref="pl_areaRow"/> object to be inserted.</param>
+		public virtual void Insert(pl_areaRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_Insert", true);
-			AddParameter(cmd, "Table_name", value.Table_name);
+			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_Insert", true);
+			AddParameter(cmd, "Table_pid",
+				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Name", value.Name);
-			AddParameter(cmd, "Created_by",
-				value.IsCreated_byNull ? DBNull.Value : (object)value.Created_by);
-			AddParameter(cmd, "Modified_date",
-				value.IsModified_dateNull ? DBNull.Value : (object)value.Modified_date);
-			AddParameter(cmd, "Modified_by",
-				value.IsModified_byNull ? DBNull.Value : (object)value.Modified_by);
-			AddParameter(cmd, "Deleted_date",
-				value.IsDeleted_dateNull ? DBNull.Value : (object)value.Deleted_date);
-			AddParameter(cmd, "Deleted_by",
-				value.IsDeleted_byNull ? DBNull.Value : (object)value.Deleted_by);
-			value.Table_pid = Convert.ToInt64(cmd.ExecuteScalar());
+			AddParameter(cmd, "Unique_code", value.Unique_code);
+			AddParameter(cmd, "Area_code", value.Area_code);
+			AddParameter(cmd, "Description", value.Description);
+			AddParameter(cmd, "Is_for_dispensing",
+				value.IsIs_for_dispensingNull ? DBNull.Value : (object)value.Is_for_dispensing);
+			AddParameter(cmd, "Department_id",
+				value.IsDepartment_idNull ? DBNull.Value : (object)value.Department_id);
+			AddParameter(cmd, "Status",
+				value.IsStatusNull ? DBNull.Value : (object)value.Status);
+			
+			value.Id = Convert.ToInt64(cmd.ExecuteScalar());
 		}
 
 		/// <summary>
-		/// Updates a record in the <c>pl_object</c> table.
+		/// Updates a record in the <c>pl_area</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="pl_objectRow"/>
+		/// <param name="value">The <see cref="pl_areaRow"/>
 		/// object used to update the table record.</param>
 		/// <returns>true if the record was updated; otherwise, false.</returns>
-		public virtual bool Update(pl_objectRow value)
+		public virtual bool Update(pl_areaRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_Update", true);
-			AddParameter(cmd, "Table_name", value.Table_name);
+			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_Update", true);
+			AddParameter(cmd, "Table_pid",
+				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Name", value.Name);
-			AddParameter(cmd, "Created_by",
-				value.IsCreated_byNull ? DBNull.Value : (object)value.Created_by);
-			AddParameter(cmd, "Modified_date",
-				value.IsModified_dateNull ? DBNull.Value : (object)value.Modified_date);
-			AddParameter(cmd, "Modified_by",
-				value.IsModified_byNull ? DBNull.Value : (object)value.Modified_by);
-			AddParameter(cmd, "Deleted_date",
-				value.IsDeleted_dateNull ? DBNull.Value : (object)value.Deleted_date);
-			AddParameter(cmd, "Deleted_by",
-				value.IsDeleted_byNull ? DBNull.Value : (object)value.Deleted_by);
-			AddParameter(cmd, "Table_pid", value.Table_pid);
+			AddParameter(cmd, "Unique_code", value.Unique_code);
+			AddParameter(cmd, "Area_code", value.Area_code);
+			AddParameter(cmd, "Description", value.Description);
+			AddParameter(cmd, "Is_for_dispensing",
+				value.IsIs_for_dispensingNull ? DBNull.Value : (object)value.Is_for_dispensing);
+			AddParameter(cmd, "Department_id",
+				value.IsDepartment_idNull ? DBNull.Value : (object)value.Department_id);
+			AddParameter(cmd, "Status",
+				value.IsStatusNull ? DBNull.Value : (object)value.Status);
+			
+			AddParameter(cmd, "Id", value.Id);
 			return 0 != cmd.ExecuteNonQuery();
 		}
 
 		/// <summary>
-		/// Updates the <c>pl_object</c> table and calls the <c>AcceptChanges</c> method
+		/// Updates the <c>pl_area</c> table and calls the <c>AcceptChanges</c> method
 		/// on the changed DataRow objects.
 		/// </summary>
 		/// <param name="table">The <see cref="System.Data.DataTable"/> used to update the data source.</param>
@@ -262,7 +266,7 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Updates the <c>pl_object</c> table. Pass <c>false</c> as the <c>acceptChanges</c> 
+		/// Updates the <c>pl_area</c> table. Pass <c>false</c> as the <c>acceptChanges</c> 
 		/// argument when your code calls this method in an ADO.NET transaction context. Note that in 
 		/// this case, after you call the Update method you need call either <c>AcceptChanges</c> 
 		/// or <c>RejectChanges</c> method on the DataTable object.
@@ -304,7 +308,7 @@ namespace Internship2024
 						row.RejectChanges();
 						try
 						{
-							DeleteByPrimaryKey((long)row["Table_pid"]);
+							DeleteByPrimaryKey((long)row["Id"]);
 						}
 						finally
 						{
@@ -324,30 +328,30 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Deletes the specified object from the <c>pl_object</c> table.
+		/// Deletes the specified object from the <c>pl_area</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="pl_objectRow"/> object to delete.</param>
+		/// <param name="value">The <see cref="pl_areaRow"/> object to delete.</param>
 		/// <returns>true if the record was deleted; otherwise, false.</returns>
-		public bool Delete(pl_objectRow value)
+		public bool Delete(pl_areaRow value)
 		{
-			return DeleteByPrimaryKey(value.Table_pid);
+			return DeleteByPrimaryKey(value.Id);
 		}
 
 		/// <summary>
-		/// Deletes a record from the <c>pl_object</c> table using
+		/// Deletes a record from the <c>pl_area</c> table using
 		/// the specified primary key.
 		/// </summary>
-		/// <param name="table_pid">The <c>table_pid</c> column value.</param>
+		/// <param name="id">The <c>id</c> column value.</param>
 		/// <returns>true if the record was deleted; otherwise, false.</returns>
-		public virtual bool DeleteByPrimaryKey(long table_pid)
+		public virtual bool DeleteByPrimaryKey(long id)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._pl_object_DeleteByPrimaryKey", true);
-			AddParameter(cmd, "Table_pid", table_pid);
+			SqlCommand cmd = _db.CreateCommand("dbo._pl_area_DeleteByPrimaryKey", true);
+			AddParameter(cmd, "Id", id);
 			return 0 < cmd.ExecuteNonQuery();
 		}
 
 		/// <summary>
-		/// Deletes <c>pl_object</c> records that match the specified criteria.
+		/// Deletes <c>pl_area</c> records that match the specified criteria.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. 
 		/// For example: <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
@@ -359,26 +363,26 @@ namespace Internship2024
 
 		/// <summary>
 		/// Creates an <see cref="System.Data.SqlCommand"/> object that can be used 
-		/// to delete <c>pl_object</c> records that match the specified criteria.
+		/// to delete <c>pl_area</c> records that match the specified criteria.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. 
 		/// For example: <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateDeleteCommand(string whereSql)
 		{
-			string sql = "DELETE FROM [dbo].[pl_object]";
+			string sql = "DELETE FROM [dbo].[pl_area]";
 			if(null != whereSql && 0 < whereSql.Length)
 				sql += " WHERE " + whereSql;
 			return _db.CreateCommand(sql);
 		}
 
 		/// <summary>
-		/// Deletes all records from the <c>pl_object</c> table.
+		/// Deletes all records from the <c>pl_area</c> table.
 		/// </summary>
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo._pl_object_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo._pl_area_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>
@@ -386,8 +390,8 @@ namespace Internship2024
 		/// an array of mapped objects.
 		/// </summary>
 		/// <param name="command">The <see cref="System.Data.SqlCommand"/> object.</param>
-		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		protected pl_objectRow[] MapRecords(SqlCommand command)
+		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
+		protected pl_areaRow[] MapRecords(SqlCommand command)
 		{
 			using(IDataReader reader = _db.ExecuteReader(command))
 			{
@@ -400,8 +404,8 @@ namespace Internship2024
 		/// an array of mapped objects.
 		/// </summary>
 		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
-		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		protected pl_objectRow[] MapRecords(IDataReader reader)
+		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
+		protected pl_areaRow[] MapRecords(IDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -416,8 +420,8 @@ namespace Internship2024
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
-		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		protected virtual pl_objectRow[] MapRecords(IDataReader reader, 
+		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
+		protected virtual pl_areaRow[] MapRecords(IDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -425,14 +429,16 @@ namespace Internship2024
 			if(0 > length)
 				throw new ArgumentOutOfRangeException("length", length, "Length cannot be less than zero.");
 
+			int idColumnIndex = reader.GetOrdinal("id");
 			int table_pidColumnIndex = reader.GetOrdinal("table_pid");
-			int table_nameColumnIndex = reader.GetOrdinal("table_name");
 			int nameColumnIndex = reader.GetOrdinal("name");
-			int created_byColumnIndex = reader.GetOrdinal("created_by");
-			int modified_dateColumnIndex = reader.GetOrdinal("modified_date");
-			int modified_byColumnIndex = reader.GetOrdinal("modified_by");
-			int deleted_dateColumnIndex = reader.GetOrdinal("deleted_date");
-			int deleted_byColumnIndex = reader.GetOrdinal("deleted_by");
+			int unique_codeColumnIndex = reader.GetOrdinal("unique_code");
+			int area_codeColumnIndex = reader.GetOrdinal("area_code");
+			int descriptionColumnIndex = reader.GetOrdinal("description");
+			int is_for_dispensingColumnIndex = reader.GetOrdinal("is_for_dispensing");
+			int department_idColumnIndex = reader.GetOrdinal("department_id");
+			int statusColumnIndex = reader.GetOrdinal("status");
+			
 
 			System.Collections.ArrayList recordList = new System.Collections.ArrayList();
 			int ri = -startIndex;
@@ -441,24 +447,27 @@ namespace Internship2024
 				ri++;
 				if(ri > 0 && ri <= length)
 				{
-					pl_objectRow record = new pl_objectRow();
+					pl_areaRow record = new pl_areaRow();
 					recordList.Add(record);
 
-					record.Table_pid = Convert.ToInt64(reader.GetValue(table_pidColumnIndex));
-					if(!reader.IsDBNull(table_nameColumnIndex))
-						record.Table_name = Convert.ToString(reader.GetValue(table_nameColumnIndex));
+					record.Id = Convert.ToInt64(reader.GetValue(idColumnIndex));
+					if(!reader.IsDBNull(table_pidColumnIndex))
+						record.Table_pid = Convert.ToInt64(reader.GetValue(table_pidColumnIndex));
 					if(!reader.IsDBNull(nameColumnIndex))
 						record.Name = Convert.ToString(reader.GetValue(nameColumnIndex));
-					if(!reader.IsDBNull(created_byColumnIndex))
-						record.Created_by = Convert.ToInt64(reader.GetValue(created_byColumnIndex));
-					if(!reader.IsDBNull(modified_dateColumnIndex))
-						record.Modified_date = Convert.ToDateTime(reader.GetValue(modified_dateColumnIndex));
-					if(!reader.IsDBNull(modified_byColumnIndex))
-						record.Modified_by = Convert.ToInt64(reader.GetValue(modified_byColumnIndex));
-					if(!reader.IsDBNull(deleted_dateColumnIndex))
-						record.Deleted_date = Convert.ToDateTime(reader.GetValue(deleted_dateColumnIndex));
-					if(!reader.IsDBNull(deleted_byColumnIndex))
-						record.Deleted_by = Convert.ToInt64(reader.GetValue(deleted_byColumnIndex));
+					if(!reader.IsDBNull(unique_codeColumnIndex))
+						record.Unique_code = Convert.ToString(reader.GetValue(unique_codeColumnIndex));
+					if(!reader.IsDBNull(area_codeColumnIndex))
+						record.Area_code = Convert.ToString(reader.GetValue(area_codeColumnIndex));
+					if(!reader.IsDBNull(descriptionColumnIndex))
+						record.Description = Convert.ToString(reader.GetValue(descriptionColumnIndex));
+					if(!reader.IsDBNull(is_for_dispensingColumnIndex))
+						record.Is_for_dispensing = Convert.ToBoolean(reader.GetValue(is_for_dispensingColumnIndex));
+					if(!reader.IsDBNull(department_idColumnIndex))
+						record.Department_id = Convert.ToInt64(reader.GetValue(department_idColumnIndex));
+					if(!reader.IsDBNull(statusColumnIndex))
+						record.Status = Convert.ToBoolean(reader.GetValue(statusColumnIndex));
+				
 
 					if(ri == length && 0 != totalRecordCount)
 						break;
@@ -466,7 +475,7 @@ namespace Internship2024
 			}
 
 			totalRecordCount = 0 == totalRecordCount ? ri + startIndex : -1;
-			return (pl_objectRow[])(recordList.ToArray(typeof(pl_objectRow)));
+			return (pl_areaRow[])(recordList.ToArray(typeof(pl_areaRow)));
 		}
 
 		/// <summary>
@@ -539,82 +548,92 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Converts <see cref="System.Data.DataRow"/> to <see cref="pl_objectRow"/>.
+		/// Converts <see cref="System.Data.DataRow"/> to <see cref="pl_areaRow"/>.
 		/// </summary>
 		/// <param name="row">The <see cref="System.Data.DataRow"/> object to be mapped.</param>
-		/// <returns>A reference to the <see cref="pl_objectRow"/> object.</returns>
-		protected virtual pl_objectRow MapRow(DataRow row)
+		/// <returns>A reference to the <see cref="pl_areaRow"/> object.</returns>
+		protected virtual pl_areaRow MapRow(DataRow row)
 		{
-			pl_objectRow mappedObject = new pl_objectRow();
+			pl_areaRow mappedObject = new pl_areaRow();
 			DataTable dataTable = row.Table;
 			DataColumn dataColumn;
+			// Column "Id"
+			dataColumn = dataTable.Columns["Id"];
+			if(!row.IsNull(dataColumn))
+				mappedObject.Id = (long)row[dataColumn];
 			// Column "Table_pid"
 			dataColumn = dataTable.Columns["Table_pid"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Table_pid = (long)row[dataColumn];
-			// Column "Table_name"
-			dataColumn = dataTable.Columns["Table_name"];
-			if(!row.IsNull(dataColumn))
-				mappedObject.Table_name = (string)row[dataColumn];
 			// Column "Name"
 			dataColumn = dataTable.Columns["Name"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Name = (string)row[dataColumn];
-			// Column "Created_by"
-			dataColumn = dataTable.Columns["Created_by"];
+			// Column "Unique_code"
+			dataColumn = dataTable.Columns["Unique_code"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Created_by = (long)row[dataColumn];
-			// Column "Modified_date"
-			dataColumn = dataTable.Columns["Modified_date"];
+				mappedObject.Unique_code = (string)row[dataColumn];
+			// Column "Area_code"
+			dataColumn = dataTable.Columns["Area_code"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Modified_date = (System.DateTime)row[dataColumn];
-			// Column "Modified_by"
-			dataColumn = dataTable.Columns["Modified_by"];
+				mappedObject.Area_code = (string)row[dataColumn];
+			// Column "Description"
+			dataColumn = dataTable.Columns["Description"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Modified_by = (long)row[dataColumn];
-			// Column "Deleted_date"
-			dataColumn = dataTable.Columns["Deleted_date"];
+				mappedObject.Description = (string)row[dataColumn];
+			// Column "Is_for_dispensing"
+			dataColumn = dataTable.Columns["Is_for_dispensing"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Deleted_date = (System.DateTime)row[dataColumn];
-			// Column "Deleted_by"
-			dataColumn = dataTable.Columns["Deleted_by"];
+				mappedObject.Is_for_dispensing = (bool)row[dataColumn];
+			// Column "Department_id"
+			dataColumn = dataTable.Columns["Department_id"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Deleted_by = (long)row[dataColumn];
+				mappedObject.Department_id = (long)row[dataColumn];
+			// Column "Status"
+			dataColumn = dataTable.Columns["Status"];
+			if(!row.IsNull(dataColumn))
+				mappedObject.Status = (bool)row[dataColumn];
+		
 			return mappedObject;
 		}
 
 		/// <summary>
 		/// Creates a <see cref="System.Data.DataTable"/> object for 
-		/// the <c>pl_object</c> table.
+		/// the <c>pl_area</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		protected virtual DataTable CreateDataTable()
 		{
 			DataTable dataTable = new DataTable();
-			dataTable.TableName = "pl_object";
+			dataTable.TableName = "pl_area";
 			DataColumn dataColumn;
-			dataColumn = dataTable.Columns.Add("Table_pid", typeof(long));
-			dataColumn.Caption = "table_pid";
+			dataColumn = dataTable.Columns.Add("Id", typeof(long));
+			dataColumn.Caption = "id";
 			dataColumn.AllowDBNull = false;
 			dataColumn.ReadOnly = true;
 			dataColumn.Unique = true;
 			dataColumn.AutoIncrement = true;
-			dataColumn = dataTable.Columns.Add("Table_name", typeof(string));
-			dataColumn.Caption = "table_name";
-			dataColumn.MaxLength = 50;
+			dataColumn = dataTable.Columns.Add("Table_pid", typeof(long));
+			dataColumn.Caption = "table_pid";
 			dataColumn = dataTable.Columns.Add("Name", typeof(string));
 			dataColumn.Caption = "name";
 			dataColumn.MaxLength = 50;
-			dataColumn = dataTable.Columns.Add("Created_by", typeof(long));
-			dataColumn.Caption = "created_by";
-			dataColumn = dataTable.Columns.Add("Modified_date", typeof(System.DateTime));
-			dataColumn.Caption = "modified_date";
-			dataColumn = dataTable.Columns.Add("Modified_by", typeof(long));
-			dataColumn.Caption = "modified_by";
-			dataColumn = dataTable.Columns.Add("Deleted_date", typeof(System.DateTime));
-			dataColumn.Caption = "deleted_date";
-			dataColumn = dataTable.Columns.Add("Deleted_by", typeof(long));
-			dataColumn.Caption = "deleted_by";
+			dataColumn = dataTable.Columns.Add("Unique_code", typeof(string));
+			dataColumn.Caption = "unique_code";
+			dataColumn.MaxLength = 1073741823;
+			dataColumn = dataTable.Columns.Add("Area_code", typeof(string));
+			dataColumn.Caption = "area_code";
+			dataColumn.MaxLength = 1073741823;
+			dataColumn = dataTable.Columns.Add("Description", typeof(string));
+			dataColumn.Caption = "description";
+			dataColumn.MaxLength = 1073741823;
+			dataColumn = dataTable.Columns.Add("Is_for_dispensing", typeof(bool));
+			dataColumn.Caption = "is_for_dispensing";
+			dataColumn = dataTable.Columns.Add("Department_id", typeof(long));
+			dataColumn.Caption = "department_id";
+			dataColumn = dataTable.Columns.Add("Status", typeof(bool));
+			dataColumn.Caption = "status";
+			
 			return dataTable;
 		}
 		
@@ -630,42 +649,48 @@ namespace Internship2024
 			SqlParameter parameter;
 			switch(paramName)
 			{
-				case "Table_pid":
+				case "Id":
 					parameter = _db.AddParameter(cmd, paramName, DbType.Int64, value);
 					break;
 
-				case "Table_name":
-					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
+				case "Table_pid":
+					parameter = _db.AddParameter(cmd, paramName, DbType.Int64, value);
 					break;
 
 				case "Name":
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Created_by":
+				case "Unique_code":
+					parameter = _db.AddParameter(cmd, paramName, DbType.String, value);
+					break;
+
+				case "Area_code":
+					parameter = _db.AddParameter(cmd, paramName, DbType.String, value);
+					break;
+
+				case "Description":
+					parameter = _db.AddParameter(cmd, paramName, DbType.String, value);
+					break;
+
+				case "Is_for_dispensing":
+					parameter = _db.AddParameter(cmd, paramName, DbType.Boolean, value);
+					break;
+
+				case "Department_id":
 					parameter = _db.AddParameter(cmd, paramName, DbType.Int64, value);
 					break;
 
-				case "Modified_date":
-					parameter = _db.AddParameter(cmd, paramName, DbType.DateTime, value);
+				case "Status":
+					parameter = _db.AddParameter(cmd, paramName, DbType.Boolean, value);
 					break;
 
-				case "Modified_by":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int64, value);
-					break;
-
-				case "Deleted_date":
-					parameter = _db.AddParameter(cmd, paramName, DbType.DateTime, value);
-					break;
-
-				case "Deleted_by":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int64, value);
-					break;
+				
 
 				default:
 					throw new ArgumentException("Unknown parameter name (" + paramName + ").");
 			}
 			return parameter;
 		}
-	} // End of pl_objectCollection_Base class
+	} // End of pl_areaCollection_Base class
 }  // End of namespace
