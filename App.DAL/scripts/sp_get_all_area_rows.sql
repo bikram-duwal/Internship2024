@@ -1,3 +1,4 @@
+
 CREATE PROCEDURE sp_get_all_area_rows
 AS
 BEGIN
@@ -12,9 +13,9 @@ BEGIN
     MAX(po.name) AS area_name,
     MAX(CASE WHEN column_type = 'area_code' THEN data_value END) AS area_code,
     MAX(CASE WHEN column_type = 'area_description' THEN data_value END) AS area_description,
-    MAX(CASE WHEN column_type = 'area_is_for_dispensing' THEN data_value END) AS area_is_for_dispensing,
+    CAST(MAX(CASE WHEN column_type = 'area_is_for_dispensing' THEN data_value END) as bit) AS area_is_for_dispensing,
     MAX(CASE WHEN column_type = 'area_department_id' THEN CAST(data_value as bigint) END) AS area_department_id,
-    MAX(CASE WHEN column_type = 'area_status' THEN data_value END) AS area_status
+    CAST(MAX(CASE WHEN column_type = 'area_status' THEN data_value END) as bit) AS area_status
 FROM
     pl_object as po
 JOIN

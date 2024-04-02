@@ -5,6 +5,6 @@ namespace Internship2024.Repository
 {
     internal interface IAreaLandingRepository
     {
-        List<Area> getAllAreaRows();
+        List<pl_areaRow> getAllAreaRows();
     }
 }

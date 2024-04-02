@@ -21,7 +21,7 @@ namespace Internship2024.Presenter
         {
             try
             {
-                List<Area> rows = _service.getAllAreaRows();
+                List<pl_areaRow> rows = _service.getAllAreaRows();
                 _view.UGAreaLanding.DataSource = rows;
             }
             catch (Exception ex)

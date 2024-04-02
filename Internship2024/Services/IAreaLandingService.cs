@@ -5,6 +5,6 @@ namespace Internship2024.Services
 {
     public interface IAreaLandingService
     {
-        List<Area> getAllAreaRows();
+        List<pl_areaRow> getAllAreaRows();
     }
 }

@@ -10,6 +10,7 @@
 // </fileinfo>
 
 using System;
+using System.ComponentModel;
 
 namespace Internship2024
 {
@@ -50,18 +51,20 @@ namespace Internship2024
 		/// Gets or sets the <c>id</c> column value.
 		/// </summary>
 		/// <value>The <c>id</c> column value.</value>
+		[Browsable(false)]
 		public long Id
 		{
 			get { return _id; }
 			set { _id = value; }
 		}
 
-		/// <summary>
-		/// Gets or sets the <c>table_pid</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>table_pid</c> column value.</value>
-		public long Table_pid
+        /// <summary>
+        /// Gets or sets the <c>table_pid</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>table_pid</c> column value.</value>
+		[Browsable(false)]
+        public long Table_pid
 		{
 			get
 			{
@@ -76,56 +79,61 @@ namespace Internship2024
 			}
 		}
 
-		/// <summary>
-		/// Indicates whether the <see cref="Table_pid"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsTable_pidNull
+        /// <summary>
+        /// Indicates whether the <see cref="Table_pid"/>
+        /// property value is null.
+        /// </summary>
+        /// <value>true if the property value is null, otherwise false.</value>
+        [Browsable(false)]
+        public bool IsTable_pidNull
 		{
 			get { return _table_pidNull; }
 			set { _table_pidNull = value; }
 		}
 
-		/// <summary>
-		/// Gets or sets the <c>name</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>name</c> column value.</value>
+        /// <summary>
+        /// Gets or sets the <c>unique_code</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>unique_code</c> column value.</value>
+        [DisplayName("Unique Code")]
+        public string Unique_code
+        {
+            get { return _unique_code; }
+            set { _unique_code = value; }
+        }
+
+        /// <summary>
+        /// Gets or sets the <c>name</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>name</c> column value.</value>
+        [DisplayName("Area Name")]
 		public string Name
 		{
 			get { return _name; }
 			set { _name = value; }
 		}
 
-		/// <summary>
-		/// Gets or sets the <c>unique_code</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>unique_code</c> column value.</value>
-		public string Unique_code
-		{
-			get { return _unique_code; }
-			set { _unique_code = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>area_code</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>area_code</c> column value.</value>
-		public string Area_code
+        /// <summary>
+        /// Gets or sets the <c>area_code</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>area_code</c> column value.</value>
+        [DisplayName("Area Code")]
+        public string Area_code
 		{
 			get { return _area_code; }
 			set { _area_code = value; }
 		}
 
-		/// <summary>
-		/// Gets or sets the <c>description</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>description</c> column value.</value>
-		public string Description
+        /// <summary>
+        /// Gets or sets the <c>description</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>description</c> column value.</value>
+        [DisplayName("Description")]
+        public string Description
 		{
 			get { return _description; }
 			set { _description = value; }
@@ -136,6 +144,7 @@ namespace Internship2024
 		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>is_for_dispensing</c> column value.</value>
+		[Browsable(false)]
 		public bool Is_for_dispensing
 		{
 			get
@@ -151,12 +160,17 @@ namespace Internship2024
 			}
 		}
 
-		/// <summary>
-		/// Indicates whether the <see cref="Is_for_dispensing"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsIs_for_dispensingNull
+
+        [DisplayName("Is For Dispensing")]
+        public string Area_is_for_dispensing { get => Is_for_dispensing ? "True" : "False"; }
+
+        /// <summary>
+        /// Indicates whether the <see cref="Is_for_dispensing"/>
+        /// property value is null.
+        /// </summary>
+        /// <value>true if the property value is null, otherwise false.</value>
+        [Browsable(false)]
+        public bool IsIs_for_dispensingNull
 		{
 			get { return _is_for_dispensingNull; }
 			set { _is_for_dispensingNull = value; }
@@ -167,6 +181,7 @@ namespace Internship2024
 		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>department_id</c> column value.</value>
+		[Browsable(false)]
 		public long Department_id
 		{
 			get
@@ -182,11 +197,15 @@ namespace Internship2024
 			}
 		}
 
+		[DisplayName("Department Name")]
+        public string Department_name { get; set; }
+
 		/// <summary>
 		/// Indicates whether the <see cref="Department_id"/>
 		/// property value is null.
 		/// </summary>
 		/// <value>true if the property value is null, otherwise false.</value>
+		[Browsable(false)]
 		public bool IsDepartment_idNull
 		{
 			get { return _department_idNull; }
@@ -198,6 +217,7 @@ namespace Internship2024
 		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>status</c> column value.</value>
+		[Browsable(false)]
 		public bool Status
 		{
 			get
@@ -213,12 +233,16 @@ namespace Internship2024
 			}
 		}
 
-		/// <summary>
-		/// Indicates whether the <see cref="Status"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsStatusNull
+		[DisplayName("Status")]
+		public string Area_status { get => Status ? "Active" : "Inactive"; }
+
+        /// <summary>
+        /// Indicates whether the <see cref="Status"/>
+        /// property value is null.
+        /// </summary>
+        /// <value>true if the property value is null, otherwise false.</value>
+        [Browsable(false)]
+        public bool IsStatusNull
 		{
 			get { return _statusNull; }
 			set { _statusNull = value; }

@@ -11,7 +11,7 @@ namespace Internship2024.Services
         public AreaLandingService(IAreaLandingRepository repository) {
             _repository = repository;
         }
-        public List<Area> getAllAreaRows()
+        public List<pl_areaRow> getAllAreaRows()
         {
             return _repository.getAllAreaRows();
         }
