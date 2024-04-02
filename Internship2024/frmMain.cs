@@ -20,7 +20,8 @@ namespace Internship2024
         Internship2024DB objTran = null;
         private void frmMain_Load(object sender, EventArgs e)
         {
-            objTran = new Internship2024DB();
+            /*
+             * objTran = new Internship2024DB();
             if(objTran != null )
             {
                 MessageBox.Show($"Connected to: {objTran.Connection.Database}");
@@ -67,6 +68,7 @@ namespace Internship2024
             {
                 objTran.Dispose();
             }
+            */
             
             
 
