@@ -8,6 +8,9 @@ namespace Internship2024.EditModel
 {
     public interface IAreaEditRepository
     {
-         void UpdateArea(AreaEdit areaedit);
+         void UpdateArea(pl_areaRow objAreaRow);
+        pl_areaRow LoadFormValue();
+        pl_objectRow[] GetDropDownValue();
+        string DropDownName();
     }
 }

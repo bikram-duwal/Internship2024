@@ -36,7 +36,7 @@ namespace Internship2024
             }
         }
 
-        protected SqlConnection CreateConnection()
+        public SqlConnection CreateConnection()
         {
             string srvString = "";
             string dbString = "";

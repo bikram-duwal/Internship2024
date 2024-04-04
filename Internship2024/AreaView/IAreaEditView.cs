@@ -16,6 +16,8 @@ namespace Internship2024.AreaEditView
         string DepartmentName { get; set; }
         bool IsActive { get; set; }
         bool IsForDispensing { get; set; }
+        void ShowMessage(string message);
+        pl_objectRow[] DepartmentsName { get; set; }
         AreaEditPresenter Presenter {  get; set; }  
         
 

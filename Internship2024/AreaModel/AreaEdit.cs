@@ -15,5 +15,6 @@ namespace Internship2024.EditModel
         public string Description;
         public bool IsForDispensing;
         public bool IsActive;
+        
     }
 }

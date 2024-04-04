@@ -41,14 +41,17 @@
             this.cbDispensing = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.cbIsActive = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
             this.txtDescription = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.cmbDepartment = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.cmbDepartmentName = new Infragistics.Win.UltraWinEditors.UltraComboEditor();
+            this.grpButtons = new Infragistics.Win.Misc.UltraGroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtUniqueCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDispensing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbIsActive)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbDepartment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbDepartmentName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpButtons)).BeginInit();
+            this.grpButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblUniqueCode
@@ -87,7 +90,7 @@
             // lblDescription
             // 
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.lblDescription.Location = new System.Drawing.Point(501, 65);
+            this.lblDescription.Location = new System.Drawing.Point(407, 66);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(94, 23);
             this.lblDescription.TabIndex = 4;
@@ -95,7 +98,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(619, 397);
+            this.btnCancel.Location = new System.Drawing.Point(6, 17);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
@@ -103,7 +106,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(752, 397);
+            this.btnSave.Location = new System.Drawing.Point(96, 17);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -114,21 +117,22 @@
             // 
             this.txtUniqueCode.Location = new System.Drawing.Point(169, 65);
             this.txtUniqueCode.Name = "txtUniqueCode";
-            this.txtUniqueCode.Size = new System.Drawing.Size(236, 24);
+            this.txtUniqueCode.ReadOnly = true;
+            this.txtUniqueCode.Size = new System.Drawing.Size(216, 24);
             this.txtUniqueCode.TabIndex = 7;
             // 
             // txtAreaName
             // 
             this.txtAreaName.Location = new System.Drawing.Point(169, 118);
             this.txtAreaName.Name = "txtAreaName";
-            this.txtAreaName.Size = new System.Drawing.Size(236, 24);
+            this.txtAreaName.Size = new System.Drawing.Size(216, 24);
             this.txtAreaName.TabIndex = 8;
             // 
             // txtAreaCode
             // 
             this.txtAreaCode.Location = new System.Drawing.Point(169, 172);
             this.txtAreaCode.Name = "txtAreaCode";
-            this.txtAreaCode.Size = new System.Drawing.Size(236, 24);
+            this.txtAreaCode.Size = new System.Drawing.Size(216, 24);
             this.txtAreaCode.TabIndex = 9;
             // 
             // cbDispensing
@@ -149,33 +153,41 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(619, 62);
+            this.txtDescription.Location = new System.Drawing.Point(484, 63);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(344, 172);
+            this.txtDescription.Size = new System.Drawing.Size(293, 118);
             this.txtDescription.TabIndex = 13;
             // 
-            // cmbDepartment
+            // cmbDepartmentName
             // 
-            this.cmbDepartment.Location = new System.Drawing.Point(169, 228);
-            this.cmbDepartment.Name = "cmbDepartment";
-            this.cmbDepartment.Size = new System.Drawing.Size(236, 24);
-            this.cmbDepartment.TabIndex = 14;
+            this.cmbDepartmentName.Location = new System.Drawing.Point(169, 228);
+            this.cmbDepartmentName.Name = "cmbDepartmentName";
+            this.cmbDepartmentName.Size = new System.Drawing.Size(216, 24);
+            this.cmbDepartmentName.TabIndex = 14;
+            // 
+            // grpButtons
+            // 
+            this.grpButtons.Controls.Add(this.btnCancel);
+            this.grpButtons.Controls.Add(this.btnSave);
+            this.grpButtons.Location = new System.Drawing.Point(600, 371);
+            this.grpButtons.Name = "grpButtons";
+            this.grpButtons.Size = new System.Drawing.Size(177, 46);
+            this.grpButtons.TabIndex = 15;
             // 
             // Edit_Area
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 518);
-            this.Controls.Add(this.cmbDepartment);
+            this.ClientSize = new System.Drawing.Size(795, 419);
+            this.Controls.Add(this.grpButtons);
+            this.Controls.Add(this.cmbDepartmentName);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.cbIsActive);
             this.Controls.Add(this.cbDispensing);
             this.Controls.Add(this.txtAreaCode);
             this.Controls.Add(this.txtAreaName);
             this.Controls.Add(this.txtUniqueCode);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblDepartmentName);
             this.Controls.Add(this.lblAreaCode);
@@ -189,7 +201,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbDispensing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbIsActive)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbDepartment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbDepartmentName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpButtons)).EndInit();
+            this.grpButtons.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +224,7 @@
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor cbDispensing;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor cbIsActive;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor txtDescription;
-        private Infragistics.Win.UltraWinEditors.UltraComboEditor cmbDepartment;
+        private Infragistics.Win.UltraWinEditors.UltraComboEditor cmbDepartmentName;
+        private Infragistics.Win.Misc.UltraGroupBox grpButtons;
     }
 }
