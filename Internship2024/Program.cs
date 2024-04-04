@@ -16,7 +16,7 @@ namespace Internship2024
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Equipment());
+            Application.Run(new EditEquipment());
         }
     }
 }

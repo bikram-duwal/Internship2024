@@ -1,4 +1,4 @@
-// <fileinfo name="pl_stringRow_Base.cs">
+// <fileinfo name="pl_integerRow_Base.cs">
 //		<copyright>
 //			All rights reserved.
 //		</copyright>
@@ -14,24 +14,25 @@ using System;
 namespace Internship2024
 {
 	/// <summary>
-	/// The base class for <see cref="pl_stringRow"/> that 
-	/// represents a record in the <c>pl_string</c> table.
+	/// The base class for <see cref="pl_integerRow"/> that 
+	/// represents a record in the <c>pl_integer</c> table.
 	/// </summary>
 	/// <remarks>
-	/// Do not change this source code manually. Update the <see cref="pl_stringRow"/>
+	/// Do not change this source code manually. Update the <see cref="pl_integerRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_stringRow
+	public class pl_integerRow
 	{
 		private long _table_pid;
 		private bool _table_pidNull = true;
 		private string _column_type;
-		private string _data_value;
+		private int _data_value;
+		private bool _data_valueNull = true;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="pl_stringRow"/> class.
+		/// Initializes a new instance of the <see cref="pl_integerRow"/> class.
 		/// </summary>
-		public pl_stringRow()
+		public pl_integerRow()
 		{
 			// EMPTY
 		}
@@ -83,10 +84,30 @@ namespace Internship2024
 		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>data_value</c> column value.</value>
-		public string Data_value
+		public int Data_value
 		{
-			get { return _data_value; }
-			set { _data_value = value; }
+			get
+			{
+				if(IsData_valueNull)
+					throw new InvalidOperationException("Cannot get value because it is DBNull.");
+				return _data_value;
+			}
+			set
+			{
+				_data_valueNull = false;
+				_data_value = value;
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether the <see cref="Data_value"/>
+		/// property value is null.
+		/// </summary>
+		/// <value>true if the property value is null, otherwise false.</value>
+		public bool IsData_valueNull
+		{
+			get { return _data_valueNull; }
+			set { _data_valueNull = value; }
 		}
 
 		/// <summary>
@@ -102,8 +123,8 @@ namespace Internship2024
 			dynStr.Append("  Column_type=");
 			dynStr.Append(Column_type);
 			dynStr.Append("  Data_value=");
-			dynStr.Append(Data_value);
+			dynStr.Append(IsData_valueNull ? (object)"<NULL>" : Data_value);
 			return dynStr.ToString();
 		}
-	} // End of pl_stringRow_Base class
+	} // End of pl_integerRow_Base class
 } // End of namespace

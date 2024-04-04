@@ -1,4 +1,4 @@
-// <fileinfo name="pl_stringRow_Base.cs">
+// <fileinfo name="pl_combo_valueRow_Base.cs">
 //		<copyright>
 //			All rights reserved.
 //		</copyright>
@@ -14,57 +14,35 @@ using System;
 namespace Internship2024
 {
 	/// <summary>
-	/// The base class for <see cref="pl_stringRow"/> that 
-	/// represents a record in the <c>pl_string</c> table.
+	/// The base class for <see cref="pl_combo_valueRow"/> that 
+	/// represents a record in the <c>pl_combo_value</c> table.
 	/// </summary>
 	/// <remarks>
-	/// Do not change this source code manually. Update the <see cref="pl_stringRow"/>
+	/// Do not change this source code manually. Update the <see cref="pl_combo_valueRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_stringRow
+	public class pl_combo_valueRow
 	{
-		private long _table_pid;
-		private bool _table_pidNull = true;
+		private long _combo_value_id;
 		private string _column_type;
 		private string _data_value;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="pl_stringRow"/> class.
+		/// Initializes a new instance of the <see cref="pl_combo_valueRow"/> class.
 		/// </summary>
-		public pl_stringRow()
+		public pl_combo_valueRow()
 		{
 			// EMPTY
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>table_pid</c> column value.
-		/// This column is nullable.
+		/// Gets or sets the <c>combo_value_id</c> column value.
 		/// </summary>
-		/// <value>The <c>table_pid</c> column value.</value>
-		public long Table_pid
+		/// <value>The <c>combo_value_id</c> column value.</value>
+		public long Combo_value_id
 		{
-			get
-			{
-				if(IsTable_pidNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _table_pid;
-			}
-			set
-			{
-				_table_pidNull = false;
-				_table_pid = value;
-			}
-		}
-
-		/// <summary>
-		/// Indicates whether the <see cref="Table_pid"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsTable_pidNull
-		{
-			get { return _table_pidNull; }
-			set { _table_pidNull = value; }
+			get { return _combo_value_id; }
+			set { _combo_value_id = value; }
 		}
 
 		/// <summary>
@@ -97,13 +75,13 @@ namespace Internship2024
 		{
 			System.Text.StringBuilder dynStr = new System.Text.StringBuilder(GetType().Name);
 			dynStr.Append(':');
-			dynStr.Append("  Table_pid=");
-			dynStr.Append(IsTable_pidNull ? (object)"<NULL>" : Table_pid);
+			dynStr.Append("  Combo_value_id=");
+			dynStr.Append(Combo_value_id);
 			dynStr.Append("  Column_type=");
 			dynStr.Append(Column_type);
 			dynStr.Append("  Data_value=");
 			dynStr.Append(Data_value);
 			return dynStr.ToString();
 		}
-	} // End of pl_stringRow_Base class
+	} // End of pl_combo_valueRow_Base class
 } // End of namespace

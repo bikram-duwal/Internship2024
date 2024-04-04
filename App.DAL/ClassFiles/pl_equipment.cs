@@ -36,18 +36,18 @@ namespace Internship2024
 		public const string Sop_no_cleaningColumnName = "sop_no_cleaning";
 		public const string Sop_no_preventive_maintenanceColumnName = "sop_no_preventive_maintenance";
 		public const string Calibration_frequencyColumnName = "calibration_frequency";
-		public const string Calibration_trigger_date_idColumnName = "calibration_trigger_date_id";
+		public const string Calibration_trigger_dateColumnName = "calibration_trigger_date";
 		public const string Equipment_serial_NoColumnName = "equipment_serial_No";
-		public const string Make_idColumnName = "make_id";
-		public const string Model_idColumnName = "model_id";
+		public const string Make_valueColumnName = "make_value";
+		public const string Model_valueColumnName = "model_value";
 		public const string YearColumnName = "year";
 		public const string Equipment_annual_budgetColumnName = "equipment_annual_budget";
-		public const string Equipment_type_idColumnName = "equipment_type_id";
-		public const string Equipment_status_idColumnName = "equipment_status_id";
+		public const string Equipment_type_valueColumnName = "equipment_type_value";
+		public const string Equipment_status_valueColumnName = "equipment_status_value";
 		public const string Decimal_placesColumnName = "decimal_places";
 		public const string IdentificationColumnName = "identification";
-		public const string Primary_meter_idColumnName = "primary_meter_id";
-		public const string Secondary_meter_idColumnName = "secondary_meter_id";
+		public const string Primary_meter_valueColumnName = "primary_meter_value";
+		public const string Secondary_meter_valueColumnName = "secondary_meter_value";
 		public const string RemarksColumnName = "remarks";
 		public const string Equipment_has_meterColumnName = "equipment_has_meter";
 		public const string Is_excluded_in_line_clearance_reportColumnName = "is_excluded_in_line_clearance_report";
@@ -242,28 +242,22 @@ namespace Internship2024
 			AddParameter(cmd, "Sop_no_preventive_maintenance", value.Sop_no_preventive_maintenance);
 			AddParameter(cmd, "Calibration_frequency",
 				value.IsCalibration_frequencyNull ? DBNull.Value : (object)value.Calibration_frequency);
-			AddParameter(cmd, "Calibration_trigger_date_id",
-				value.IsCalibration_trigger_date_idNull ? DBNull.Value : (object)value.Calibration_trigger_date_id);
+			AddParameter(cmd, "Calibration_trigger_date",
+				value.IsCalibration_trigger_dateNull ? DBNull.Value : (object)value.Calibration_trigger_date);
 			AddParameter(cmd, "Equipment_serial_No", value.Equipment_serial_No);
-			AddParameter(cmd, "Make_id",
-				value.IsMake_idNull ? DBNull.Value : (object)value.Make_id);
-			AddParameter(cmd, "Model_id",
-				value.IsModel_idNull ? DBNull.Value : (object)value.Model_id);
+			AddParameter(cmd, "Make_value", value.Make_value);
+			AddParameter(cmd, "Model_value", value.Model_value);
 			AddParameter(cmd, "Year",
 				value.IsYearNull ? DBNull.Value : (object)value.Year);
 			AddParameter(cmd, "Equipment_annual_budget",
 				value.IsEquipment_annual_budgetNull ? DBNull.Value : (object)value.Equipment_annual_budget);
-			AddParameter(cmd, "Equipment_type_id",
-				value.IsEquipment_type_idNull ? DBNull.Value : (object)value.Equipment_type_id);
-			AddParameter(cmd, "Equipment_status_id",
-				value.IsEquipment_status_idNull ? DBNull.Value : (object)value.Equipment_status_id);
+			AddParameter(cmd, "Equipment_type_value", value.Equipment_type_value);
+			AddParameter(cmd, "Equipment_status_value", value.Equipment_status_value);
 			AddParameter(cmd, "Decimal_places",
 				value.IsDecimal_placesNull ? DBNull.Value : (object)value.Decimal_places);
 			AddParameter(cmd, "Identification", value.Identification);
-			AddParameter(cmd, "Primary_meter_id",
-				value.IsPrimary_meter_idNull ? DBNull.Value : (object)value.Primary_meter_id);
-			AddParameter(cmd, "Secondary_meter_id",
-				value.IsSecondary_meter_idNull ? DBNull.Value : (object)value.Secondary_meter_id);
+			AddParameter(cmd, "Primary_meter_value", value.Primary_meter_value);
+			AddParameter(cmd, "Secondary_meter_value", value.Secondary_meter_value);
 			AddParameter(cmd, "Remarks", value.Remarks);
 			AddParameter(cmd, "Equipment_has_meter",
 				value.IsEquipment_has_meterNull ? DBNull.Value : (object)value.Equipment_has_meter);
@@ -298,28 +292,22 @@ namespace Internship2024
 			AddParameter(cmd, "Sop_no_preventive_maintenance", value.Sop_no_preventive_maintenance);
 			AddParameter(cmd, "Calibration_frequency",
 				value.IsCalibration_frequencyNull ? DBNull.Value : (object)value.Calibration_frequency);
-			AddParameter(cmd, "Calibration_trigger_date_id",
-				value.IsCalibration_trigger_date_idNull ? DBNull.Value : (object)value.Calibration_trigger_date_id);
+			AddParameter(cmd, "Calibration_trigger_date",
+				value.IsCalibration_trigger_dateNull ? DBNull.Value : (object)value.Calibration_trigger_date);
 			AddParameter(cmd, "Equipment_serial_No", value.Equipment_serial_No);
-			AddParameter(cmd, "Make_id",
-				value.IsMake_idNull ? DBNull.Value : (object)value.Make_id);
-			AddParameter(cmd, "Model_id",
-				value.IsModel_idNull ? DBNull.Value : (object)value.Model_id);
+			AddParameter(cmd, "Make_value", value.Make_value);
+			AddParameter(cmd, "Model_value", value.Model_value);
 			AddParameter(cmd, "Year",
 				value.IsYearNull ? DBNull.Value : (object)value.Year);
 			AddParameter(cmd, "Equipment_annual_budget",
 				value.IsEquipment_annual_budgetNull ? DBNull.Value : (object)value.Equipment_annual_budget);
-			AddParameter(cmd, "Equipment_type_id",
-				value.IsEquipment_type_idNull ? DBNull.Value : (object)value.Equipment_type_id);
-			AddParameter(cmd, "Equipment_status_id",
-				value.IsEquipment_status_idNull ? DBNull.Value : (object)value.Equipment_status_id);
+			AddParameter(cmd, "Equipment_type_value", value.Equipment_type_value);
+			AddParameter(cmd, "Equipment_status_value", value.Equipment_status_value);
 			AddParameter(cmd, "Decimal_places",
 				value.IsDecimal_placesNull ? DBNull.Value : (object)value.Decimal_places);
 			AddParameter(cmd, "Identification", value.Identification);
-			AddParameter(cmd, "Primary_meter_id",
-				value.IsPrimary_meter_idNull ? DBNull.Value : (object)value.Primary_meter_id);
-			AddParameter(cmd, "Secondary_meter_id",
-				value.IsSecondary_meter_idNull ? DBNull.Value : (object)value.Secondary_meter_id);
+			AddParameter(cmd, "Primary_meter_value", value.Primary_meter_value);
+			AddParameter(cmd, "Secondary_meter_value", value.Secondary_meter_value);
 			AddParameter(cmd, "Remarks", value.Remarks);
 			AddParameter(cmd, "Equipment_has_meter",
 				value.IsEquipment_has_meterNull ? DBNull.Value : (object)value.Equipment_has_meter);
@@ -519,18 +507,18 @@ namespace Internship2024
 			int sop_no_cleaningColumnIndex = reader.GetOrdinal("sop_no_cleaning");
 			int sop_no_preventive_maintenanceColumnIndex = reader.GetOrdinal("sop_no_preventive_maintenance");
 			int calibration_frequencyColumnIndex = reader.GetOrdinal("calibration_frequency");
-			int calibration_trigger_date_idColumnIndex = reader.GetOrdinal("calibration_trigger_date_id");
+			int calibration_trigger_dateColumnIndex = reader.GetOrdinal("calibration_trigger_date");
 			int equipment_serial_NoColumnIndex = reader.GetOrdinal("equipment_serial_No");
-			int make_idColumnIndex = reader.GetOrdinal("make_id");
-			int model_idColumnIndex = reader.GetOrdinal("model_id");
+			int make_valueColumnIndex = reader.GetOrdinal("make_value");
+			int model_valueColumnIndex = reader.GetOrdinal("model_value");
 			int yearColumnIndex = reader.GetOrdinal("year");
 			int equipment_annual_budgetColumnIndex = reader.GetOrdinal("equipment_annual_budget");
-			int equipment_type_idColumnIndex = reader.GetOrdinal("equipment_type_id");
-			int equipment_status_idColumnIndex = reader.GetOrdinal("equipment_status_id");
+			int equipment_type_valueColumnIndex = reader.GetOrdinal("equipment_type_value");
+			int equipment_status_valueColumnIndex = reader.GetOrdinal("equipment_status_value");
 			int decimal_placesColumnIndex = reader.GetOrdinal("decimal_places");
 			int identificationColumnIndex = reader.GetOrdinal("identification");
-			int primary_meter_idColumnIndex = reader.GetOrdinal("primary_meter_id");
-			int secondary_meter_idColumnIndex = reader.GetOrdinal("secondary_meter_id");
+			int primary_meter_valueColumnIndex = reader.GetOrdinal("primary_meter_value");
+			int secondary_meter_valueColumnIndex = reader.GetOrdinal("secondary_meter_value");
 			int remarksColumnIndex = reader.GetOrdinal("remarks");
 			int equipment_has_meterColumnIndex = reader.GetOrdinal("equipment_has_meter");
 			int is_excluded_in_line_clearance_reportColumnIndex = reader.GetOrdinal("is_excluded_in_line_clearance_report");
@@ -567,30 +555,30 @@ namespace Internship2024
 						record.Sop_no_preventive_maintenance = Convert.ToString(reader.GetValue(sop_no_preventive_maintenanceColumnIndex));
 					if(!reader.IsDBNull(calibration_frequencyColumnIndex))
 						record.Calibration_frequency = Convert.ToInt32(reader.GetValue(calibration_frequencyColumnIndex));
-					if(!reader.IsDBNull(calibration_trigger_date_idColumnIndex))
-						record.Calibration_trigger_date_id = Convert.ToInt32(reader.GetValue(calibration_trigger_date_idColumnIndex));
+					if(!reader.IsDBNull(calibration_trigger_dateColumnIndex))
+						record.Calibration_trigger_date = Convert.ToDateTime(reader.GetValue(calibration_trigger_dateColumnIndex));
 					if(!reader.IsDBNull(equipment_serial_NoColumnIndex))
 						record.Equipment_serial_No = Convert.ToString(reader.GetValue(equipment_serial_NoColumnIndex));
-					if(!reader.IsDBNull(make_idColumnIndex))
-						record.Make_id = Convert.ToInt32(reader.GetValue(make_idColumnIndex));
-					if(!reader.IsDBNull(model_idColumnIndex))
-						record.Model_id = Convert.ToInt32(reader.GetValue(model_idColumnIndex));
+					if(!reader.IsDBNull(make_valueColumnIndex))
+						record.Make_value = Convert.ToString(reader.GetValue(make_valueColumnIndex));
+					if(!reader.IsDBNull(model_valueColumnIndex))
+						record.Model_value = Convert.ToString(reader.GetValue(model_valueColumnIndex));
 					if(!reader.IsDBNull(yearColumnIndex))
 						record.Year = Convert.ToInt32(reader.GetValue(yearColumnIndex));
 					if(!reader.IsDBNull(equipment_annual_budgetColumnIndex))
 						record.Equipment_annual_budget = Convert.ToDecimal(reader.GetValue(equipment_annual_budgetColumnIndex));
-					if(!reader.IsDBNull(equipment_type_idColumnIndex))
-						record.Equipment_type_id = Convert.ToInt32(reader.GetValue(equipment_type_idColumnIndex));
-					if(!reader.IsDBNull(equipment_status_idColumnIndex))
-						record.Equipment_status_id = Convert.ToInt32(reader.GetValue(equipment_status_idColumnIndex));
+					if(!reader.IsDBNull(equipment_type_valueColumnIndex))
+						record.Equipment_type_value = Convert.ToString(reader.GetValue(equipment_type_valueColumnIndex));
+					if(!reader.IsDBNull(equipment_status_valueColumnIndex))
+						record.Equipment_status_value = Convert.ToString(reader.GetValue(equipment_status_valueColumnIndex));
 					if(!reader.IsDBNull(decimal_placesColumnIndex))
 						record.Decimal_places = Convert.ToInt32(reader.GetValue(decimal_placesColumnIndex));
 					if(!reader.IsDBNull(identificationColumnIndex))
 						record.Identification = Convert.ToString(reader.GetValue(identificationColumnIndex));
-					if(!reader.IsDBNull(primary_meter_idColumnIndex))
-						record.Primary_meter_id = Convert.ToInt32(reader.GetValue(primary_meter_idColumnIndex));
-					if(!reader.IsDBNull(secondary_meter_idColumnIndex))
-						record.Secondary_meter_id = Convert.ToInt32(reader.GetValue(secondary_meter_idColumnIndex));
+					if(!reader.IsDBNull(primary_meter_valueColumnIndex))
+						record.Primary_meter_value = Convert.ToString(reader.GetValue(primary_meter_valueColumnIndex));
+					if(!reader.IsDBNull(secondary_meter_valueColumnIndex))
+						record.Secondary_meter_value = Convert.ToString(reader.GetValue(secondary_meter_valueColumnIndex));
 					if(!reader.IsDBNull(remarksColumnIndex))
 						record.Remarks = Convert.ToString(reader.GetValue(remarksColumnIndex));
 					if(!reader.IsDBNull(equipment_has_meterColumnIndex))
@@ -732,22 +720,22 @@ namespace Internship2024
 			dataColumn = dataTable.Columns["Calibration_frequency"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Calibration_frequency = (int)row[dataColumn];
-			// Column "Calibration_trigger_date_id"
-			dataColumn = dataTable.Columns["Calibration_trigger_date_id"];
+			// Column "Calibration_trigger_date"
+			dataColumn = dataTable.Columns["Calibration_trigger_date"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Calibration_trigger_date_id = (int)row[dataColumn];
+				mappedObject.Calibration_trigger_date = (System.DateTime)row[dataColumn];
 			// Column "Equipment_serial_No"
 			dataColumn = dataTable.Columns["Equipment_serial_No"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Equipment_serial_No = (string)row[dataColumn];
-			// Column "Make_id"
-			dataColumn = dataTable.Columns["Make_id"];
+			// Column "Make_value"
+			dataColumn = dataTable.Columns["Make_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Make_id = (int)row[dataColumn];
-			// Column "Model_id"
-			dataColumn = dataTable.Columns["Model_id"];
+				mappedObject.Make_value = (string)row[dataColumn];
+			// Column "Model_value"
+			dataColumn = dataTable.Columns["Model_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Model_id = (int)row[dataColumn];
+				mappedObject.Model_value = (string)row[dataColumn];
 			// Column "Year"
 			dataColumn = dataTable.Columns["Year"];
 			if(!row.IsNull(dataColumn))
@@ -756,14 +744,14 @@ namespace Internship2024
 			dataColumn = dataTable.Columns["Equipment_annual_budget"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Equipment_annual_budget = (decimal)row[dataColumn];
-			// Column "Equipment_type_id"
-			dataColumn = dataTable.Columns["Equipment_type_id"];
+			// Column "Equipment_type_value"
+			dataColumn = dataTable.Columns["Equipment_type_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Equipment_type_id = (int)row[dataColumn];
-			// Column "Equipment_status_id"
-			dataColumn = dataTable.Columns["Equipment_status_id"];
+				mappedObject.Equipment_type_value = (string)row[dataColumn];
+			// Column "Equipment_status_value"
+			dataColumn = dataTable.Columns["Equipment_status_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Equipment_status_id = (int)row[dataColumn];
+				mappedObject.Equipment_status_value = (string)row[dataColumn];
 			// Column "Decimal_places"
 			dataColumn = dataTable.Columns["Decimal_places"];
 			if(!row.IsNull(dataColumn))
@@ -772,14 +760,14 @@ namespace Internship2024
 			dataColumn = dataTable.Columns["Identification"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Identification = (string)row[dataColumn];
-			// Column "Primary_meter_id"
-			dataColumn = dataTable.Columns["Primary_meter_id"];
+			// Column "Primary_meter_value"
+			dataColumn = dataTable.Columns["Primary_meter_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Primary_meter_id = (int)row[dataColumn];
-			// Column "Secondary_meter_id"
-			dataColumn = dataTable.Columns["Secondary_meter_id"];
+				mappedObject.Primary_meter_value = (string)row[dataColumn];
+			// Column "Secondary_meter_value"
+			dataColumn = dataTable.Columns["Secondary_meter_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Secondary_meter_id = (int)row[dataColumn];
+				mappedObject.Secondary_meter_value = (string)row[dataColumn];
 			// Column "Remarks"
 			dataColumn = dataTable.Columns["Remarks"];
 			if(!row.IsNull(dataColumn))
@@ -848,32 +836,38 @@ namespace Internship2024
 			dataColumn.MaxLength = 100;
 			dataColumn = dataTable.Columns.Add("Calibration_frequency", typeof(int));
 			dataColumn.Caption = "calibration_frequency";
-			dataColumn = dataTable.Columns.Add("Calibration_trigger_date_id", typeof(int));
-			dataColumn.Caption = "calibration_trigger_date_id";
+			dataColumn = dataTable.Columns.Add("Calibration_trigger_date", typeof(System.DateTime));
+			dataColumn.Caption = "calibration_trigger_date";
 			dataColumn = dataTable.Columns.Add("Equipment_serial_No", typeof(string));
 			dataColumn.Caption = "equipment_serial_No";
 			dataColumn.MaxLength = 100;
-			dataColumn = dataTable.Columns.Add("Make_id", typeof(int));
-			dataColumn.Caption = "make_id";
-			dataColumn = dataTable.Columns.Add("Model_id", typeof(int));
-			dataColumn.Caption = "model_id";
+			dataColumn = dataTable.Columns.Add("Make_value", typeof(string));
+			dataColumn.Caption = "make_value";
+			dataColumn.MaxLength = 60;
+			dataColumn = dataTable.Columns.Add("Model_value", typeof(string));
+			dataColumn.Caption = "model_value";
+			dataColumn.MaxLength = 60;
 			dataColumn = dataTable.Columns.Add("Year", typeof(int));
 			dataColumn.Caption = "year";
 			dataColumn = dataTable.Columns.Add("Equipment_annual_budget", typeof(decimal));
 			dataColumn.Caption = "equipment_annual_budget";
-			dataColumn = dataTable.Columns.Add("Equipment_type_id", typeof(int));
-			dataColumn.Caption = "equipment_type_id";
-			dataColumn = dataTable.Columns.Add("Equipment_status_id", typeof(int));
-			dataColumn.Caption = "equipment_status_id";
+			dataColumn = dataTable.Columns.Add("Equipment_type_value", typeof(string));
+			dataColumn.Caption = "equipment_type_value";
+			dataColumn.MaxLength = 60;
+			dataColumn = dataTable.Columns.Add("Equipment_status_value", typeof(string));
+			dataColumn.Caption = "equipment_status_value";
+			dataColumn.MaxLength = 60;
 			dataColumn = dataTable.Columns.Add("Decimal_places", typeof(int));
 			dataColumn.Caption = "decimal_places";
 			dataColumn = dataTable.Columns.Add("Identification", typeof(string));
 			dataColumn.Caption = "identification";
 			dataColumn.MaxLength = 100;
-			dataColumn = dataTable.Columns.Add("Primary_meter_id", typeof(int));
-			dataColumn.Caption = "primary_meter_id";
-			dataColumn = dataTable.Columns.Add("Secondary_meter_id", typeof(int));
-			dataColumn.Caption = "secondary_meter_id";
+			dataColumn = dataTable.Columns.Add("Primary_meter_value", typeof(string));
+			dataColumn.Caption = "primary_meter_value";
+			dataColumn.MaxLength = 60;
+			dataColumn = dataTable.Columns.Add("Secondary_meter_value", typeof(string));
+			dataColumn.Caption = "secondary_meter_value";
+			dataColumn.MaxLength = 60;
 			dataColumn = dataTable.Columns.Add("Remarks", typeof(string));
 			dataColumn.Caption = "remarks";
 			dataColumn = dataTable.Columns.Add("Equipment_has_meter", typeof(bool));
@@ -941,20 +935,20 @@ namespace Internship2024
 					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
 					break;
 
-				case "Calibration_trigger_date_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Calibration_trigger_date":
+					parameter = _db.AddParameter(cmd, paramName, DbType.DateTime, value);
 					break;
 
 				case "Equipment_serial_No":
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Make_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Make_value":
+					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Model_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Model_value":
+					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
 				case "Year":
@@ -965,12 +959,12 @@ namespace Internship2024
 					parameter = _db.AddParameter(cmd, paramName, DbType.Decimal, value);
 					break;
 
-				case "Equipment_type_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Equipment_type_value":
+					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Equipment_status_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Equipment_status_value":
+					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
 				case "Decimal_places":
@@ -981,12 +975,12 @@ namespace Internship2024
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Primary_meter_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Primary_meter_value":
+					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Secondary_meter_id":
-					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
+				case "Secondary_meter_value":
+					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
 				case "Remarks":

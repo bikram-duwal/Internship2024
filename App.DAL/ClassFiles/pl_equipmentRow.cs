@@ -35,28 +35,22 @@ namespace Internship2024
 		private string _sop_no_preventive_maintenance;
 		private int _calibration_frequency;
 		private bool _calibration_frequencyNull = true;
-		private int _calibration_trigger_date_id;
-		private bool _calibration_trigger_date_idNull = true;
+		private System.DateTime _calibration_trigger_date;
+		private bool _calibration_trigger_dateNull = true;
 		private string _equipment_serial_No;
-		private int _make_id;
-		private bool _make_idNull = true;
-		private int _model_id;
-		private bool _model_idNull = true;
+		private string _make_value;
+		private string _model_value;
 		private int _year;
 		private bool _yearNull = true;
 		private decimal _equipment_annual_budget;
 		private bool _equipment_annual_budgetNull = true;
-		private int _equipment_type_id;
-		private bool _equipment_type_idNull = true;
-		private int _equipment_status_id;
-		private bool _equipment_status_idNull = true;
+		private string _equipment_type_value;
+		private string _equipment_status_value;
 		private int _decimal_places;
 		private bool _decimal_placesNull = true;
 		private string _identification;
-		private int _primary_meter_id;
-		private bool _primary_meter_idNull = true;
-		private int _secondary_meter_id;
-		private bool _secondary_meter_idNull = true;
+		private string _primary_meter_value;
+		private string _secondary_meter_value;
 		private string _remarks;
 		private bool _equipment_has_meter;
 		private bool _equipment_has_meterNull = true;
@@ -227,34 +221,34 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>calibration_trigger_date_id</c> column value.
+		/// Gets or sets the <c>calibration_trigger_date</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>calibration_trigger_date_id</c> column value.</value>
-		public int Calibration_trigger_date_id
+		/// <value>The <c>calibration_trigger_date</c> column value.</value>
+		public System.DateTime Calibration_trigger_date
 		{
 			get
 			{
-				if(IsCalibration_trigger_date_idNull)
+				if(IsCalibration_trigger_dateNull)
 					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _calibration_trigger_date_id;
+				return _calibration_trigger_date;
 			}
 			set
 			{
-				_calibration_trigger_date_idNull = false;
-				_calibration_trigger_date_id = value;
+				_calibration_trigger_dateNull = false;
+				_calibration_trigger_date = value;
 			}
 		}
 
 		/// <summary>
-		/// Indicates whether the <see cref="Calibration_trigger_date_id"/>
+		/// Indicates whether the <see cref="Calibration_trigger_date"/>
 		/// property value is null.
 		/// </summary>
 		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsCalibration_trigger_date_idNull
+		public bool IsCalibration_trigger_dateNull
 		{
-			get { return _calibration_trigger_date_idNull; }
-			set { _calibration_trigger_date_idNull = value; }
+			get { return _calibration_trigger_dateNull; }
+			set { _calibration_trigger_dateNull = value; }
 		}
 
 		/// <summary>
@@ -269,65 +263,25 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>make_id</c> column value.
+		/// Gets or sets the <c>make_value</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>make_id</c> column value.</value>
-		public int Make_id
+		/// <value>The <c>make_value</c> column value.</value>
+		public string Make_value
 		{
-			get
-			{
-				if(IsMake_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _make_id;
-			}
-			set
-			{
-				_make_idNull = false;
-				_make_id = value;
-			}
+			get { return _make_value; }
+			set { _make_value = value; }
 		}
 
 		/// <summary>
-		/// Indicates whether the <see cref="Make_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsMake_idNull
-		{
-			get { return _make_idNull; }
-			set { _make_idNull = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>model_id</c> column value.
+		/// Gets or sets the <c>model_value</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>model_id</c> column value.</value>
-		public int Model_id
+		/// <value>The <c>model_value</c> column value.</value>
+		public string Model_value
 		{
-			get
-			{
-				if(IsModel_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _model_id;
-			}
-			set
-			{
-				_model_idNull = false;
-				_model_id = value;
-			}
-		}
-
-		/// <summary>
-		/// Indicates whether the <see cref="Model_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsModel_idNull
-		{
-			get { return _model_idNull; }
-			set { _model_idNull = value; }
+			get { return _model_value; }
+			set { _model_value = value; }
 		}
 
 		/// <summary>
@@ -393,65 +347,25 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>equipment_type_id</c> column value.
+		/// Gets or sets the <c>equipment_type_value</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>equipment_type_id</c> column value.</value>
-		public int Equipment_type_id
+		/// <value>The <c>equipment_type_value</c> column value.</value>
+		public string Equipment_type_value
 		{
-			get
-			{
-				if(IsEquipment_type_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _equipment_type_id;
-			}
-			set
-			{
-				_equipment_type_idNull = false;
-				_equipment_type_id = value;
-			}
+			get { return _equipment_type_value; }
+			set { _equipment_type_value = value; }
 		}
 
 		/// <summary>
-		/// Indicates whether the <see cref="Equipment_type_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsEquipment_type_idNull
-		{
-			get { return _equipment_type_idNull; }
-			set { _equipment_type_idNull = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>equipment_status_id</c> column value.
+		/// Gets or sets the <c>equipment_status_value</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>equipment_status_id</c> column value.</value>
-		public int Equipment_status_id
+		/// <value>The <c>equipment_status_value</c> column value.</value>
+		public string Equipment_status_value
 		{
-			get
-			{
-				if(IsEquipment_status_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _equipment_status_id;
-			}
-			set
-			{
-				_equipment_status_idNull = false;
-				_equipment_status_id = value;
-			}
-		}
-
-		/// <summary>
-		/// Indicates whether the <see cref="Equipment_status_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsEquipment_status_idNull
-		{
-			get { return _equipment_status_idNull; }
-			set { _equipment_status_idNull = value; }
+			get { return _equipment_status_value; }
+			set { _equipment_status_value = value; }
 		}
 
 		/// <summary>
@@ -497,65 +411,25 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>primary_meter_id</c> column value.
+		/// Gets or sets the <c>primary_meter_value</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>primary_meter_id</c> column value.</value>
-		public int Primary_meter_id
+		/// <value>The <c>primary_meter_value</c> column value.</value>
+		public string Primary_meter_value
 		{
-			get
-			{
-				if(IsPrimary_meter_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _primary_meter_id;
-			}
-			set
-			{
-				_primary_meter_idNull = false;
-				_primary_meter_id = value;
-			}
+			get { return _primary_meter_value; }
+			set { _primary_meter_value = value; }
 		}
 
 		/// <summary>
-		/// Indicates whether the <see cref="Primary_meter_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsPrimary_meter_idNull
-		{
-			get { return _primary_meter_idNull; }
-			set { _primary_meter_idNull = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>secondary_meter_id</c> column value.
+		/// Gets or sets the <c>secondary_meter_value</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>secondary_meter_id</c> column value.</value>
-		public int Secondary_meter_id
+		/// <value>The <c>secondary_meter_value</c> column value.</value>
+		public string Secondary_meter_value
 		{
-			get
-			{
-				if(IsSecondary_meter_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _secondary_meter_id;
-			}
-			set
-			{
-				_secondary_meter_idNull = false;
-				_secondary_meter_id = value;
-			}
-		}
-
-		/// <summary>
-		/// Indicates whether the <see cref="Secondary_meter_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsSecondary_meter_idNull
-		{
-			get { return _secondary_meter_idNull; }
-			set { _secondary_meter_idNull = value; }
+			get { return _secondary_meter_value; }
+			set { _secondary_meter_value = value; }
 		}
 
 		/// <summary>
@@ -752,30 +626,30 @@ namespace Internship2024
 			dynStr.Append(Sop_no_preventive_maintenance);
 			dynStr.Append("  Calibration_frequency=");
 			dynStr.Append(IsCalibration_frequencyNull ? (object)"<NULL>" : Calibration_frequency);
-			dynStr.Append("  Calibration_trigger_date_id=");
-			dynStr.Append(IsCalibration_trigger_date_idNull ? (object)"<NULL>" : Calibration_trigger_date_id);
+			dynStr.Append("  Calibration_trigger_date=");
+			dynStr.Append(IsCalibration_trigger_dateNull ? (object)"<NULL>" : Calibration_trigger_date);
 			dynStr.Append("  Equipment_serial_No=");
 			dynStr.Append(Equipment_serial_No);
-			dynStr.Append("  Make_id=");
-			dynStr.Append(IsMake_idNull ? (object)"<NULL>" : Make_id);
-			dynStr.Append("  Model_id=");
-			dynStr.Append(IsModel_idNull ? (object)"<NULL>" : Model_id);
+			dynStr.Append("  Make_value=");
+			dynStr.Append(Make_value);
+			dynStr.Append("  Model_value=");
+			dynStr.Append(Model_value);
 			dynStr.Append("  Year=");
 			dynStr.Append(IsYearNull ? (object)"<NULL>" : Year);
 			dynStr.Append("  Equipment_annual_budget=");
 			dynStr.Append(IsEquipment_annual_budgetNull ? (object)"<NULL>" : Equipment_annual_budget);
-			dynStr.Append("  Equipment_type_id=");
-			dynStr.Append(IsEquipment_type_idNull ? (object)"<NULL>" : Equipment_type_id);
-			dynStr.Append("  Equipment_status_id=");
-			dynStr.Append(IsEquipment_status_idNull ? (object)"<NULL>" : Equipment_status_id);
+			dynStr.Append("  Equipment_type_value=");
+			dynStr.Append(Equipment_type_value);
+			dynStr.Append("  Equipment_status_value=");
+			dynStr.Append(Equipment_status_value);
 			dynStr.Append("  Decimal_places=");
 			dynStr.Append(IsDecimal_placesNull ? (object)"<NULL>" : Decimal_places);
 			dynStr.Append("  Identification=");
 			dynStr.Append(Identification);
-			dynStr.Append("  Primary_meter_id=");
-			dynStr.Append(IsPrimary_meter_idNull ? (object)"<NULL>" : Primary_meter_id);
-			dynStr.Append("  Secondary_meter_id=");
-			dynStr.Append(IsSecondary_meter_idNull ? (object)"<NULL>" : Secondary_meter_id);
+			dynStr.Append("  Primary_meter_value=");
+			dynStr.Append(Primary_meter_value);
+			dynStr.Append("  Secondary_meter_value=");
+			dynStr.Append(Secondary_meter_value);
 			dynStr.Append("  Remarks=");
 			dynStr.Append(Remarks);
 			dynStr.Append("  Equipment_has_meter=");

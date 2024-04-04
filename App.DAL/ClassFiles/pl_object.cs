@@ -209,7 +209,7 @@ namespace Internship2024
 		/// Adds a new record into the <c>pl_object</c> table.
 		/// </summary>
 		/// <param name="value">The <see cref="pl_objectRow"/> object to be inserted.</param>
-		public virtual long Insert(pl_objectRow value)
+		public virtual void Insert(pl_objectRow value)
 		{
 			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_Insert", true);
 			AddParameter(cmd, "Table_name", value.Table_name);
@@ -227,7 +227,6 @@ namespace Internship2024
 			AddParameter(cmd, "Deleted_by",
 				value.IsDeleted_byNull ? DBNull.Value : (object)value.Deleted_by);
 			value.Table_pid = Convert.ToInt64(cmd.ExecuteScalar());
-			return value.Table_pid;
 		}
 
 		/// <summary>
@@ -452,7 +451,8 @@ namespace Internship2024
 					recordList.Add(record);
 
 					record.Table_pid = Convert.ToInt64(reader.GetValue(table_pidColumnIndex));
-					record.Table_name = Convert.ToString(reader.GetValue(table_nameColumnIndex));
+					if(!reader.IsDBNull(table_nameColumnIndex))
+						record.Table_name = Convert.ToString(reader.GetValue(table_nameColumnIndex));
 					if(!reader.IsDBNull(nameColumnIndex))
 						record.Name = Convert.ToString(reader.GetValue(nameColumnIndex));
 					if(!reader.IsDBNull(created_dateColumnIndex))
@@ -613,8 +613,7 @@ namespace Internship2024
 			dataColumn.AutoIncrement = true;
 			dataColumn = dataTable.Columns.Add("Table_name", typeof(string));
 			dataColumn.Caption = "table_name";
-			dataColumn.MaxLength = 100;
-			dataColumn.AllowDBNull = false;
+			dataColumn.MaxLength = 50;
 			dataColumn = dataTable.Columns.Add("Name", typeof(string));
 			dataColumn.Caption = "name";
 			dataColumn.MaxLength = 1000;

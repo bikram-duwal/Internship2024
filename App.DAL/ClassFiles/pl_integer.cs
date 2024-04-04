@@ -1,4 +1,4 @@
-// <fileinfo name="pl_stringCollection_Base.cs">
+// <fileinfo name="pl_integerCollection_Base.cs">
 //		<copyright>
 //			All rights reserved.
 //		</copyright>
@@ -16,14 +16,14 @@ using System.Data.SqlClient;
 namespace Internship2024
 {
 	/// <summary>
-	/// The base class for <see cref="pl_stringCollection"/>. Provides methods 
+	/// The base class for <see cref="pl_integerCollection"/>. Provides methods 
 	/// for common database table operations. 
 	/// </summary>
 	/// <remarks>
-	/// Do not change this source code. Update the <see cref="pl_stringCollection"/>
+	/// Do not change this source code. Update the <see cref="pl_integerCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_string
+	public class pl_integer
 	{
 		// Constants
 		public const string Table_pidColumnName = "table_pid";
@@ -34,11 +34,11 @@ namespace Internship2024
 		private InternTaskDbContext _db;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="pl_string"/> 
+		/// Initializes a new instance of the <see cref="pl_integer"/> 
 		/// class with the specified <see cref="InternTaskDbContext"/>.
 		/// </summary>
 		/// <param name="db">The <see cref="InternTaskDbContext"/> object.</param>
-		public pl_string(InternTaskDbContext db)
+		public pl_integer(InternTaskDbContext db)
 		{
 			_db = db;
 		}
@@ -53,17 +53,17 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets an array of all records from the <c>pl_string</c> table.
+		/// Gets an array of all records from the <c>pl_integer</c> table.
 		/// </summary>
-		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		public virtual pl_stringRow[] GetAll()
+		/// <returns>An array of <see cref="pl_integerRow"/> objects.</returns>
+		public virtual pl_integerRow[] GetAll()
 		{
 			return MapRecords(CreateGetAllCommand());
 		}
 
 		/// <summary>
 		/// Gets a <see cref="System.Data.DataTable"/> object that 
-		/// includes all records from the <c>pl_string</c> table.
+		/// includes all records from the <c>pl_integer</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		public virtual DataTable GetAllAsDataTable()
@@ -73,46 +73,46 @@ namespace Internship2024
 
 		/// <summary>
 		/// Creates and returns an <see cref="System.Data.SqlCommand"/> object that is used
-		/// to retrieve all records from the <c>pl_string</c> table.
+		/// to retrieve all records from the <c>pl_integer</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo.pl_string_GetAll", true);
+			return _db.CreateCommand("dbo.pl_integer_GetAll", true);
 		}
 
 		/// <summary>
-		/// Gets the first <see cref="pl_stringRow"/> objects that 
+		/// Gets the first <see cref="pl_integerRow"/> objects that 
 		/// match the search condition.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example: 
 		/// <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
-		/// <returns>An instance of <see cref="pl_stringRow"/> or null reference 
+		/// <returns>An instance of <see cref="pl_integerRow"/> or null reference 
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
-		public pl_stringRow GetRow(string whereSql)
+		public pl_integerRow GetRow(string whereSql)
 		{
 			int totalRecordCount = -1;
-			pl_stringRow[] rows = GetAsArray(whereSql, null, 0, 1, ref totalRecordCount);
+			pl_integerRow[] rows = GetAsArray(whereSql, null, 0, 1, ref totalRecordCount);
 			return 0 == rows.Length ? null : rows[0];
 		}
 
 		/// <summary>
-		/// Gets an array of <see cref="pl_stringRow"/> objects that 
+		/// Gets an array of <see cref="pl_integerRow"/> objects that 
 		/// match the search condition, in the the specified sort order.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example: 
 		/// <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
 		/// <param name="orderBySql">The column name(s) followed by "ASC" (ascending) or "DESC" (descending).
 		/// Columns are sorted in ascending order by default. For example: <c>"LastName ASC, FirstName ASC"</c>.</param>
-		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		public pl_stringRow[] GetAsArray(string whereSql, string orderBySql)
+		/// <returns>An array of <see cref="pl_integerRow"/> objects.</returns>
+		public pl_integerRow[] GetAsArray(string whereSql, string orderBySql)
 		{
 			int totalRecordCount = -1;
 			return GetAsArray(whereSql, orderBySql, 0, int.MaxValue, ref totalRecordCount);
 		}
 
 		/// <summary>
-		/// Gets an array of <see cref="pl_stringRow"/> objects that 
+		/// Gets an array of <see cref="pl_integerRow"/> objects that 
 		/// match the search condition, in the the specified sort order.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example:
@@ -123,8 +123,8 @@ namespace Internship2024
 		/// <param name="length">The number of records to return.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
-		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		public virtual pl_stringRow[] GetAsArray(string whereSql, string orderBySql,
+		/// <returns>An array of <see cref="pl_integerRow"/> objects.</returns>
+		public virtual pl_integerRow[] GetAsArray(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
 			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
@@ -177,7 +177,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetCommand(string whereSql, string orderBySql)
 		{
-			string sql = "SELECT * FROM [dbo].[pl_string]";
+			string sql = "SELECT * FROM [dbo].[pl_integer]";
 			if(null != whereSql && 0 < whereSql.Length)
 				sql += " WHERE " + whereSql;
 			if(null != orderBySql && 0 < orderBySql.Length)
@@ -186,31 +186,33 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Adds a new record into the <c>pl_string</c> table.
+		/// Adds a new record into the <c>pl_integer</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="pl_stringRow"/> object to be inserted.</param>
-		public virtual void Insert(pl_stringRow value)
+		/// <param name="value">The <see cref="pl_integerRow"/> object to be inserted.</param>
+		public virtual void Insert(pl_integerRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo.pl_string_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo.pl_integer_Insert", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Column_type", value.Column_type);
-			AddParameter(cmd, "Data_value", value.Data_value);
+			AddParameter(cmd, "Data_value",
+				value.IsData_valueNull ? DBNull.Value : (object)value.Data_value);
 			cmd.ExecuteNonQuery();
 		}
 
-        public virtual bool Update(pl_stringRow value)
+        public virtual bool Update(pl_integerRow value)
         {
-            SqlCommand cmd = _db.CreateCommand("dbo.pl_string_Update", true);
+            SqlCommand cmd = _db.CreateCommand("dbo.pl_integer_Update", true);
             AddParameter(cmd, "Table_pid",
                 value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
             AddParameter(cmd, "Column_type", value.Column_type);
-            AddParameter(cmd, "Data_value", value.Data_value);
+            AddParameter(cmd, "Data_value",
+                value.IsData_valueNull ? DBNull.Value : (object)value.Data_value);
             return 0 != cmd.ExecuteNonQuery();
         }
 
         /// <summary>
-        /// Deletes <c>pl_string</c> records that match the specified criteria.
+        /// Deletes <c>pl_integer</c> records that match the specified criteria.
         /// </summary>
         /// <param name="whereSql">The SQL search condition. 
         /// For example: <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
@@ -222,26 +224,26 @@ namespace Internship2024
 
 		/// <summary>
 		/// Creates an <see cref="System.Data.SqlCommand"/> object that can be used 
-		/// to delete <c>pl_string</c> records that match the specified criteria.
+		/// to delete <c>pl_integer</c> records that match the specified criteria.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. 
 		/// For example: <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateDeleteCommand(string whereSql)
 		{
-			string sql = "DELETE FROM [dbo].[pl_string]";
+			string sql = "DELETE FROM [dbo].[pl_integer]";
 			if(null != whereSql && 0 < whereSql.Length)
 				sql += " WHERE " + whereSql;
 			return _db.CreateCommand(sql);
 		}
 
 		/// <summary>
-		/// Deletes all records from the <c>pl_string</c> table.
+		/// Deletes all records from the <c>pl_integer</c> table.
 		/// </summary>
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo.pl_string_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo.pl_integer_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>
@@ -249,8 +251,8 @@ namespace Internship2024
 		/// an array of mapped objects.
 		/// </summary>
 		/// <param name="command">The <see cref="System.Data.SqlCommand"/> object.</param>
-		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		protected pl_stringRow[] MapRecords(SqlCommand command)
+		/// <returns>An array of <see cref="pl_integerRow"/> objects.</returns>
+		protected pl_integerRow[] MapRecords(SqlCommand command)
 		{
 			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
@@ -263,8 +265,8 @@ namespace Internship2024
 		/// an array of mapped objects.
 		/// </summary>
 		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
-		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		protected pl_stringRow[] MapRecords(SqlDataReader reader)
+		/// <returns>An array of <see cref="pl_integerRow"/> objects.</returns>
+		protected pl_integerRow[] MapRecords(SqlDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -279,8 +281,8 @@ namespace Internship2024
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
-		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		protected virtual pl_stringRow[] MapRecords(SqlDataReader reader, 
+		/// <returns>An array of <see cref="pl_integerRow"/> objects.</returns>
+		protected virtual pl_integerRow[] MapRecords(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -299,7 +301,7 @@ namespace Internship2024
 				ri++;
 				if(ri > 0 && ri <= length)
 				{
-					pl_stringRow record = new pl_stringRow();
+					pl_integerRow record = new pl_integerRow();
 					recordList.Add(record);
 
 					if(!reader.IsDBNull(table_pidColumnIndex))
@@ -307,7 +309,7 @@ namespace Internship2024
 					if(!reader.IsDBNull(column_typeColumnIndex))
 						record.Column_type = Convert.ToString(reader.GetValue(column_typeColumnIndex));
 					if(!reader.IsDBNull(data_valueColumnIndex))
-						record.Data_value = Convert.ToString(reader.GetValue(data_valueColumnIndex));
+						record.Data_value = Convert.ToInt32(reader.GetValue(data_valueColumnIndex));
 
 					if(ri == length && 0 != totalRecordCount)
 						break;
@@ -315,7 +317,7 @@ namespace Internship2024
 			}
 
 			totalRecordCount = 0 == totalRecordCount ? ri + startIndex : -1;
-			return (pl_stringRow[])(recordList.ToArray(typeof(pl_stringRow)));
+			return (pl_integerRow[])(recordList.ToArray(typeof(pl_integerRow)));
 		}
 
 		/// <summary>
@@ -388,13 +390,13 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Converts <see cref="System.Data.DataRow"/> to <see cref="pl_stringRow"/>.
+		/// Converts <see cref="System.Data.DataRow"/> to <see cref="pl_integerRow"/>.
 		/// </summary>
 		/// <param name="row">The <see cref="System.Data.DataRow"/> object to be mapped.</param>
-		/// <returns>A reference to the <see cref="pl_stringRow"/> object.</returns>
-		protected virtual pl_stringRow MapRow(DataRow row)
+		/// <returns>A reference to the <see cref="pl_integerRow"/> object.</returns>
+		protected virtual pl_integerRow MapRow(DataRow row)
 		{
-			pl_stringRow mappedObject = new pl_stringRow();
+			pl_integerRow mappedObject = new pl_integerRow();
 			DataTable dataTable = row.Table;
 			DataColumn dataColumn;
 			// Column "Table_pid"
@@ -408,28 +410,27 @@ namespace Internship2024
 			// Column "Data_value"
 			dataColumn = dataTable.Columns["Data_value"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Data_value = (string)row[dataColumn];
+				mappedObject.Data_value = (int)row[dataColumn];
 			return mappedObject;
 		}
 
 		/// <summary>
 		/// Creates a <see cref="System.Data.DataTable"/> object for 
-		/// the <c>pl_string</c> table.
+		/// the <c>pl_integer</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		protected virtual DataTable CreateDataTable()
 		{
 			DataTable dataTable = new DataTable();
-			dataTable.TableName = "pl_string";
+			dataTable.TableName = "pl_integer";
 			DataColumn dataColumn;
 			dataColumn = dataTable.Columns.Add("Table_pid", typeof(long));
 			dataColumn.Caption = "table_pid";
 			dataColumn = dataTable.Columns.Add("Column_type", typeof(string));
 			dataColumn.Caption = "column_type";
 			dataColumn.MaxLength = 50;
-			dataColumn = dataTable.Columns.Add("Data_value", typeof(string));
+			dataColumn = dataTable.Columns.Add("Data_value", typeof(int));
 			dataColumn.Caption = "data_value";
-			dataColumn.MaxLength = 1073741823;
 			return dataTable;
 		}
 		
@@ -454,7 +455,7 @@ namespace Internship2024
 					break;
 
 				case "Data_value":
-					parameter = _db.AddParameter(cmd, paramName, DbType.String, value);
+					parameter = _db.AddParameter(cmd, paramName, DbType.Int32, value);
 					break;
 
 				default:
@@ -462,5 +463,5 @@ namespace Internship2024
 			}
 			return parameter;
 		}
-	} // End of pl_stringCollection_Base class
+	} // End of pl_integerCollection_Base class
 }  // End of namespace

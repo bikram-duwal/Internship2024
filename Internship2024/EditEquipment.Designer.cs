@@ -1,6 +1,6 @@
 ﻿namespace Internship2024
 {
-    partial class Equipment
+    partial class EditEquipment
     {
         /// <summary>
         /// Required designer variable.
@@ -126,7 +126,7 @@
             this.ddlSecMet = new Infragistics.Win.UltraWinGrid.UltraCombo();
             this.ddlPrimaryMet = new Infragistics.Win.UltraWinGrid.UltraCombo();
             this.ddlEqpStatus = new Infragistics.Win.UltraWinGrid.UltraCombo();
-            this.ultraCombo1 = new Infragistics.Win.UltraWinGrid.UltraCombo();
+            this.ddlModel = new Infragistics.Win.UltraWinGrid.UltraCombo();
             this.ddlCalibTrig = new Infragistics.Win.UltraWinGrid.UltraCombo();
             this.remarksText = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.sopNoPrvText = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
@@ -142,7 +142,7 @@
             this.eqpSerialText = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.modelLabel = new Infragistics.Win.Misc.UltraLabel();
             this.areaText = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
-            this.ultraTextEditor1 = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
+            this.decimalText = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.sopNoOpText = new Infragistics.Win.UltraWinEditors.UltraTextEditor();
             this.remarksLabel = new Infragistics.Win.Misc.UltraLabel();
             this.calibTrigLabel = new Infragistics.Win.Misc.UltraLabel();
@@ -177,7 +177,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ddlSecMet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlPrimaryMet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlEqpStatus)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraCombo1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ddlModel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlCalibTrig)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.remarksText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sopNoPrvText)).BeginInit();
@@ -187,7 +187,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqpBudgetText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eqpSerialText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaText)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decimalText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sopNoOpText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.calibFreqText)).BeginInit();
@@ -208,7 +208,7 @@
             this.grpEquipmentForm.Controls.Add(this.ddlSecMet);
             this.grpEquipmentForm.Controls.Add(this.ddlPrimaryMet);
             this.grpEquipmentForm.Controls.Add(this.ddlEqpStatus);
-            this.grpEquipmentForm.Controls.Add(this.ultraCombo1);
+            this.grpEquipmentForm.Controls.Add(this.ddlModel);
             this.grpEquipmentForm.Controls.Add(this.ddlCalibTrig);
             this.grpEquipmentForm.Controls.Add(this.remarksText);
             this.grpEquipmentForm.Controls.Add(this.sopNoPrvText);
@@ -224,7 +224,7 @@
             this.grpEquipmentForm.Controls.Add(this.eqpSerialText);
             this.grpEquipmentForm.Controls.Add(this.modelLabel);
             this.grpEquipmentForm.Controls.Add(this.areaText);
-            this.grpEquipmentForm.Controls.Add(this.ultraTextEditor1);
+            this.grpEquipmentForm.Controls.Add(this.decimalText);
             this.grpEquipmentForm.Controls.Add(this.sopNoOpText);
             this.grpEquipmentForm.Controls.Add(this.remarksLabel);
             this.grpEquipmentForm.Controls.Add(this.calibTrigLabel);
@@ -589,66 +589,66 @@
             this.ddlEqpStatus.Size = new System.Drawing.Size(250, 30);
             this.ddlEqpStatus.TabIndex = 3;
             // 
-            // ultraCombo1
+            // ddlModel
             // 
             appearance61.BackColor = System.Drawing.SystemColors.Window;
             appearance61.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.ultraCombo1.DisplayLayout.Appearance = appearance61;
-            this.ultraCombo1.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.ultraCombo1.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            this.ddlModel.DisplayLayout.Appearance = appearance61;
+            this.ddlModel.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.ddlModel.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
             appearance62.BackColor = System.Drawing.SystemColors.ActiveBorder;
             appearance62.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance62.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
             appearance62.BorderColor = System.Drawing.SystemColors.Window;
-            this.ultraCombo1.DisplayLayout.GroupByBox.Appearance = appearance62;
+            this.ddlModel.DisplayLayout.GroupByBox.Appearance = appearance62;
             appearance63.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.ultraCombo1.DisplayLayout.GroupByBox.BandLabelAppearance = appearance63;
-            this.ultraCombo1.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.ddlModel.DisplayLayout.GroupByBox.BandLabelAppearance = appearance63;
+            this.ddlModel.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
             appearance64.BackColor = System.Drawing.SystemColors.ControlLightLight;
             appearance64.BackColor2 = System.Drawing.SystemColors.Control;
             appearance64.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance64.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.ultraCombo1.DisplayLayout.GroupByBox.PromptAppearance = appearance64;
-            this.ultraCombo1.DisplayLayout.MaxColScrollRegions = 1;
-            this.ultraCombo1.DisplayLayout.MaxRowScrollRegions = 1;
+            this.ddlModel.DisplayLayout.GroupByBox.PromptAppearance = appearance64;
+            this.ddlModel.DisplayLayout.MaxColScrollRegions = 1;
+            this.ddlModel.DisplayLayout.MaxRowScrollRegions = 1;
             appearance65.BackColor = System.Drawing.SystemColors.Window;
             appearance65.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.ultraCombo1.DisplayLayout.Override.ActiveCellAppearance = appearance65;
+            this.ddlModel.DisplayLayout.Override.ActiveCellAppearance = appearance65;
             appearance66.BackColor = System.Drawing.SystemColors.Highlight;
             appearance66.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.ultraCombo1.DisplayLayout.Override.ActiveRowAppearance = appearance66;
-            this.ultraCombo1.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.ultraCombo1.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.ddlModel.DisplayLayout.Override.ActiveRowAppearance = appearance66;
+            this.ddlModel.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.ddlModel.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
             appearance67.BackColor = System.Drawing.SystemColors.Window;
-            this.ultraCombo1.DisplayLayout.Override.CardAreaAppearance = appearance67;
+            this.ddlModel.DisplayLayout.Override.CardAreaAppearance = appearance67;
             appearance68.BorderColor = System.Drawing.Color.Silver;
             appearance68.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.ultraCombo1.DisplayLayout.Override.CellAppearance = appearance68;
-            this.ultraCombo1.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.ultraCombo1.DisplayLayout.Override.CellPadding = 0;
+            this.ddlModel.DisplayLayout.Override.CellAppearance = appearance68;
+            this.ddlModel.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.ddlModel.DisplayLayout.Override.CellPadding = 0;
             appearance69.BackColor = System.Drawing.SystemColors.Control;
             appearance69.BackColor2 = System.Drawing.SystemColors.ControlDark;
             appearance69.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
             appearance69.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
             appearance69.BorderColor = System.Drawing.SystemColors.Window;
-            this.ultraCombo1.DisplayLayout.Override.GroupByRowAppearance = appearance69;
+            this.ddlModel.DisplayLayout.Override.GroupByRowAppearance = appearance69;
             appearance70.TextHAlignAsString = "Left";
-            this.ultraCombo1.DisplayLayout.Override.HeaderAppearance = appearance70;
-            this.ultraCombo1.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.ultraCombo1.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            this.ddlModel.DisplayLayout.Override.HeaderAppearance = appearance70;
+            this.ddlModel.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.ddlModel.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
             appearance71.BackColor = System.Drawing.SystemColors.Window;
             appearance71.BorderColor = System.Drawing.Color.Silver;
-            this.ultraCombo1.DisplayLayout.Override.RowAppearance = appearance71;
-            this.ultraCombo1.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            this.ddlModel.DisplayLayout.Override.RowAppearance = appearance71;
+            this.ddlModel.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
             appearance72.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ultraCombo1.DisplayLayout.Override.TemplateAddRowAppearance = appearance72;
-            this.ultraCombo1.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.ultraCombo1.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.ultraCombo1.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.ultraCombo1.Location = new System.Drawing.Point(926, 253);
-            this.ultraCombo1.Name = "ultraCombo1";
-            this.ultraCombo1.Size = new System.Drawing.Size(250, 30);
-            this.ultraCombo1.TabIndex = 3;
+            this.ddlModel.DisplayLayout.Override.TemplateAddRowAppearance = appearance72;
+            this.ddlModel.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.ddlModel.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.ddlModel.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.ddlModel.Location = new System.Drawing.Point(926, 253);
+            this.ddlModel.Name = "ddlModel";
+            this.ddlModel.Size = new System.Drawing.Size(250, 30);
+            this.ddlModel.TabIndex = 3;
             // 
             // ddlCalibTrig
             // 
@@ -819,12 +819,12 @@
             this.areaText.Size = new System.Drawing.Size(250, 29);
             this.areaText.TabIndex = 2;
             // 
-            // ultraTextEditor1
+            // decimalText
             // 
-            this.ultraTextEditor1.Location = new System.Drawing.Point(334, 386);
-            this.ultraTextEditor1.Name = "ultraTextEditor1";
-            this.ultraTextEditor1.Size = new System.Drawing.Size(250, 29);
-            this.ultraTextEditor1.TabIndex = 2;
+            this.decimalText.Location = new System.Drawing.Point(334, 386);
+            this.decimalText.Name = "decimalText";
+            this.decimalText.Size = new System.Drawing.Size(250, 29);
+            this.decimalText.TabIndex = 2;
             // 
             // sopNoOpText
             // 
@@ -1004,6 +1004,7 @@
             this.saveBtn.Size = new System.Drawing.Size(106, 35);
             this.saveBtn.TabIndex = 0;
             this.saveBtn.Text = "Save";
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // cancelBtn
             // 
@@ -1016,7 +1017,7 @@
             this.cancelBtn.TabIndex = 0;
             this.cancelBtn.Text = "Cancel";
             // 
-            // Equipment
+            // EditEquipment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1025,9 +1026,11 @@
             this.Controls.Add(this.grpEquipmentForm);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Equipment";
+            this.Name = "EditEquipment";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Edit Equipment";
+            this.Load += new System.EventHandler(this.Equipment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grpEquipmentForm)).EndInit();
             this.grpEquipmentForm.ResumeLayout(false);
             this.grpEquipmentForm.PerformLayout();
@@ -1040,7 +1043,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ddlSecMet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlPrimaryMet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlEqpStatus)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraCombo1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ddlModel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlCalibTrig)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.remarksText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sopNoPrvText)).EndInit();
@@ -1050,7 +1053,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.eqpBudgetText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.eqpSerialText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.areaText)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTextEditor1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.decimalText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sopNoOpText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nameText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.calibFreqText)).EndInit();
@@ -1081,7 +1084,6 @@
         private Infragistics.Win.Misc.UltraLabel sopNoOpLabel;
         private Infragistics.Win.Misc.UltraLabel nameLabel;
         private Infragistics.Win.Misc.UltraLabel calibFrqLabel;
-        private Infragistics.Win.UltraWinGrid.UltraCombo ultraCombo1;
         private Infragistics.Win.UltraWinGrid.UltraCombo ddlCalibTrig;
         private Infragistics.Win.Misc.UltraLabel modelLabel;
         private Infragistics.Win.Misc.UltraLabel calibTrigLabel;
@@ -1097,7 +1099,7 @@
         private Infragistics.Win.UltraWinEditors.UltraTextEditor remarksText;
         private Infragistics.Win.UltraWinEditors.UltraTextEditor identText;
         private Infragistics.Win.Misc.UltraLabel eqpTypeLabel;
-        private Infragistics.Win.UltraWinEditors.UltraTextEditor ultraTextEditor1;
+        private Infragistics.Win.UltraWinEditors.UltraTextEditor decimalText;
         private Infragistics.Win.Misc.UltraLabel remarksLabel;
         private Infragistics.Win.Misc.UltraLabel identLabel;
         private Infragistics.Win.Misc.UltraLabel decimalLabel;
@@ -1114,5 +1116,6 @@
         private Infragistics.Win.Misc.UltraGroupBox grpButtons;
         private Infragistics.Win.Misc.UltraButton saveBtn;
         private Infragistics.Win.Misc.UltraButton cancelBtn;
+        private Infragistics.Win.UltraWinGrid.UltraCombo ddlModel;
     }
 }

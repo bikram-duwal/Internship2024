@@ -59,6 +59,7 @@ namespace Internship2024
 
 		/// <summary>
 		/// Gets or sets the <c>table_name</c> column value.
+		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>table_name</c> column value.</value>
 		public string Table_name
