@@ -31,14 +31,14 @@ namespace Internship2024
 		public const string Data_valueColumnName = "data_value";
 
 		// Instance fields
-		private Internship2024DB _db;
+		private InternTaskDbContext _db;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="pl_string"/> 
-		/// class with the specified <see cref="Internship2024DB"/>.
+		/// class with the specified <see cref="InternTaskDbContext"/>.
 		/// </summary>
-		/// <param name="db">The <see cref="Internship2024DB"/> object.</param>
-		public pl_string(Internship2024DB db)
+		/// <param name="db">The <see cref="InternTaskDbContext"/> object.</param>
+		public pl_string(InternTaskDbContext db)
 		{
 			_db = db;
 		}
@@ -46,8 +46,8 @@ namespace Internship2024
 		/// <summary>
 		/// Gets the database object that this table belongs to.
 		///	</summary>
-		///	<value>The <see cref="Internship2024DB"/> object.</value>
-		protected Internship2024DB Database
+		///	<value>The <see cref="InternTaskDbContext"/> object.</value>
+		protected InternTaskDbContext Database
 		{
 			get { return _db; }
 		}

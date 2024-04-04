@@ -41,12 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassFiles\Internship2024DB.cs" />
+    <Compile Include="ClassFiles\InternTaskDbContext.cs" />
+    <Compile Include="ClassFiles\pl_equipment.cs" />
+    <Compile Include="ClassFiles\pl_equipmentRow.cs" />
     <Compile Include="ClassFiles\pl_object.cs" />
     <Compile Include="ClassFiles\pl_objectRow.cs" />
     <Compile Include="ClassFiles\pl_string.cs" />
     <Compile Include="ClassFiles\pl_stringRow.cs" />
+    <Compile Include="Models\EquipmentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EquipmentRepository.cs" />
+    <Compile Include="Repositories\IEquimentRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,12 +11,12 @@ using System.Data;
 
 namespace Internship2024
 {
-    public class Internship2024DB: IDisposable
+    public class InternTaskDbContext: IDisposable
     {
         SqlConnection _connection;
         SqlTransaction _transaction;
 
-        public Internship2024DB()
+        public InternTaskDbContext()
         {
             InitConnection();
         }
