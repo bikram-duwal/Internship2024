@@ -82,10 +82,6 @@ namespace Internship2024.EditModel
                 _objTran.RollbackTransaction();
                 throw;
             }
-            finally
-            {
-                _objTran.Dispose();
-            }
         }
         public pl_areaRow GetAreaByTablePid(long table_pid)
         {
@@ -112,10 +108,11 @@ namespace Internship2024.EditModel
                 }
 
                 reader.Close();
+
                 return objAreaRow;
             }
             catch (Exception ex) {
-                return new pl_areaRow();
+                throw;
             }
             finally {
                 

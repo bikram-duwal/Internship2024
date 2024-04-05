@@ -123,7 +123,7 @@ namespace Internship2024.View
             {
                 _presenter.UpdateArea(objAreaRow);
                 MessageBox.Show("Updated Successfully");
-                this.Hide();
+                this.Close();
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
