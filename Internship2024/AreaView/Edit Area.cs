@@ -28,8 +28,7 @@ namespace Internship2024
             InitializeComponent();
             _objTran = new Internship2024DB();
             _presenter.LoadFormValue();
-            _presenter.LoadDropDownValue();
-            _presenter.DropDownName();
+          
         
           
 

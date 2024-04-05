@@ -56,6 +56,8 @@ namespace Internship2024.EditPresenter
             _areaEditView.Description = objAreaRow.Description;
             _areaEditView.IsForDispensing = objAreaRow.Is_for_dispensing;
             _areaEditView.IsActive = objAreaRow.Status;
+            LoadDropDownValue();
+            DropDownName();
             
             
             
