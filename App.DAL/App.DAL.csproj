@@ -57,6 +57,7 @@
     <Compile Include="ClassFiles\pl_string.cs" />
     <Compile Include="ClassFiles\pl_stringRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ColumnType.cs" />
     <Compile Include="Repositories\EquipmentRepository.cs" />
     <Compile Include="Repositories\IEquipmentRepository.cs" />
   </ItemGroup>

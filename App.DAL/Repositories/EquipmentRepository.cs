@@ -18,9 +18,26 @@ namespace App.DAL.Repositories
             return objEquipment.GetByPrimaryKey(equipmentId);
         }
 
-        public void LoadCombos()
+        public Dictionary<ColumnType, List<T>> LoadCombos<T>()
         {
-            throw new NotImplementedException();
+            Dictionary<ColumnType, List<T>> comboDictionary = new Dictionary<ColumnType, List<T>>();
+
+            foreach (ColumnType columnType in Enum.GetValues(typeof(ColumnType)))
+            {
+                List<T> comboValues = new List<T>();
+
+                pl_combo_value objComboVal = new pl_combo_value(_internTaskDbContext);
+                pl_combo_valueRow[] objComboValRow = objComboVal.GetAsArray("column_type='" + columnType.ToString() + "'", "");
+
+                foreach (var row in objComboValRow)
+                {
+                    comboValues.Add((T)Convert.ChangeType(row.Data_value, typeof(T)));
+                }
+
+                comboDictionary.Add(columnType, comboValues);
+            }
+
+            return comboDictionary;
         }
 
         public void UpdateEquipment(pl_equipmentRow equipmentRow)

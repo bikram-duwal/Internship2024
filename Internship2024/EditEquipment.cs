@@ -1,4 +1,5 @@
 ﻿using App.DAL.Repositories;
+using Infragistics.Win;
 using Infragistics.Win.UltraWinGrid;
 using Internship2024.Presenter;
 using Internship2024.View;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -60,14 +62,26 @@ namespace Internship2024
             get => nameText.Text;
             set => nameText.Text = value;
         }
-        public DateTime CalibrationTriggerDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public DateTime CalibrationTriggerDate
+        {
+            get => DateTime.ParseExact(ddlCalibTrig.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            set => ddlCalibTrig.Text = value.ToString("yyyy-MM-dd");
+        }
         public string EquipmentSerialNo
         {
             get => eqpSerialText.Text;
             set => eqpSerialText.Text = value;
         }
-        public string MakeValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string ModelValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string MakeValue
+        {
+            get => ddlMake.SelectedText;
+            set => ddlMake.SelectedText = value;
+        }
+        public string ModelValue
+        {
+            get => ddlModel.SelectedText;
+            set => ddlModel.SelectedText = value;
+        }
         public int Year
         {
             get => int.Parse(yearText.Text);
@@ -78,8 +92,16 @@ namespace Internship2024
             get => decimal.Parse(eqpBudgetText.Text);
             set => eqpBudgetText.Text = value.ToString();
         }
-        public string EquipmentTypeValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string EquipmentStatusValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string EquipmentTypeValue
+        {
+            get => ddlEqpType.SelectedText;
+            set => ddlEqpType.SelectedText = value;
+        }
+        public string EquipmentStatusValue
+        {
+            get => ddlEqpStatus.SelectedText;
+            set => ddlEqpStatus.SelectedText = value;
+        }
         public int DecimalPlaces
         {
             get => int.Parse(decimalText.Text);
@@ -90,8 +112,16 @@ namespace Internship2024
             get => identText.Text;
             set => identText.Text = value;
         }
-        public string PrimaryMeterValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string SecondaryMeterValue { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PrimaryMeterValue
+        {
+            get => ddlPrimaryMet.SelectedText;
+            set => ddlPrimaryMet.SelectedText = value;
+        }
+        public string SecondaryMeterValue
+        {
+            get => ddlSecMet.SelectedText;
+            set => ddlSecMet.SelectedText = value;
+        }
         public string Remarks
         {
             get => remarksText.Text;
@@ -131,11 +161,88 @@ namespace Internship2024
         private void Equipment_Load(object sender, EventArgs e)
         {
             Presenter.LoadEquipment(2);
+            Presenter.LoadAllCombos();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            Presenter.UpdateEquipment();
+            if (CheckControlsVal())
+            {
+                Presenter.UpdateEquipment();
+                MessageBox.Show("Updated successfully.");
+            }
+            else
+            {
+                MessageBox.Show("Please provide all values.");
+            }
+        }
+
+        private bool CheckControlsVal()
+        {
+            bool result = true;
+
+            if (string.IsNullOrWhiteSpace(eqpNoText.Text)
+                || string.IsNullOrWhiteSpace(nameText.Text)
+                || string.IsNullOrWhiteSpace(sopNoOpText.Text)
+                || string.IsNullOrWhiteSpace(sopNoClnText.Text)
+                || string.IsNullOrWhiteSpace(calibFreqText.Text)
+                || string.IsNullOrWhiteSpace(sopNoPrvText.Text)
+                || string.IsNullOrWhiteSpace(eqpSerialText.Text)
+                || string.IsNullOrWhiteSpace(ddlCalibTrig.SelectedText)
+                || string.IsNullOrWhiteSpace(ddlMake.SelectedText)
+                || string.IsNullOrWhiteSpace(ddlModel.SelectedText)
+                || string.IsNullOrWhiteSpace(eqpBudgetText.Text)
+                || string.IsNullOrWhiteSpace(yearText.Text)
+                || string.IsNullOrWhiteSpace(ddlEqpStatus.SelectedText)
+                || string.IsNullOrWhiteSpace(ddlEqpType.SelectedText)
+                || string.IsNullOrWhiteSpace(decimalText.Text)
+                || string.IsNullOrWhiteSpace(identText.Text)
+                || string.IsNullOrWhiteSpace(ddlPrimaryMet.SelectedText)
+                || string.IsNullOrWhiteSpace(ddlSecMet.SelectedText)
+                || string.IsNullOrWhiteSpace(remarksText.Text)
+                )
+            {
+                result = false;
+            }
+
+            return result;
+        }
+
+        public void PopulateAllDropDown(ColumnType dropDownType, List<string> items)
+        {
+            UltraCombo dropdown;
+
+            switch (dropDownType)
+            {
+                case ColumnType.calibration_trigger_date:
+                    dropdown = ddlCalibTrig;
+                    break;
+                case ColumnType.make_value:
+                    dropdown = ddlMake;
+                    break;
+                case ColumnType.model_value:
+                    dropdown = ddlModel;
+                    break;
+                case ColumnType.equipment_status:
+                    dropdown = ddlEqpStatus;
+                    break;
+                case ColumnType.equipment_type:
+                    dropdown = ddlEqpType;
+                    break;
+                case ColumnType.primary_meter:
+                    dropdown = ddlPrimaryMet;
+                    break;
+                case ColumnType.secondary_meter:
+                    dropdown = ddlSecMet;
+                    break;
+                default:
+                    throw new ArgumentException("Invalid dropdown type specified.");
+            }
+
+            if (dropdown != null)
+            {
+                dropdown.DataSource = items;
+            }
         }
     }
 }

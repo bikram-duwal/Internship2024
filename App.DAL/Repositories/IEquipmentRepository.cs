@@ -10,7 +10,7 @@ namespace App.DAL.Repositories
 {
     public interface IEquipmentRepository
     {
-        void LoadCombos();
+        Dictionary<ColumnType, List<T>> LoadCombos<T>();
         pl_equipmentRow GetEquipment(long equipmentId);
         void UpdateEquipment(pl_equipmentRow equipmentRow);
     }

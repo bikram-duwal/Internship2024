@@ -1,4 +1,5 @@
-﻿using Internship2024.Presenter;
+﻿using App.DAL.Repositories;
+using Internship2024.Presenter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,5 +39,6 @@ namespace Internship2024.View
         bool IsMoveable { get; set; }
         pl_equipmentRow Equipment { get; set; }
         EquipmentPresenter Presenter { get; set; }
+        void PopulateAllDropDown(ColumnType dropDownType, List<string> items);
     }
 }

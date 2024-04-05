@@ -38,6 +38,16 @@ namespace Internship2024.Presenter
             _equipmentRepository.UpdateEquipment(newRow);
         }
 
+        public void LoadAllCombos()
+        {
+            var combos = _equipmentRepository.LoadCombos<string>();
+
+            foreach(var val in combos)
+            {
+                _equipmentView.PopulateAllDropDown(val.Key,val.Value);
+            }
+        }
+
         private pl_equipmentRow PopulateNewData(pl_equipmentRow existingRow)
         {
             existingRow.Equipment_id = _equipmentView.EquipmentId;
@@ -51,10 +61,17 @@ namespace Internship2024.Presenter
             existingRow.Calibration_frequency = _equipmentView.CalibrationFrequency;
             existingRow.Sop_no_preventive_maintenance = _equipmentView.SopNoPreventiveMaintenance;
             existingRow.Equipment_serial_No = _equipmentView.EquipmentSerialNo;
+            existingRow.Calibration_trigger_date = _equipmentView.CalibrationTriggerDate;
+            existingRow.Make_value = _equipmentView.MakeValue;
+            existingRow.Model_value = _equipmentView.ModelValue;
             existingRow.Equipment_annual_budget = _equipmentView.EquipmentAnnualBudget;
             existingRow.Year = _equipmentView.Year;
+            existingRow.Equipment_status_value = _equipmentView.EquipmentStatusValue;
+            existingRow.Equipment_type_value = _equipmentView.EquipmentTypeValue;
             existingRow.Decimal_places = _equipmentView.DecimalPlaces;
             existingRow.Identification = _equipmentView.Identification;
+            existingRow.Primary_meter_value = _equipmentView.PrimaryMeterValue;
+            existingRow.Secondary_meter_value = _equipmentView.SecondaryMeterValue;
             existingRow.Remarks = _equipmentView.Remarks;
             existingRow.Equipment_has_meter = _equipmentView.EquipmentHasMeter;
             existingRow.Is_excluded_in_line_clearance_report = _equipmentView.IsExcludedInLineClearanceReport;
@@ -77,10 +94,17 @@ namespace Internship2024.Presenter
             _equipmentView.CalibrationFrequency = row.Calibration_frequency;
             _equipmentView.SopNoPreventiveMaintenance = row.Sop_no_preventive_maintenance;
             _equipmentView.EquipmentSerialNo = row.Equipment_serial_No;
+            _equipmentView.CalibrationTriggerDate = row.Calibration_trigger_date;
+            _equipmentView.MakeValue = row.Make_value;
+            _equipmentView.ModelValue = row.Model_value;
             _equipmentView.EquipmentAnnualBudget = row.Equipment_annual_budget;
             _equipmentView.Year = row.Year;
+            _equipmentView.EquipmentStatusValue = row.Equipment_status_value;
+            _equipmentView.EquipmentTypeValue = row.Equipment_type_value;
             _equipmentView.DecimalPlaces = row.Decimal_places;
             _equipmentView.Identification = row.Identification;
+            _equipmentView.PrimaryMeterValue = row.Primary_meter_value;
+            _equipmentView.SecondaryMeterValue = row.Secondary_meter_value;
             _equipmentView.Remarks = row.Remarks;
             _equipmentView.EquipmentHasMeter = row.Equipment_has_meter;
             _equipmentView.IsExcludedInLineClearanceReport = row.Is_excluded_in_line_clearance_report;
