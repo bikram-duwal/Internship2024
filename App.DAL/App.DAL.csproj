@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>App.DAL</RootNamespace>
     <AssemblyName>App.DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,6 +43,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassFiles\Internship2024DB.cs" />
+    <Compile Include="ClassFiles\pl_area.cs" />
+    <Compile Include="ClassFiles\pl_areaRow.cs" />
+    <Compile Include="ClassFiles\pl_boolean.cs" />
+    <Compile Include="ClassFiles\pl_booleanRow.cs" />
+    <Compile Include="ClassFiles\pl_decimal.cs" />
+    <Compile Include="ClassFiles\pl_decimalRow.cs" />
+    <Compile Include="ClassFiles\pl_integer.cs" />
+    <Compile Include="ClassFiles\pl_integerRow.cs" />
     <Compile Include="ClassFiles\pl_object.cs" />
     <Compile Include="ClassFiles\pl_objectRow.cs" />
     <Compile Include="ClassFiles\pl_string.cs" />

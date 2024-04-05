@@ -40,8 +40,8 @@ namespace Internship2024
         {
             string srvString = "";
             string dbString = "";
-            string userName = "";
-            string password = "";
+            //string userName = "";
+            //string password = "";
             System.Xml.XmlDocument xmlConfig = new XmlDocument();
             string tempDirectoryPath = Directory.GetCurrentDirectory();
             xmlConfig.Load(tempDirectoryPath + @"\OutputFiles\XMLFiles\App.config");
@@ -50,12 +50,17 @@ namespace Internship2024
             {
                 srvString = xmlN.ChildNodes[0].FirstChild.Value;
                 dbString = xmlN.ChildNodes[1].FirstChild.Value;
-                userName = xmlN.ChildNodes[2].FirstChild.Value;
-                password = xmlN.ChildNodes[3].FirstChild.Value;
+                //userName = xmlN.ChildNodes[2].FirstChild.Value;
+                //password = xmlN.ChildNodes[3].FirstChild.Value;
             }
 
-            return new SqlConnection("Initial Catalog=" + dbString + ";Data Source=" + srvString +
-                ";user id= " + userName + ";password = " + password);
+            //return new SqlConnection("Initial Catalog=" + dbString + ";Data Source=" + srvString +
+            //  ";user id= "  + ";password = ");
+
+            string connectionString = $"Initial Catalog={dbString};Data Source={srvString};Integrated Security=True;";
+
+            return new SqlConnection(connectionString);
+
         }
 
         public SqlParameter AddParameter(SqlCommand cmd, string paramName,
@@ -145,5 +150,11 @@ namespace Internship2024
             if (null != _connection)
                 _connection.Dispose();
         }
+        
+        public int ExecuteNonQuery(SqlCommand cmd)
+        {
+            return cmd.ExecuteNonQuery();
+        }
+
     }
 }
