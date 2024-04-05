@@ -134,5 +134,10 @@ namespace Internship2024.View
         {
             this.Hide();
         }
+
+        private void lblUniqueCode_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,31 +124,6 @@ namespace Internship2024.EditModel
             return rows;
 
         }
-        public string DropDownName()
-        {
-           
-           
-
-
-            SqlCommand cmd = _objTran.CreateCommand("GetAreaByID", true);
-            _objTran.AddParameter(cmd, "id", DbType.Int64, 3);
-            SqlDataReader reader = cmd.ExecuteReader();
-            string name = "";
-            while (reader.Read())
-            {
-                name = reader["name"].ToString();
-
-            }
-
-
-
-
-
-              
-
-            
-            return name;
-
-        }
+        
     }
 }

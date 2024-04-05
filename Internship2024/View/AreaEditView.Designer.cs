@@ -56,16 +56,17 @@
             // 
             // lblUniqueCode
             // 
-            this.lblUniqueCode.Location = new System.Drawing.Point(46, 103);
+            this.lblUniqueCode.Location = new System.Drawing.Point(27, 39);
             this.lblUniqueCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblUniqueCode.Name = "lblUniqueCode";
             this.lblUniqueCode.Size = new System.Drawing.Size(150, 36);
             this.lblUniqueCode.TabIndex = 0;
             this.lblUniqueCode.Text = "Unique Code";
+            this.lblUniqueCode.Click += new System.EventHandler(this.lblUniqueCode_Click);
             // 
             // lblAreaName
             // 
-            this.lblAreaName.Location = new System.Drawing.Point(46, 186);
+            this.lblAreaName.Location = new System.Drawing.Point(27, 122);
             this.lblAreaName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblAreaName.Name = "lblAreaName";
             this.lblAreaName.Size = new System.Drawing.Size(150, 36);
@@ -74,7 +75,7 @@
             // 
             // lblAreaCode
             // 
-            this.lblAreaCode.Location = new System.Drawing.Point(46, 270);
+            this.lblAreaCode.Location = new System.Drawing.Point(27, 206);
             this.lblAreaCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblAreaCode.Name = "lblAreaCode";
             this.lblAreaCode.Size = new System.Drawing.Size(150, 36);
@@ -84,7 +85,7 @@
             // lblDepartmentName
             // 
             this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.lblDepartmentName.Location = new System.Drawing.Point(46, 358);
+            this.lblDepartmentName.Location = new System.Drawing.Point(27, 294);
             this.lblDepartmentName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblDepartmentName.Name = "lblDepartmentName";
             this.lblDepartmentName.Size = new System.Drawing.Size(194, 36);
@@ -94,7 +95,7 @@
             // lblDescription
             // 
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.lblDescription.Location = new System.Drawing.Point(610, 103);
+            this.lblDescription.Location = new System.Drawing.Point(580, 42);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(141, 36);
@@ -103,7 +104,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(9, 27);
+            this.btnCancel.Location = new System.Drawing.Point(22, 21);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 36);
@@ -113,7 +114,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(144, 27);
+            this.btnSave.Location = new System.Drawing.Point(157, 21);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(112, 36);
@@ -123,7 +124,7 @@
             // 
             // txtUniqueCode
             // 
-            this.txtUniqueCode.Location = new System.Drawing.Point(254, 102);
+            this.txtUniqueCode.Location = new System.Drawing.Point(235, 38);
             this.txtUniqueCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtUniqueCode.Name = "txtUniqueCode";
             this.txtUniqueCode.ReadOnly = true;
@@ -132,7 +133,7 @@
             // 
             // txtAreaName
             // 
-            this.txtAreaName.Location = new System.Drawing.Point(254, 184);
+            this.txtAreaName.Location = new System.Drawing.Point(235, 120);
             this.txtAreaName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAreaName.Name = "txtAreaName";
             this.txtAreaName.Size = new System.Drawing.Size(324, 34);
@@ -140,7 +141,7 @@
             // 
             // txtAreaCode
             // 
-            this.txtAreaCode.Location = new System.Drawing.Point(254, 269);
+            this.txtAreaCode.Location = new System.Drawing.Point(235, 205);
             this.txtAreaCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAreaCode.Name = "txtAreaCode";
             this.txtAreaCode.Size = new System.Drawing.Size(324, 34);
@@ -148,7 +149,7 @@
             // 
             // cbDispensing
             // 
-            this.cbDispensing.Location = new System.Drawing.Point(46, 434);
+            this.cbDispensing.Location = new System.Drawing.Point(27, 370);
             this.cbDispensing.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbDispensing.Name = "cbDispensing";
             this.cbDispensing.Size = new System.Drawing.Size(246, 44);
@@ -157,7 +158,7 @@
             // 
             // cbIsActive
             // 
-            this.cbIsActive.Location = new System.Drawing.Point(46, 516);
+            this.cbIsActive.Location = new System.Drawing.Point(27, 452);
             this.cbIsActive.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.Size = new System.Drawing.Size(246, 44);
@@ -166,7 +167,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(726, 98);
+            this.txtDescription.Location = new System.Drawing.Point(717, 36);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -175,7 +176,7 @@
             // 
             // cmbDepartmentName
             // 
-            this.cmbDepartmentName.Location = new System.Drawing.Point(254, 356);
+            this.cmbDepartmentName.Location = new System.Drawing.Point(235, 292);
             this.cmbDepartmentName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbDepartmentName.Name = "cmbDepartmentName";
             this.cmbDepartmentName.Size = new System.Drawing.Size(324, 34);
@@ -185,10 +186,10 @@
             // 
             this.grpButtons.Controls.Add(this.btnCancel);
             this.grpButtons.Controls.Add(this.btnSave);
-            this.grpButtons.Location = new System.Drawing.Point(900, 577);
+            this.grpButtons.Location = new System.Drawing.Point(888, 566);
             this.grpButtons.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpButtons.Name = "grpButtons";
-            this.grpButtons.Size = new System.Drawing.Size(266, 75);
+            this.grpButtons.Size = new System.Drawing.Size(291, 75);
             this.grpButtons.TabIndex = 15;
             // 
             // AreaEditView
@@ -211,7 +212,7 @@
             this.Controls.Add(this.lblUniqueCode);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AreaEditView";
-            this.Text = "Edit_Area";
+            this.Text = "Edit Area";
             ((System.ComponentModel.ISupportInitialize)(this.txtUniqueCode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAreaCode)).EndInit();
