@@ -59,6 +59,8 @@ namespace Internship2024
                 cmbEquipmentMasterSetup.DataSource = dt;
                 //cmbEquipmentMasterSetup.DataBind();
 
+
+                cmbEquipmentMasterSetup.DisplayMember = "combo_value";
                 cmbEquipmentMasterSetup.DisplayLayout.Bands[0].Columns["column_type"].Hidden = true;
                 cmbEquipmentMasterSetup.DisplayLayout.Bands[0].Columns["combo_value_id"].Hidden = true;
                 cmbEquipmentMasterSetup.DisplayLayout.Bands[0].Columns["combo_value"].Header.Caption = "Configuration Items";

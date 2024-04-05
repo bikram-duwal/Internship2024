@@ -28,18 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance19 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance21 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
-            Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance1 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance2 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance3 = new Infragistics.Win.Appearance();
@@ -52,20 +40,32 @@
             Infragistics.Win.Appearance appearance10 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance11 = new Infragistics.Win.Appearance();
             Infragistics.Win.Appearance appearance12 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance13 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance14 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance15 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance16 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance17 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance18 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance19 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance20 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance21 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance22 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance23 = new Infragistics.Win.Appearance();
+            Infragistics.Win.Appearance appearance24 = new Infragistics.Win.Appearance();
             this.ultraGroupBox1 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraGroupBox2 = new Infragistics.Win.Misc.UltraGroupBox();
-            this.ultraGrid1 = new Infragistics.Win.UltraWinGrid.UltraGrid();
-            this.lblEquipmentMasterSetup = new Infragistics.Win.Misc.UltraLabel();
             this.cmbEquipmentMasterSetup = new Infragistics.Win.UltraWinGrid.UltraCombo();
-            this.btnAuditLog = new Infragistics.Win.Misc.UltraButton();
-            this.btnCreate = new Infragistics.Win.Misc.UltraButton();
+            this.lblEquipmentMasterSetup = new Infragistics.Win.Misc.UltraLabel();
+            this.ultraGroupBox2 = new Infragistics.Win.Misc.UltraGroupBox();
             this.btnEdit = new Infragistics.Win.Misc.UltraButton();
+            this.btnCreate = new Infragistics.Win.Misc.UltraButton();
+            this.btnAuditLog = new Infragistics.Win.Misc.UltraButton();
+            this.ultraGrid1 = new Infragistics.Win.UltraWinGrid.UltraGrid();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).BeginInit();
             this.ultraGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEquipmentMasterSetup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox2)).BeginInit();
             this.ultraGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGrid1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEquipmentMasterSetup)).BeginInit();
             this.SuspendLayout();
             // 
             // ultraGroupBox1
@@ -78,6 +78,80 @@
             this.ultraGroupBox1.Size = new System.Drawing.Size(800, 72);
             this.ultraGroupBox1.TabIndex = 0;
             // 
+            // cmbEquipmentMasterSetup
+            // 
+            appearance1.BackColor = System.Drawing.SystemColors.Window;
+            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Appearance = appearance1;
+            this.cmbEquipmentMasterSetup.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
+            this.cmbEquipmentMasterSetup.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            this.cmbEquipmentMasterSetup.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
+            appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
+            appearance2.BorderColor = System.Drawing.SystemColors.Window;
+            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.Appearance = appearance2;
+            appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
+            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
+            appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            appearance4.BackColor2 = System.Drawing.SystemColors.Control;
+            appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance4.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.PromptAppearance = appearance4;
+            this.cmbEquipmentMasterSetup.DisplayLayout.MaxColScrollRegions = 1;
+            this.cmbEquipmentMasterSetup.DisplayLayout.MaxRowScrollRegions = 1;
+            appearance5.BackColor = System.Drawing.SystemColors.Window;
+            appearance5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.ActiveCellAppearance = appearance5;
+            appearance6.BackColor = System.Drawing.SystemColors.Highlight;
+            appearance6.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.ActiveRowAppearance = appearance6;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.True;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
+            appearance7.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CardAreaAppearance = appearance7;
+            appearance8.BorderColor = System.Drawing.Color.Silver;
+            appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CellAppearance = appearance8;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CellPadding = 0;
+            appearance9.BackColor = System.Drawing.SystemColors.Control;
+            appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark;
+            appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
+            appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
+            appearance9.BorderColor = System.Drawing.SystemColors.Window;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.GroupByRowAppearance = appearance9;
+            appearance10.TextHAlignAsString = "Left";
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.HeaderAppearance = appearance10;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
+            appearance11.BackColor = System.Drawing.SystemColors.Window;
+            appearance11.BorderColor = System.Drawing.Color.Silver;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.RowAppearance = appearance11;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
+            appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cmbEquipmentMasterSetup.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
+            this.cmbEquipmentMasterSetup.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
+            this.cmbEquipmentMasterSetup.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
+            this.cmbEquipmentMasterSetup.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
+            this.cmbEquipmentMasterSetup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEquipmentMasterSetup.Location = new System.Drawing.Point(277, 20);
+            this.cmbEquipmentMasterSetup.Name = "cmbEquipmentMasterSetup";
+            this.cmbEquipmentMasterSetup.Size = new System.Drawing.Size(193, 25);
+            this.cmbEquipmentMasterSetup.TabIndex = 1;
+            this.cmbEquipmentMasterSetup.Text = "Equipment Master Setup";
+            this.cmbEquipmentMasterSetup.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.cmbEquipmentMasterSetup_InitializeLayout);
+            // 
+            // lblEquipmentMasterSetup
+            // 
+            this.lblEquipmentMasterSetup.Location = new System.Drawing.Point(39, 24);
+            this.lblEquipmentMasterSetup.Name = "lblEquipmentMasterSetup";
+            this.lblEquipmentMasterSetup.Size = new System.Drawing.Size(185, 23);
+            this.lblEquipmentMasterSetup.TabIndex = 0;
+            this.lblEquipmentMasterSetup.Text = "Equipment Master Setup";
+            // 
             // ultraGroupBox2
             // 
             this.ultraGroupBox2.Controls.Add(this.btnEdit);
@@ -88,6 +162,33 @@
             this.ultraGroupBox2.Name = "ultraGroupBox2";
             this.ultraGroupBox2.Size = new System.Drawing.Size(800, 67);
             this.ultraGroupBox2.TabIndex = 1;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEdit.Location = new System.Drawing.Point(685, 21);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(83, 29);
+            this.btnEdit.TabIndex = 2;
+            this.btnEdit.Text = "Edit";
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreate.Location = new System.Drawing.Point(560, 21);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(75, 29);
+            this.btnCreate.TabIndex = 1;
+            this.btnCreate.Text = "Create";
+            // 
+            // btnAuditLog
+            // 
+            this.btnAuditLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAuditLog.Location = new System.Drawing.Point(39, 21);
+            this.btnAuditLog.Name = "btnAuditLog";
+            this.btnAuditLog.Size = new System.Drawing.Size(84, 29);
+            this.btnAuditLog.TabIndex = 0;
+            this.btnAuditLog.Text = "Audit Log";
             // 
             // ultraGrid1
             // 
@@ -157,107 +258,6 @@
             this.ultraGrid1.TabIndex = 2;
             this.ultraGrid1.Text = "ultraGrid1";
             // 
-            // lblEquipmentMasterSetup
-            // 
-            this.lblEquipmentMasterSetup.Location = new System.Drawing.Point(39, 24);
-            this.lblEquipmentMasterSetup.Name = "lblEquipmentMasterSetup";
-            this.lblEquipmentMasterSetup.Size = new System.Drawing.Size(185, 23);
-            this.lblEquipmentMasterSetup.TabIndex = 0;
-            this.lblEquipmentMasterSetup.Text = "Equipment Master Setup";
-            // 
-            // cmbEquipmentMasterSetup
-            // 
-            appearance1.BackColor = System.Drawing.SystemColors.Window;
-            appearance1.BorderColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Appearance = appearance1;
-            this.cmbEquipmentMasterSetup.DisplayLayout.AutoFitStyle = Infragistics.Win.UltraWinGrid.AutoFitStyle.ResizeAllColumns;
-            this.cmbEquipmentMasterSetup.DisplayLayout.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            this.cmbEquipmentMasterSetup.DisplayLayout.CaptionVisible = Infragistics.Win.DefaultableBoolean.False;
-            appearance2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            appearance2.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance2.BackGradientStyle = Infragistics.Win.GradientStyle.Vertical;
-            appearance2.BorderColor = System.Drawing.SystemColors.Window;
-            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.Appearance = appearance2;
-            appearance3.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.BandLabelAppearance = appearance3;
-            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.BorderStyle = Infragistics.Win.UIElementBorderStyle.Solid;
-            appearance4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            appearance4.BackColor2 = System.Drawing.SystemColors.Control;
-            appearance4.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance4.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.cmbEquipmentMasterSetup.DisplayLayout.GroupByBox.PromptAppearance = appearance4;
-            this.cmbEquipmentMasterSetup.DisplayLayout.MaxColScrollRegions = 1;
-            this.cmbEquipmentMasterSetup.DisplayLayout.MaxRowScrollRegions = 1;
-            appearance5.BackColor = System.Drawing.SystemColors.Window;
-            appearance5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.ActiveCellAppearance = appearance5;
-            appearance6.BackColor = System.Drawing.SystemColors.Highlight;
-            appearance6.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.ActiveRowAppearance = appearance6;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.AllowRowFiltering = Infragistics.Win.DefaultableBoolean.True;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.BorderStyleCell = Infragistics.Win.UIElementBorderStyle.Dotted;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.BorderStyleRow = Infragistics.Win.UIElementBorderStyle.Dotted;
-            appearance7.BackColor = System.Drawing.SystemColors.Window;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CardAreaAppearance = appearance7;
-            appearance8.BorderColor = System.Drawing.Color.Silver;
-            appearance8.TextTrimming = Infragistics.Win.TextTrimming.EllipsisCharacter;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CellAppearance = appearance8;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CellClickAction = Infragistics.Win.UltraWinGrid.CellClickAction.EditAndSelectText;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.CellPadding = 0;
-            appearance9.BackColor = System.Drawing.SystemColors.Control;
-            appearance9.BackColor2 = System.Drawing.SystemColors.ControlDark;
-            appearance9.BackGradientAlignment = Infragistics.Win.GradientAlignment.Element;
-            appearance9.BackGradientStyle = Infragistics.Win.GradientStyle.Horizontal;
-            appearance9.BorderColor = System.Drawing.SystemColors.Window;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.GroupByRowAppearance = appearance9;
-            appearance10.TextHAlignAsString = "Left";
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.HeaderAppearance = appearance10;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.HeaderClickAction = Infragistics.Win.UltraWinGrid.HeaderClickAction.SortMulti;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.HeaderStyle = Infragistics.Win.HeaderStyle.WindowsXPCommand;
-            appearance11.BackColor = System.Drawing.SystemColors.Window;
-            appearance11.BorderColor = System.Drawing.Color.Silver;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.RowAppearance = appearance11;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.RowSelectors = Infragistics.Win.DefaultableBoolean.False;
-            appearance12.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cmbEquipmentMasterSetup.DisplayLayout.Override.TemplateAddRowAppearance = appearance12;
-            this.cmbEquipmentMasterSetup.DisplayLayout.ScrollBounds = Infragistics.Win.UltraWinGrid.ScrollBounds.ScrollToFill;
-            this.cmbEquipmentMasterSetup.DisplayLayout.ScrollStyle = Infragistics.Win.UltraWinGrid.ScrollStyle.Immediate;
-            this.cmbEquipmentMasterSetup.DisplayLayout.ViewStyleBand = Infragistics.Win.UltraWinGrid.ViewStyleBand.OutlookGroupBy;
-            this.cmbEquipmentMasterSetup.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEquipmentMasterSetup.Location = new System.Drawing.Point(277, 20);
-            this.cmbEquipmentMasterSetup.Name = "cmbEquipmentMasterSetup";
-            this.cmbEquipmentMasterSetup.Size = new System.Drawing.Size(193, 25);
-            this.cmbEquipmentMasterSetup.TabIndex = 1;
-            this.cmbEquipmentMasterSetup.Text = "Equipment Master Setup";
-            this.cmbEquipmentMasterSetup.InitializeLayout += new Infragistics.Win.UltraWinGrid.InitializeLayoutEventHandler(this.cmbEquipmentMasterSetup_InitializeLayout);
-            // 
-            // btnAuditLog
-            // 
-            this.btnAuditLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAuditLog.Location = new System.Drawing.Point(39, 21);
-            this.btnAuditLog.Name = "btnAuditLog";
-            this.btnAuditLog.Size = new System.Drawing.Size(84, 29);
-            this.btnAuditLog.TabIndex = 0;
-            this.btnAuditLog.Text = "Audit Log";
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreate.Location = new System.Drawing.Point(560, 21);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(75, 29);
-            this.btnCreate.TabIndex = 1;
-            this.btnCreate.Text = "Create";
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEdit.Location = new System.Drawing.Point(685, 21);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(83, 29);
-            this.btnEdit.TabIndex = 2;
-            this.btnEdit.Text = "Edit";
-            // 
             // Equipment_Master_Setup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -272,10 +272,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox1)).EndInit();
             this.ultraGroupBox1.ResumeLayout(false);
             this.ultraGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbEquipmentMasterSetup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraGroupBox2)).EndInit();
             this.ultraGroupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ultraGrid1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbEquipmentMasterSetup)).EndInit();
             this.ResumeLayout(false);
 
         }
