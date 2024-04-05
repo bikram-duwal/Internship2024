@@ -679,9 +679,9 @@ namespace Internship2024
 		/// <param name="paramName">The name of the parameter.</param>
 		/// <param name="value">The value of the parameter.</param>
 		/// <returns>A reference to the added parameter.</returns>
-		protected virtual IDbDataParameter AddParameter(SqlCommand cmd, string paramName, object value)
+		protected virtual SqlParameter AddParameter(SqlCommand cmd, string paramName, object value)
 		{
-			IDbDataParameter parameter;
+			SqlParameter parameter;
 			switch(paramName)
 			{
 				case "ID":

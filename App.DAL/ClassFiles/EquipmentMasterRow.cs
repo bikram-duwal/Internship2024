@@ -1,4 +1,4 @@
-// <fileinfo name="EquipmentTypeRow_Base.cs">
+// <fileinfo name="EquipmentMasterRow_Base.cs">
 //		<copyright>
 //			All rights reserved.
 //		</copyright>
@@ -14,35 +14,30 @@ using System;
 namespace Internship2024
 {
 	/// <summary>
-	/// The base class for <see cref="EquipmentTypeRow"/> that 
-	/// represents a record in the <c>EquipmentType</c> table.
+	/// The base class for <see cref="EquipmentMasterRow"/> that 
+	/// represents a record in the <c>EquipmentMaster</c> table.
 	/// </summary>
 	/// <remarks>
-	/// Do not change this source code manually. Update the <see cref="EquipmentTypeRow"/>
+	/// Do not change this source code manually. Update the <see cref="EquipmentMasterRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class EquipmentTypeRow
+	public  class EquipmentMasterRow
 	{
 		private long _id;
-		private string _uniqueCode;
 		private string _name;
 		private string _description;
 		private string _details1;
 		private string _details2;
 		private string _details3;
 		private string _details4;
-		private string _details5;
-		private long _createdBy;
-		private System.DateTime _createdDate;
-		private long _modifiedBy;
-		private bool _modifiedByNull = true;
-		private System.DateTime _modifiedDate;
-		private bool _modifiedDateNull = true;
+		private string _city;
+		private bool _isActive;
+		private bool _isActiveNull = true;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="EquipmentTypeRow"/> class.
+		/// Initializes a new instance of the <see cref="EquipmentMasterRow_Base"/> class.
 		/// </summary>
-		public EquipmentTypeRow()
+		public EquipmentMasterRow()
 		{
 			// EMPTY
 		}
@@ -58,17 +53,8 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>UniqueCode</c> column value.
-		/// </summary>
-		/// <value>The <c>UniqueCode</c> column value.</value>
-		public string UniqueCode
-		{
-			get { return _uniqueCode; }
-			set { _uniqueCode = value; }
-		}
-
-		/// <summary>
 		/// Gets or sets the <c>Name</c> column value.
+		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>Name</c> column value.</value>
 		public string Name
@@ -79,6 +65,7 @@ namespace Internship2024
 
 		/// <summary>
 		/// Gets or sets the <c>Description</c> column value.
+		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>Description</c> column value.</value>
 		public string Description
@@ -132,96 +119,45 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>Details5</c> column value.
+		/// Gets or sets the <c>City</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>Details5</c> column value.</value>
-		public string Details5
+		/// <value>The <c>City</c> column value.</value>
+		public string City
 		{
-			get { return _details5; }
-			set { _details5 = value; }
+			get { return _city; }
+			set { _city = value; }
 		}
 
 		/// <summary>
-		/// Gets or sets the <c>CreatedBy</c> column value.
-		/// </summary>
-		/// <value>The <c>CreatedBy</c> column value.</value>
-		public long CreatedBy
-		{
-			get { return _createdBy; }
-			set { _createdBy = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>CreatedDate</c> column value.
-		/// </summary>
-		/// <value>The <c>CreatedDate</c> column value.</value>
-		public System.DateTime CreatedDate
-		{
-			get { return _createdDate; }
-			set { _createdDate = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>ModifiedBy</c> column value.
+		/// Gets or sets the <c>IsActive</c> column value.
 		/// This column is nullable.
 		/// </summary>
-		/// <value>The <c>ModifiedBy</c> column value.</value>
-		public long ModifiedBy
+		/// <value>The <c>IsActive</c> column value.</value>
+		public bool IsActive
 		{
 			get
 			{
-				if(IsModifiedByNull)
+				if(IsIsActiveNull)
 					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _modifiedBy;
+				return _isActive;
 			}
 			set
 			{
-				_modifiedByNull = false;
-				_modifiedBy = value;
+				_isActiveNull = false;
+				_isActive = value;
 			}
 		}
 
 		/// <summary>
-		/// Indicates whether the <see cref="ModifiedBy"/>
+		/// Indicates whether the <see cref="IsActive"/>
 		/// property value is null.
 		/// </summary>
 		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsModifiedByNull
+		public bool IsIsActiveNull
 		{
-			get { return _modifiedByNull; }
-			set { _modifiedByNull = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the <c>ModifiedDate</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>ModifiedDate</c> column value.</value>
-		public System.DateTime ModifiedDate
-		{
-			get
-			{
-				if(IsModifiedDateNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _modifiedDate;
-			}
-			set
-			{
-				_modifiedDateNull = false;
-				_modifiedDate = value;
-			}
-		}
-
-		/// <summary>
-		/// Indicates whether the <see cref="ModifiedDate"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsModifiedDateNull
-		{
-			get { return _modifiedDateNull; }
-			set { _modifiedDateNull = value; }
+			get { return _isActiveNull; }
+			set { _isActiveNull = value; }
 		}
 
 		/// <summary>
@@ -234,8 +170,6 @@ namespace Internship2024
 			dynStr.Append(':');
 			dynStr.Append("  ID=");
 			dynStr.Append(ID);
-			dynStr.Append("  UniqueCode=");
-			dynStr.Append(UniqueCode);
 			dynStr.Append("  Name=");
 			dynStr.Append(Name);
 			dynStr.Append("  Description=");
@@ -248,17 +182,11 @@ namespace Internship2024
 			dynStr.Append(Details3);
 			dynStr.Append("  Details4=");
 			dynStr.Append(Details4);
-			dynStr.Append("  Details5=");
-			dynStr.Append(Details5);
-			dynStr.Append("  CreatedBy=");
-			dynStr.Append(CreatedBy);
-			dynStr.Append("  CreatedDate=");
-			dynStr.Append(CreatedDate);
-			dynStr.Append("  ModifiedBy=");
-			dynStr.Append(IsModifiedByNull ? (object)"<NULL>" : ModifiedBy);
-			dynStr.Append("  ModifiedDate=");
-			dynStr.Append(IsModifiedDateNull ? (object)"<NULL>" : ModifiedDate);
+			dynStr.Append("  City=");
+			dynStr.Append(City);
+			dynStr.Append("  IsActive=");
+			dynStr.Append(IsIsActiveNull ? (object)"<NULL>" : IsActive);
 			return dynStr.ToString();
 		}
-	} // End of EquipmentTypeRow_Base class
+	} // End of EquipmentMasterRow_Base class
 } // End of namespace

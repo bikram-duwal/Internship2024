@@ -21,7 +21,7 @@ namespace Internship2024
 	/// Do not change this source code manually. Update the <see cref="ModelRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class ModelRow
+	public class ModelRow
 	{
 		private long _id;
 		private string _uniqueCode;

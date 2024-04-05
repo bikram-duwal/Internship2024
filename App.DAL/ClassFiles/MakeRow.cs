@@ -21,7 +21,7 @@ namespace Internship2024
 	/// Do not change this source code manually. Update the <see cref="MakeRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class MakeRow
+	public class MakeRow
 	{
 		private long _id;
 		private string _uniqueCode;

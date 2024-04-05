@@ -31,7 +31,7 @@ namespace Internship2024
             }
             catch (Exception ex)
             {
-
+                
                 throw;
             }
         }

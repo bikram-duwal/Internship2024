@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassFiles\EquipmentMaster.cs" />
+    <Compile Include="ClassFiles\EquipmentMasterRow.cs" />
     <Compile Include="ClassFiles\EquipmentStatus.cs" />
     <Compile Include="ClassFiles\EquipmentStatusRow.cs" />
     <Compile Include="ClassFiles\EquipmentType.cs" />

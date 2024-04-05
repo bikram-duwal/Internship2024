@@ -1,4 +1,4 @@
-// <fileinfo name="EquipmentStatusCollection_Base.cs">
+// <fileinfo name="EquipmentMasterCollection_Base.cs">
 //		<copyright>
 //			All rights reserved.
 //		</copyright>
@@ -16,36 +16,35 @@ using System.Data.SqlClient;
 namespace Internship2024
 {
 	/// <summary>
-	/// The base class for <see cref="EquipmentStatusCollection"/>. Provides methods 
+	/// The base class for <see cref="EquipmentMasterCollection"/>. Provides methods 
 	/// for common database table operations. 
 	/// </summary>
 	/// <remarks>
-	/// Do not change this source code. Update the <see cref="EquipmentStatusCollection"/>
+	/// Do not change this source code. Update the <see cref="EquipmentMasterCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public abstract class EquipmentStatusCollection_Base
-	{
+	public  class EquipmentMaster
+    {
 		// Constants
 		public const string IDColumnName = "ID";
-		public const string UniqueCodeColumnName = "UniqueCode";
-		public const string StatusNameColumnName = "StatusName";
-		public const string StatusCaptionColumnName = "StatusCaption";
+		public const string NameColumnName = "Name";
+		public const string DescriptionColumnName = "Description";
 		public const string Details1ColumnName = "Details1";
 		public const string Details2ColumnName = "Details2";
 		public const string Details3ColumnName = "Details3";
 		public const string Details4ColumnName = "Details4";
-		public const string Details5ColumnName = "Details5";
-		public const string IsDeletedColumnName = "IsDeleted";
+		public const string CityColumnName = "City";
+		public const string IsActiveColumnName = "IsActive";
 
 		// Instance fields
 		private Internship2024DB _db;
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="EquipmentStatusCollection_Base"/> 
+		/// Initializes a new instance of the <see cref="EquipmentMaster"/> 
 		/// class with the specified <see cref="Internship2024"/>.
 		/// </summary>
 		/// <param name="db">The <see cref="Internship2024"/> object.</param>
-		public EquipmentStatusCollection_Base(Internship2024DB db)
+		public EquipmentMaster(Internship2024DB db)
 		{
 			_db = db;
 		}
@@ -60,17 +59,17 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets an array of all records from the <c>EquipmentStatus</c> table.
+		/// Gets an array of all records from the <c>EquipmentMaster</c> table.
 		/// </summary>
-		/// <returns>An array of <see cref="EquipmentStatusRow"/> objects.</returns>
-		public virtual EquipmentStatusRow[] GetAll()
+		/// <returns>An array of <see cref="EquipmentMasterRow"/> objects.</returns>
+		public virtual EquipmentMasterRow[] GetAll()
 		{
 			return MapRecords(CreateGetAllCommand());
 		}
 
 		/// <summary>
 		/// Gets a <see cref="System.Data.DataTable"/> object that 
-		/// includes all records from the <c>EquipmentStatus</c> table.
+		/// includes all records from the <c>EquipmentMaster</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		public virtual DataTable GetAllAsDataTable()
@@ -80,46 +79,46 @@ namespace Internship2024
 
 		/// <summary>
 		/// Creates and returns an <see cref="System.Data.SqlCommand"/> object that is used
-		/// to retrieve all records from the <c>EquipmentStatus</c> table.
+		/// to retrieve all records from the <c>EquipmentMaster</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo._EquipmentStatus_GetAll", true);
+			return _db.CreateCommand("dbo._EquipmentMaster_GetAll", true);
 		}
 
 		/// <summary>
-		/// Gets the first <see cref="EquipmentStatusRow"/> objects that 
+		/// Gets the first <see cref="EquipmentMasterRow"/> objects that 
 		/// match the search condition.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example: 
 		/// <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
-		/// <returns>An instance of <see cref="EquipmentStatusRow"/> or null reference 
+		/// <returns>An instance of <see cref="EquipmentMasterRow"/> or null reference 
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
-		public EquipmentStatusRow GetRow(string whereSql)
+		public EquipmentMasterRow GetRow(string whereSql)
 		{
 			int totalRecordCount = -1;
-			EquipmentStatusRow[] rows = GetAsArray(whereSql, null, 0, 1, ref totalRecordCount);
+			EquipmentMasterRow[] rows = GetAsArray(whereSql, null, 0, 1, ref totalRecordCount);
 			return 0 == rows.Length ? null : rows[0];
 		}
 
 		/// <summary>
-		/// Gets an array of <see cref="EquipmentStatusRow"/> objects that 
+		/// Gets an array of <see cref="EquipmentMasterRow"/> objects that 
 		/// match the search condition, in the the specified sort order.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example: 
 		/// <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
 		/// <param name="orderBySql">The column name(s) followed by "ASC" (ascending) or "DESC" (descending).
 		/// Columns are sorted in ascending order by default. For example: <c>"LastName ASC, FirstName ASC"</c>.</param>
-		/// <returns>An array of <see cref="EquipmentStatusRow"/> objects.</returns>
-		public EquipmentStatusRow[] GetAsArray(string whereSql, string orderBySql)
+		/// <returns>An array of <see cref="EquipmentMasterRow"/> objects.</returns>
+		public EquipmentMasterRow[] GetAsArray(string whereSql, string orderBySql)
 		{
 			int totalRecordCount = -1;
 			return GetAsArray(whereSql, orderBySql, 0, int.MaxValue, ref totalRecordCount);
 		}
 
 		/// <summary>
-		/// Gets an array of <see cref="EquipmentStatusRow"/> objects that 
+		/// Gets an array of <see cref="EquipmentMasterRow"/> objects that 
 		/// match the search condition, in the the specified sort order.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. For example:
@@ -130,8 +129,8 @@ namespace Internship2024
 		/// <param name="length">The number of records to return.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
-		/// <returns>An array of <see cref="EquipmentStatusRow"/> objects.</returns>
-		public virtual EquipmentStatusRow[] GetAsArray(string whereSql, string orderBySql,
+		/// <returns>An array of <see cref="EquipmentMasterRow"/> objects.</returns>
+		public virtual EquipmentMasterRow[] GetAsArray(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
 			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
@@ -184,7 +183,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetCommand(string whereSql, string orderBySql)
 		{
-			string sql = "SELECT * FROM [dbo].[EquipmentStatus]";
+			string sql = "SELECT * FROM [dbo].[EquipmentMaster]";
 			if(null != whereSql && 0 < whereSql.Length)
 				sql += " WHERE " + whereSql;
 			if(null != orderBySql && 0 < orderBySql.Length)
@@ -193,64 +192,63 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Gets <see cref="EquipmentStatusRow"/> by the primary key.
+		/// Gets <see cref="EquipmentMasterRow"/> by the primary key.
 		/// </summary>
 		/// <param name="id">The <c>ID</c> column value.</param>
-		/// <returns>An instance of <see cref="EquipmentStatusRow"/> or null reference 
+		/// <returns>An instance of <see cref="EquipmentMasterRow"/> or null reference 
 		/// (Nothing in Visual Basic) if the object was not found.</returns>
-		public virtual EquipmentStatusRow GetByPrimaryKey(long id)
+		public virtual EquipmentMasterRow GetByPrimaryKey(long id)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentStatus_GetByPrimaryKey", true);
+			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentMaster_GetByPrimaryKey", true);
 			AddParameter(cmd, "ID", id);
-			EquipmentStatusRow[] tempArray = MapRecords(cmd);
+			EquipmentMasterRow[] tempArray = MapRecords(cmd);
 			return 0 == tempArray.Length ? null : tempArray[0];
 		}
 
 		/// <summary>
-		/// Adds a new record into the <c>EquipmentStatus</c> table.
+		/// Adds a new record into the <c>EquipmentMaster</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="EquipmentStatusRow"/> object to be inserted.</param>
-		public virtual void Insert(EquipmentStatusRow value)
+		/// <param name="value">The <see cref="EquipmentMasterRow"/> object to be inserted.</param>
+		public virtual void Insert(EquipmentMasterRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentStatus_Insert", true);
-			AddParameter(cmd, "UniqueCode", value.UniqueCode);
-			AddParameter(cmd, "StatusName", value.StatusName);
-			AddParameter(cmd, "StatusCaption", value.StatusCaption);
+			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentMaster_Insert", true);
+			AddParameter(cmd, "ID", value.ID);
+			AddParameter(cmd, "Name", value.Name);
+			AddParameter(cmd, "Description", value.Description);
 			AddParameter(cmd, "Details1", value.Details1);
 			AddParameter(cmd, "Details2", value.Details2);
 			AddParameter(cmd, "Details3", value.Details3);
 			AddParameter(cmd, "Details4", value.Details4);
-			AddParameter(cmd, "Details5", value.Details5);
-			AddParameter(cmd, "IsDeleted",
-				value.IsIsDeletedNull ? DBNull.Value : (object)value.IsDeleted);
-			value.ID = Convert.ToInt64(cmd.ExecuteScalar());
+			AddParameter(cmd, "City", value.City);
+			AddParameter(cmd, "IsActive",
+				value.IsIsActiveNull ? DBNull.Value : (object)value.IsActive);
+			cmd.ExecuteNonQuery();
 		}
 
 		/// <summary>
-		/// Updates a record in the <c>EquipmentStatus</c> table.
+		/// Updates a record in the <c>EquipmentMaster</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="EquipmentStatusRow"/>
+		/// <param name="value">The <see cref="EquipmentMasterRow"/>
 		/// object used to update the table record.</param>
 		/// <returns>true if the record was updated; otherwise, false.</returns>
-		public virtual bool Update(EquipmentStatusRow value)
+		public virtual bool Update(EquipmentMasterRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentStatus_Update", true);
-			AddParameter(cmd, "UniqueCode", value.UniqueCode);
-			AddParameter(cmd, "StatusName", value.StatusName);
-			AddParameter(cmd, "StatusCaption", value.StatusCaption);
+			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentMaster_Update", true);
+			AddParameter(cmd, "Name", value.Name);
+			AddParameter(cmd, "Description", value.Description);
 			AddParameter(cmd, "Details1", value.Details1);
 			AddParameter(cmd, "Details2", value.Details2);
 			AddParameter(cmd, "Details3", value.Details3);
 			AddParameter(cmd, "Details4", value.Details4);
-			AddParameter(cmd, "Details5", value.Details5);
-			AddParameter(cmd, "IsDeleted",
-				value.IsIsDeletedNull ? DBNull.Value : (object)value.IsDeleted);
+			AddParameter(cmd, "City", value.City);
+			AddParameter(cmd, "IsActive",
+				value.IsIsActiveNull ? DBNull.Value : (object)value.IsActive);
 			AddParameter(cmd, "ID", value.ID);
 			return 0 != cmd.ExecuteNonQuery();
 		}
 
 		/// <summary>
-		/// Updates the <c>EquipmentStatus</c> table and calls the <c>AcceptChanges</c> method
+		/// Updates the <c>EquipmentMaster</c> table and calls the <c>AcceptChanges</c> method
 		/// on the changed DataRow objects.
 		/// </summary>
 		/// <param name="table">The <see cref="System.Data.DataTable"/> used to update the data source.</param>
@@ -260,7 +258,7 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Updates the <c>EquipmentStatus</c> table. Pass <c>false</c> as the <c>acceptChanges</c> 
+		/// Updates the <c>EquipmentMaster</c> table. Pass <c>false</c> as the <c>acceptChanges</c> 
 		/// argument when your code calls this method in an ADO.NET transaction context. Note that in 
 		/// this case, after you call the Update method you need call either <c>AcceptChanges</c> 
 		/// or <c>RejectChanges</c> method on the DataTable object.
@@ -322,30 +320,30 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Deletes the specified object from the <c>EquipmentStatus</c> table.
+		/// Deletes the specified object from the <c>EquipmentMaster</c> table.
 		/// </summary>
-		/// <param name="value">The <see cref="EquipmentStatusRow"/> object to delete.</param>
+		/// <param name="value">The <see cref="EquipmentMasterRow"/> object to delete.</param>
 		/// <returns>true if the record was deleted; otherwise, false.</returns>
-		public bool Delete(EquipmentStatusRow value)
+		public bool Delete(EquipmentMasterRow value)
 		{
 			return DeleteByPrimaryKey(value.ID);
 		}
 
 		/// <summary>
-		/// Deletes a record from the <c>EquipmentStatus</c> table using
+		/// Deletes a record from the <c>EquipmentMaster</c> table using
 		/// the specified primary key.
 		/// </summary>
 		/// <param name="id">The <c>ID</c> column value.</param>
 		/// <returns>true if the record was deleted; otherwise, false.</returns>
 		public virtual bool DeleteByPrimaryKey(long id)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentStatus_DeleteByPrimaryKey", true);
+			SqlCommand cmd = _db.CreateCommand("dbo._EquipmentMaster_DeleteByPrimaryKey", true);
 			AddParameter(cmd, "ID", id);
 			return 0 < cmd.ExecuteNonQuery();
 		}
 
 		/// <summary>
-		/// Deletes <c>EquipmentStatus</c> records that match the specified criteria.
+		/// Deletes <c>EquipmentMaster</c> records that match the specified criteria.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. 
 		/// For example: <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
@@ -357,26 +355,26 @@ namespace Internship2024
 
 		/// <summary>
 		/// Creates an <see cref="System.Data.SqlCommand"/> object that can be used 
-		/// to delete <c>EquipmentStatus</c> records that match the specified criteria.
+		/// to delete <c>EquipmentMaster</c> records that match the specified criteria.
 		/// </summary>
 		/// <param name="whereSql">The SQL search condition. 
 		/// For example: <c>"FirstName='Smith' AND Zip=75038"</c>.</param>
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
-		protected virtual SqlCommand CreateDeleteCommand(string whereSql)
+		protected  SqlCommand CreateDeleteCommand(string whereSql)
 		{
-			string sql = "DELETE FROM [dbo].[EquipmentStatus]";
+			string sql = "DELETE FROM [dbo].[EquipmentMaster]";
 			if(null != whereSql && 0 < whereSql.Length)
 				sql += " WHERE " + whereSql;
 			return _db.CreateCommand(sql);
 		}
 
 		/// <summary>
-		/// Deletes all records from the <c>EquipmentStatus</c> table.
+		/// Deletes all records from the <c>EquipmentMaster</c> table.
 		/// </summary>
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo._EquipmentStatus_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo._EquipmentMaster_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>
@@ -384,8 +382,8 @@ namespace Internship2024
 		/// an array of mapped objects.
 		/// </summary>
 		/// <param name="command">The <see cref="System.Data.SqlCommand"/> object.</param>
-		/// <returns>An array of <see cref="EquipmentStatusRow"/> objects.</returns>
-		protected EquipmentStatusRow[] MapRecords(SqlCommand command)
+		/// <returns>An array of <see cref="EquipmentMasterRow"/> objects.</returns>
+		protected EquipmentMasterRow[] MapRecords(SqlCommand command)
 		{
 			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
@@ -398,8 +396,8 @@ namespace Internship2024
 		/// an array of mapped objects.
 		/// </summary>
 		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
-		/// <returns>An array of <see cref="EquipmentStatusRow"/> objects.</returns>
-		protected EquipmentStatusRow[] MapRecords(SqlDataReader reader)
+		/// <returns>An array of <see cref="EquipmentMasterRow"/> objects.</returns>
+		protected EquipmentMasterRow[] MapRecords(SqlDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -414,8 +412,8 @@ namespace Internship2024
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
-		/// <returns>An array of <see cref="EquipmentStatusRow"/> objects.</returns>
-		protected virtual EquipmentStatusRow[] MapRecords(SqlDataReader reader, 
+		/// <returns>An array of <see cref="EquipmentMasterRow"/> objects.</returns>
+		protected virtual EquipmentMasterRow[] MapRecords(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -424,15 +422,14 @@ namespace Internship2024
 				throw new ArgumentOutOfRangeException("length", length, "Length cannot be less than zero.");
 
 			int idColumnIndex = reader.GetOrdinal("ID");
-			int uniqueCodeColumnIndex = reader.GetOrdinal("UniqueCode");
-			int statusNameColumnIndex = reader.GetOrdinal("StatusName");
-			int statusCaptionColumnIndex = reader.GetOrdinal("StatusCaption");
+			int nameColumnIndex = reader.GetOrdinal("Name");
+			int descriptionColumnIndex = reader.GetOrdinal("Description");
 			int details1ColumnIndex = reader.GetOrdinal("Details1");
 			int details2ColumnIndex = reader.GetOrdinal("Details2");
 			int details3ColumnIndex = reader.GetOrdinal("Details3");
 			int details4ColumnIndex = reader.GetOrdinal("Details4");
-			int details5ColumnIndex = reader.GetOrdinal("Details5");
-			int isDeletedColumnIndex = reader.GetOrdinal("IsDeleted");
+			int cityColumnIndex = reader.GetOrdinal("City");
+			int isActiveColumnIndex = reader.GetOrdinal("IsActive");
 
 			System.Collections.ArrayList recordList = new System.Collections.ArrayList();
 			int ri = -startIndex;
@@ -441,13 +438,14 @@ namespace Internship2024
 				ri++;
 				if(ri > 0 && ri <= length)
 				{
-					EquipmentStatusRow record = new EquipmentStatusRow();
+					EquipmentMasterRow record = new EquipmentMasterRow();
 					recordList.Add(record);
 
 					record.ID = Convert.ToInt64(reader.GetValue(idColumnIndex));
-					record.UniqueCode = Convert.ToString(reader.GetValue(uniqueCodeColumnIndex));
-					record.StatusName = Convert.ToString(reader.GetValue(statusNameColumnIndex));
-					record.StatusCaption = Convert.ToString(reader.GetValue(statusCaptionColumnIndex));
+					if(!reader.IsDBNull(nameColumnIndex))
+						record.Name = Convert.ToString(reader.GetValue(nameColumnIndex));
+					if(!reader.IsDBNull(descriptionColumnIndex))
+						record.Description = Convert.ToString(reader.GetValue(descriptionColumnIndex));
 					if(!reader.IsDBNull(details1ColumnIndex))
 						record.Details1 = Convert.ToString(reader.GetValue(details1ColumnIndex));
 					if(!reader.IsDBNull(details2ColumnIndex))
@@ -456,10 +454,10 @@ namespace Internship2024
 						record.Details3 = Convert.ToString(reader.GetValue(details3ColumnIndex));
 					if(!reader.IsDBNull(details4ColumnIndex))
 						record.Details4 = Convert.ToString(reader.GetValue(details4ColumnIndex));
-					if(!reader.IsDBNull(details5ColumnIndex))
-						record.Details5 = Convert.ToString(reader.GetValue(details5ColumnIndex));
-					if(!reader.IsDBNull(isDeletedColumnIndex))
-						record.IsDeleted = Convert.ToBoolean(reader.GetValue(isDeletedColumnIndex));
+					if(!reader.IsDBNull(cityColumnIndex))
+						record.City = Convert.ToString(reader.GetValue(cityColumnIndex));
+					if(!reader.IsDBNull(isActiveColumnIndex))
+						record.IsActive = Convert.ToBoolean(reader.GetValue(isActiveColumnIndex));
 
 					if(ri == length && 0 != totalRecordCount)
 						break;
@@ -467,7 +465,7 @@ namespace Internship2024
 			}
 
 			totalRecordCount = 0 == totalRecordCount ? ri + startIndex : -1;
-			return (EquipmentStatusRow[])(recordList.ToArray(typeof(EquipmentStatusRow)));
+			return (EquipmentMasterRow[])(recordList.ToArray(typeof(EquipmentMasterRow)));
 		}
 
 		/// <summary>
@@ -540,31 +538,27 @@ namespace Internship2024
 		}
 
 		/// <summary>
-		/// Converts <see cref="System.Data.DataRow"/> to <see cref="EquipmentStatusRow"/>.
+		/// Converts <see cref="System.Data.DataRow"/> to <see cref="EquipmentMasterRow"/>.
 		/// </summary>
 		/// <param name="row">The <see cref="System.Data.DataRow"/> object to be mapped.</param>
-		/// <returns>A reference to the <see cref="EquipmentStatusRow"/> object.</returns>
-		protected virtual EquipmentStatusRow MapRow(DataRow row)
+		/// <returns>A reference to the <see cref="EquipmentMasterRow"/> object.</returns>
+		protected virtual EquipmentMasterRow MapRow(DataRow row)
 		{
-			EquipmentStatusRow mappedObject = new EquipmentStatusRow();
+			EquipmentMasterRow mappedObject = new EquipmentMasterRow();
 			DataTable dataTable = row.Table;
 			DataColumn dataColumn;
 			// Column "ID"
 			dataColumn = dataTable.Columns["ID"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.ID = (long)row[dataColumn];
-			// Column "UniqueCode"
-			dataColumn = dataTable.Columns["UniqueCode"];
+			// Column "Name"
+			dataColumn = dataTable.Columns["Name"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.UniqueCode = (string)row[dataColumn];
-			// Column "StatusName"
-			dataColumn = dataTable.Columns["StatusName"];
+				mappedObject.Name = (string)row[dataColumn];
+			// Column "Description"
+			dataColumn = dataTable.Columns["Description"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.StatusName = (string)row[dataColumn];
-			// Column "StatusCaption"
-			dataColumn = dataTable.Columns["StatusCaption"];
-			if(!row.IsNull(dataColumn))
-				mappedObject.StatusCaption = (string)row[dataColumn];
+				mappedObject.Description = (string)row[dataColumn];
 			// Column "Details1"
 			dataColumn = dataTable.Columns["Details1"];
 			if(!row.IsNull(dataColumn))
@@ -581,47 +575,44 @@ namespace Internship2024
 			dataColumn = dataTable.Columns["Details4"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Details4 = (string)row[dataColumn];
-			// Column "Details5"
-			dataColumn = dataTable.Columns["Details5"];
+			// Column "City"
+			dataColumn = dataTable.Columns["City"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.Details5 = (string)row[dataColumn];
-			// Column "IsDeleted"
-			dataColumn = dataTable.Columns["IsDeleted"];
+				mappedObject.City = (string)row[dataColumn];
+			// Column "IsActive"
+			dataColumn = dataTable.Columns["IsActive"];
 			if(!row.IsNull(dataColumn))
-				mappedObject.IsDeleted = (bool)row[dataColumn];
+				mappedObject.IsActive = (bool)row[dataColumn];
 			return mappedObject;
 		}
 
 		/// <summary>
 		/// Creates a <see cref="System.Data.DataTable"/> object for 
-		/// the <c>EquipmentStatus</c> table.
+		/// the <c>EquipmentMaster</c> table.
 		/// </summary>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		protected virtual DataTable CreateDataTable()
 		{
 			DataTable dataTable = new DataTable();
-			dataTable.TableName = "EquipmentStatus";
+			dataTable.TableName = "EquipmentMaster";
 			DataColumn dataColumn;
 			dataColumn = dataTable.Columns.Add("ID", typeof(long));
 			dataColumn.AllowDBNull = false;
-			dataColumn.ReadOnly = true;
-			dataColumn.Unique = true;
-			dataColumn.AutoIncrement = true;
-			dataColumn = dataTable.Columns.Add("UniqueCode", typeof(string));
-			dataColumn.MaxLength = 20;
-			dataColumn.AllowDBNull = false;
-			dataColumn = dataTable.Columns.Add("StatusName", typeof(string));
-			dataColumn.MaxLength = 100;
-			dataColumn.AllowDBNull = false;
-			dataColumn = dataTable.Columns.Add("StatusCaption", typeof(string));
-			dataColumn.MaxLength = 100;
-			dataColumn.AllowDBNull = false;
+			dataColumn = dataTable.Columns.Add("Name", typeof(string));
+			dataColumn.MaxLength = 255;
+			dataColumn = dataTable.Columns.Add("Description", typeof(string));
+			dataColumn.MaxLength = 255;
 			dataColumn = dataTable.Columns.Add("Details1", typeof(string));
+			dataColumn.MaxLength = 255;
 			dataColumn = dataTable.Columns.Add("Details2", typeof(string));
+			dataColumn.MaxLength = 255;
 			dataColumn = dataTable.Columns.Add("Details3", typeof(string));
+			dataColumn.MaxLength = 255;
 			dataColumn = dataTable.Columns.Add("Details4", typeof(string));
-			dataColumn = dataTable.Columns.Add("Details5", typeof(string));
-			dataColumn = dataTable.Columns.Add("IsDeleted", typeof(bool));
+			dataColumn.MaxLength = 255;
+			dataColumn = dataTable.Columns.Add("City", typeof(string));
+			dataColumn.MaxLength = 255;
+			dataColumn = dataTable.Columns.Add("IsActive", typeof(bool));
 			return dataTable;
 		}
 		
@@ -641,15 +632,11 @@ namespace Internship2024
 					parameter = _db.AddParameter(cmd, paramName, DbType.Int64, value);
 					break;
 
-				case "UniqueCode":
+				case "Name":
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "StatusName":
-					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
-					break;
-
-				case "StatusCaption":
+				case "Description":
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
@@ -669,11 +656,11 @@ namespace Internship2024
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "Details5":
+				case "City":
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
 					break;
 
-				case "IsDeleted":
+				case "IsActive":
 					parameter = _db.AddParameter(cmd, paramName, DbType.Boolean, value);
 					break;
 
@@ -682,5 +669,5 @@ namespace Internship2024
 			}
 			return parameter;
 		}
-	} // End of EquipmentStatusCollection_Base class
+	} // End of EquipmentMasterCollection_Base class
 }  // End of namespace
