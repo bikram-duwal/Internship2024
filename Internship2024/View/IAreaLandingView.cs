@@ -6,6 +6,6 @@ namespace Internship2024.View
     public interface IAreaLandingView
     {
         UltraGrid UGAreaLanding { get; }
-        AreaLandingPresenter Presenter { get; set; }
+        AreaLandingPresenter _presenter { get; set; }
     }
 }

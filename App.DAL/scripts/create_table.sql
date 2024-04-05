@@ -2,6 +2,7 @@ CREATE TABLE pl_object (
     table_pid bigint NOT NULL IDENTITY(1,1) PRIMARY KEY,
     table_name varchar(50),
     name varchar(50),
+    created_date DateTime,
     created_by bigint,
     modified_date DateTime,
     modified_by bigint,

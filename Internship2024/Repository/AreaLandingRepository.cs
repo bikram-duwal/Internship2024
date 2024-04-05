@@ -1,6 +1,4 @@
-﻿using Internship2024.Model;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Internship2024.Repository
@@ -23,7 +21,7 @@ namespace Internship2024.Repository
             while (reader.Read())
             {
                 /*
-                 Area row = new Area
+                Area row = new Area
                 {
                     UniqueCode = reader["area_unique_code"].ToString(),
                     AreaName = reader["area_name"].ToString(),

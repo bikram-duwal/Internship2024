@@ -127,7 +127,7 @@ namespace Internship2024
 		public virtual pl_stringRow[] GetAsArray(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
-			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
+			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
 			{
 				return MapRecords(reader, startIndex, length, ref totalRecordCount);
 			}
@@ -162,7 +162,7 @@ namespace Internship2024
 		public virtual DataTable GetAsDataTable(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
-			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
+			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
 			{
 				return MapRecordsToDataTable(reader, startIndex, length, ref totalRecordCount);
 			}
@@ -192,8 +192,7 @@ namespace Internship2024
 		public virtual void Insert(pl_stringRow value)
 		{
 			SqlCommand cmd = _db.CreateCommand("dbo.pl_string_Insert", true);
-			AddParameter(cmd, "Table_pid",
-				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
+			AddParameter(cmd, "Table_pid", value.Table_pid);
 			AddParameter(cmd, "Column_type", value.Column_type);
 			AddParameter(cmd, "Data_value", value.Data_value);
 			cmd.ExecuteNonQuery();
@@ -242,7 +241,7 @@ namespace Internship2024
 		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
 		protected pl_stringRow[] MapRecords(SqlCommand command)
 		{
-			using(IDataReader reader = _db.ExecuteReader(command))
+			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
 				return MapRecords(reader);
 			}
@@ -252,9 +251,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		protected pl_stringRow[] MapRecords(IDataReader reader)
+		protected pl_stringRow[] MapRecords(SqlDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -264,13 +263,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to map.</param>
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>An array of <see cref="pl_stringRow"/> objects.</returns>
-		protected virtual pl_stringRow[] MapRecords(IDataReader reader, 
+		protected virtual pl_stringRow[] MapRecords(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -292,12 +291,9 @@ namespace Internship2024
 					pl_stringRow record = new pl_stringRow();
 					recordList.Add(record);
 
-					if(!reader.IsDBNull(table_pidColumnIndex))
-						record.Table_pid = Convert.ToInt64(reader.GetValue(table_pidColumnIndex));
-					if(!reader.IsDBNull(column_typeColumnIndex))
-						record.Column_type = Convert.ToString(reader.GetValue(column_typeColumnIndex));
-					if(!reader.IsDBNull(data_valueColumnIndex))
-						record.Data_value = Convert.ToString(reader.GetValue(data_valueColumnIndex));
+					record.Table_pid = Convert.ToInt64(reader.GetValue(table_pidColumnIndex));
+					record.Column_type = Convert.ToString(reader.GetValue(column_typeColumnIndex));
+					record.Data_value = Convert.ToString(reader.GetValue(data_valueColumnIndex));
 
 					if(ri == length && 0 != totalRecordCount)
 						break;
@@ -316,7 +312,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		protected DataTable MapRecordsToDataTable(SqlCommand command)
 		{
-			using(IDataReader reader = _db.ExecuteReader(command))
+			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
 				return MapRecordsToDataTable(reader);
 			}
@@ -326,9 +322,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected DataTable MapRecordsToDataTable(IDataReader reader)
+		protected DataTable MapRecordsToDataTable(SqlDataReader reader)
 		{
 			int totalRecordCount = 0;
 			return MapRecordsToDataTable(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -338,13 +334,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to read.</param>
 		/// <param name="length">The number of records to read.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected virtual DataTable MapRecordsToDataTable(IDataReader reader, 
+		protected virtual DataTable MapRecordsToDataTable(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -414,12 +410,15 @@ namespace Internship2024
 			DataColumn dataColumn;
 			dataColumn = dataTable.Columns.Add("Table_pid", typeof(long));
 			dataColumn.Caption = "table_pid";
+			dataColumn.AllowDBNull = false;
 			dataColumn = dataTable.Columns.Add("Column_type", typeof(string));
 			dataColumn.Caption = "column_type";
 			dataColumn.MaxLength = 50;
+			dataColumn.AllowDBNull = false;
 			dataColumn = dataTable.Columns.Add("Data_value", typeof(string));
 			dataColumn.Caption = "data_value";
 			dataColumn.MaxLength = 1073741823;
+			dataColumn.AllowDBNull = false;
 			return dataTable;
 		}
 		
@@ -452,5 +451,23 @@ namespace Internship2024
 			}
 			return parameter;
 		}
-	} // End of pl_stringCollection_Base class
+        public virtual bool Update(pl_stringRow value)
+        {
+            SqlCommand cmd = _db.CreateCommand("dbo.pl_string_Update", true);
+            AddParameter(cmd, "Column_type", value.Column_type);
+            AddParameter(cmd, "Data_value", value.Data_value);
+            AddParameter(cmd, "Table_pid", value.Table_pid);
+
+            return 0 != cmd.ExecuteNonQuery();
+        }
+
+     //   public void Update(DataTable table)
+      //  {
+         //   Update(table, true);
+      //  }
+    }
+   
+
+
+    // End of pl_stringCollection_Base class
 }  // End of namespace

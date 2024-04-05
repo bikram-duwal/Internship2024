@@ -23,7 +23,7 @@ namespace Internship2024
 	/// Do not change this source code. Update the <see cref="pl_booleanCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_boolean
+	public  class pl_boolean
 	{
 		// Constants
 		public const string Table_pidColumnName = "table_pid";
@@ -78,7 +78,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.SqlCommand"/> object.</returns>
 		protected virtual SqlCommand CreateGetAllCommand()
 		{
-			return _db.CreateCommand("dbo.pl_boolean_GetAll", true);
+			return _db.CreateCommand("dbo._pl_boolean_GetAll", true);
 		}
 
 		/// <summary>
@@ -191,7 +191,7 @@ namespace Internship2024
 		/// <param name="value">The <see cref="pl_booleanRow"/> object to be inserted.</param>
 		public virtual void Insert(pl_booleanRow value)
 		{
-			SqlCommand cmd = _db.CreateCommand("dbo.pl_boolean_Insert", true);
+			SqlCommand cmd = _db.CreateCommand("dbo._pl_boolean_Insert", true);
 			AddParameter(cmd, "Table_pid",
 				value.IsTable_pidNull ? DBNull.Value : (object)value.Table_pid);
 			AddParameter(cmd, "Column_type", value.Column_type);
@@ -232,7 +232,7 @@ namespace Internship2024
 		/// <returns>The number of deleted records.</returns>
 		public int DeleteAll()
 		{
-			return _db.CreateCommand("dbo.pl_boolean_DeleteAll", true).ExecuteNonQuery();
+			return _db.CreateCommand("dbo._pl_boolean_DeleteAll", true).ExecuteNonQuery();
 		}
 
 		/// <summary>
@@ -253,9 +253,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>An array of <see cref="pl_booleanRow"/> objects.</returns>
-		protected pl_booleanRow[] MapRecords(IDataReader reader)
+		protected pl_booleanRow[] MapRecords(SqlDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -265,13 +265,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to map.</param>
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>An array of <see cref="pl_booleanRow"/> objects.</returns>
-		protected virtual pl_booleanRow[] MapRecords(IDataReader reader, 
+		protected virtual pl_booleanRow[] MapRecords(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -327,9 +327,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected DataTable MapRecordsToDataTable(IDataReader reader)
+		protected DataTable MapRecordsToDataTable(SqlDataReader reader)
 		{
 			int totalRecordCount = 0;
 			return MapRecordsToDataTable(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -339,13 +339,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to read.</param>
 		/// <param name="length">The number of records to read.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected virtual DataTable MapRecordsToDataTable(IDataReader reader, 
+		protected virtual DataTable MapRecordsToDataTable(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -432,7 +432,7 @@ namespace Internship2024
 		/// <returns>A reference to the added parameter.</returns>
 		protected virtual SqlParameter AddParameter(SqlCommand cmd, string paramName, object value)
 		{
-            SqlParameter parameter;
+			SqlParameter parameter;
 			switch(paramName)
 			{
 				case "Table_pid":
@@ -452,5 +452,14 @@ namespace Internship2024
 			}
 			return parameter;
 		}
-	} // End of pl_booleanCollection_Base class
+        public virtual bool Update(pl_booleanRow value)
+        {
+            SqlCommand cmd = _db.CreateCommand("dbo.pl_boolean_Update", true);
+            AddParameter(cmd, "Column_type", value.Column_type);
+            AddParameter(cmd, "Data_value", value.Data_value);
+            AddParameter(cmd, "Table_pid", value.Table_pid);
+
+            return 0 != cmd.ExecuteNonQuery();
+        }
+    } // End of pl_booleanCollection_Base class
 }  // End of namespace

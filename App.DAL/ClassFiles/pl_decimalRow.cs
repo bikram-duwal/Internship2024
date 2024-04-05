@@ -21,7 +21,7 @@ namespace Internship2024
 	/// Do not change this source code manually. Update the <see cref="pl_decimalRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_decimalRow
+	public  class pl_decimalRow
 	{
 		private long _table_pid;
 		private bool _table_pidNull = true;

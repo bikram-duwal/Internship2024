@@ -24,7 +24,6 @@ namespace Internship2024
 	public class pl_stringRow
 	{
 		private long _table_pid;
-		private bool _table_pidNull = true;
 		private string _column_type;
 		private string _data_value;
 
@@ -38,38 +37,16 @@ namespace Internship2024
 
 		/// <summary>
 		/// Gets or sets the <c>table_pid</c> column value.
-		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>table_pid</c> column value.</value>
 		public long Table_pid
 		{
-			get
-			{
-				if(IsTable_pidNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _table_pid;
-			}
-			set
-			{
-				_table_pidNull = false;
-				_table_pid = value;
-			}
-		}
-
-		/// <summary>
-		/// Indicates whether the <see cref="Table_pid"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		public bool IsTable_pidNull
-		{
-			get { return _table_pidNull; }
-			set { _table_pidNull = value; }
+			get { return _table_pid; }
+			set { _table_pid = value; }
 		}
 
 		/// <summary>
 		/// Gets or sets the <c>column_type</c> column value.
-		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>column_type</c> column value.</value>
 		public string Column_type
@@ -80,7 +57,6 @@ namespace Internship2024
 
 		/// <summary>
 		/// Gets or sets the <c>data_value</c> column value.
-		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>data_value</c> column value.</value>
 		public string Data_value
@@ -98,7 +74,7 @@ namespace Internship2024
 			System.Text.StringBuilder dynStr = new System.Text.StringBuilder(GetType().Name);
 			dynStr.Append(':');
 			dynStr.Append("  Table_pid=");
-			dynStr.Append(IsTable_pidNull ? (object)"<NULL>" : Table_pid);
+			dynStr.Append(Table_pid);
 			dynStr.Append("  Column_type=");
 			dynStr.Append(Column_type);
 			dynStr.Append("  Data_value=");

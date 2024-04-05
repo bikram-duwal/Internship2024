@@ -29,6 +29,7 @@ namespace Internship2024
 		public const string Table_pidColumnName = "table_pid";
 		public const string Table_nameColumnName = "table_name";
 		public const string NameColumnName = "name";
+		public const string Created_dateColumnName = "created_date";
 		public const string Created_byColumnName = "created_by";
 		public const string Modified_dateColumnName = "modified_date";
 		public const string Modified_byColumnName = "modified_by";
@@ -132,7 +133,7 @@ namespace Internship2024
 		public virtual pl_objectRow[] GetAsArray(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
-			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
+			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
 			{
 				return MapRecords(reader, startIndex, length, ref totalRecordCount);
 			}
@@ -167,7 +168,7 @@ namespace Internship2024
 		public virtual DataTable GetAsDataTable(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
-			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
+			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
 			{
 				return MapRecordsToDataTable(reader, startIndex, length, ref totalRecordCount);
 			}
@@ -208,11 +209,13 @@ namespace Internship2024
 		/// Adds a new record into the <c>pl_object</c> table.
 		/// </summary>
 		/// <param name="value">The <see cref="pl_objectRow"/> object to be inserted.</param>
-		public virtual void Insert(pl_objectRow value)
+		public virtual long Insert(pl_objectRow value)
 		{
 			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_Insert", true);
 			AddParameter(cmd, "Table_name", value.Table_name);
 			AddParameter(cmd, "Name", value.Name);
+			AddParameter(cmd, "Created_date",
+				value.IsCreated_dateNull ? DBNull.Value : (object)value.Created_date);
 			AddParameter(cmd, "Created_by",
 				value.IsCreated_byNull ? DBNull.Value : (object)value.Created_by);
 			AddParameter(cmd, "Modified_date",
@@ -224,6 +227,7 @@ namespace Internship2024
 			AddParameter(cmd, "Deleted_by",
 				value.IsDeleted_byNull ? DBNull.Value : (object)value.Deleted_by);
 			value.Table_pid = Convert.ToInt64(cmd.ExecuteScalar());
+			return value.Table_pid;
 		}
 
 		/// <summary>
@@ -237,6 +241,8 @@ namespace Internship2024
 			SqlCommand cmd = _db.CreateCommand("dbo.pl_object_Update", true);
 			AddParameter(cmd, "Table_name", value.Table_name);
 			AddParameter(cmd, "Name", value.Name);
+			AddParameter(cmd, "Created_date",
+				value.IsCreated_dateNull ? DBNull.Value : (object)value.Created_date);
 			AddParameter(cmd, "Created_by",
 				value.IsCreated_byNull ? DBNull.Value : (object)value.Created_by);
 			AddParameter(cmd, "Modified_date",
@@ -389,7 +395,7 @@ namespace Internship2024
 		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
 		protected pl_objectRow[] MapRecords(SqlCommand command)
 		{
-			using(IDataReader reader = _db.ExecuteReader(command))
+			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
 				return MapRecords(reader);
 			}
@@ -399,9 +405,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		protected pl_objectRow[] MapRecords(IDataReader reader)
+		protected pl_objectRow[] MapRecords(SqlDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -411,13 +417,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to map.</param>
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>An array of <see cref="pl_objectRow"/> objects.</returns>
-		protected virtual pl_objectRow[] MapRecords(IDataReader reader, 
+		protected virtual pl_objectRow[] MapRecords(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -428,6 +434,7 @@ namespace Internship2024
 			int table_pidColumnIndex = reader.GetOrdinal("table_pid");
 			int table_nameColumnIndex = reader.GetOrdinal("table_name");
 			int nameColumnIndex = reader.GetOrdinal("name");
+			int created_dateColumnIndex = reader.GetOrdinal("created_date");
 			int created_byColumnIndex = reader.GetOrdinal("created_by");
 			int modified_dateColumnIndex = reader.GetOrdinal("modified_date");
 			int modified_byColumnIndex = reader.GetOrdinal("modified_by");
@@ -445,10 +452,11 @@ namespace Internship2024
 					recordList.Add(record);
 
 					record.Table_pid = Convert.ToInt64(reader.GetValue(table_pidColumnIndex));
-					if(!reader.IsDBNull(table_nameColumnIndex))
-						record.Table_name = Convert.ToString(reader.GetValue(table_nameColumnIndex));
+					record.Table_name = Convert.ToString(reader.GetValue(table_nameColumnIndex));
 					if(!reader.IsDBNull(nameColumnIndex))
 						record.Name = Convert.ToString(reader.GetValue(nameColumnIndex));
+					if(!reader.IsDBNull(created_dateColumnIndex))
+						record.Created_date = Convert.ToDateTime(reader.GetValue(created_dateColumnIndex));
 					if(!reader.IsDBNull(created_byColumnIndex))
 						record.Created_by = Convert.ToInt64(reader.GetValue(created_byColumnIndex));
 					if(!reader.IsDBNull(modified_dateColumnIndex))
@@ -477,7 +485,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		protected DataTable MapRecordsToDataTable(SqlCommand command)
 		{
-			using(IDataReader reader = _db.ExecuteReader(command))
+			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
 				return MapRecordsToDataTable(reader);
 			}
@@ -487,9 +495,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected DataTable MapRecordsToDataTable(IDataReader reader)
+		protected DataTable MapRecordsToDataTable(SqlDataReader reader)
 		{
 			int totalRecordCount = 0;
 			return MapRecordsToDataTable(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -499,13 +507,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to read.</param>
 		/// <param name="length">The number of records to read.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected virtual DataTable MapRecordsToDataTable(IDataReader reader, 
+		protected virtual DataTable MapRecordsToDataTable(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -560,6 +568,10 @@ namespace Internship2024
 			dataColumn = dataTable.Columns["Name"];
 			if(!row.IsNull(dataColumn))
 				mappedObject.Name = (string)row[dataColumn];
+			// Column "Created_date"
+			dataColumn = dataTable.Columns["Created_date"];
+			if(!row.IsNull(dataColumn))
+				mappedObject.Created_date = (System.DateTime)row[dataColumn];
 			// Column "Created_by"
 			dataColumn = dataTable.Columns["Created_by"];
 			if(!row.IsNull(dataColumn))
@@ -601,10 +613,13 @@ namespace Internship2024
 			dataColumn.AutoIncrement = true;
 			dataColumn = dataTable.Columns.Add("Table_name", typeof(string));
 			dataColumn.Caption = "table_name";
-			dataColumn.MaxLength = 50;
+			dataColumn.MaxLength = 100;
+			dataColumn.AllowDBNull = false;
 			dataColumn = dataTable.Columns.Add("Name", typeof(string));
 			dataColumn.Caption = "name";
-			dataColumn.MaxLength = 50;
+			dataColumn.MaxLength = 1000;
+			dataColumn = dataTable.Columns.Add("Created_date", typeof(System.DateTime));
+			dataColumn.Caption = "created_date";
 			dataColumn = dataTable.Columns.Add("Created_by", typeof(long));
 			dataColumn.Caption = "created_by";
 			dataColumn = dataTable.Columns.Add("Modified_date", typeof(System.DateTime));
@@ -640,6 +655,10 @@ namespace Internship2024
 
 				case "Name":
 					parameter = _db.AddParameter(cmd, paramName, DbType.AnsiString, value);
+					break;
+
+				case "Created_date":
+					parameter = _db.AddParameter(cmd, paramName, DbType.DateTime, value);
 					break;
 
 				case "Created_by":

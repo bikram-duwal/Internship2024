@@ -17,7 +17,8 @@ namespace Internship2024
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AreaLandingView());
+            Internship2024DB objTran = new Internship2024DB();
+            Application.Run(new AreaLandingView(objTran));
         }
     }
 }

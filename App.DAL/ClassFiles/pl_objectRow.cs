@@ -26,6 +26,8 @@ namespace Internship2024
 		private long _table_pid;
 		private string _table_name;
 		private string _name;
+		private System.DateTime _created_date;
+		private bool _created_dateNull = true;
 		private long _created_by;
 		private bool _created_byNull = true;
 		private System.DateTime _modified_date;
@@ -57,7 +59,6 @@ namespace Internship2024
 
 		/// <summary>
 		/// Gets or sets the <c>table_name</c> column value.
-		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>table_name</c> column value.</value>
 		public string Table_name
@@ -75,6 +76,37 @@ namespace Internship2024
 		{
 			get { return _name; }
 			set { _name = value; }
+		}
+
+		/// <summary>
+		/// Gets or sets the <c>created_date</c> column value.
+		/// This column is nullable.
+		/// </summary>
+		/// <value>The <c>created_date</c> column value.</value>
+		public System.DateTime Created_date
+		{
+			get
+			{
+				if(IsCreated_dateNull)
+					throw new InvalidOperationException("Cannot get value because it is DBNull.");
+				return _created_date;
+			}
+			set
+			{
+				_created_dateNull = false;
+				_created_date = value;
+			}
+		}
+
+		/// <summary>
+		/// Indicates whether the <see cref="Created_date"/>
+		/// property value is null.
+		/// </summary>
+		/// <value>true if the property value is null, otherwise false.</value>
+		public bool IsCreated_dateNull
+		{
+			get { return _created_dateNull; }
+			set { _created_dateNull = value; }
 		}
 
 		/// <summary>
@@ -246,6 +278,8 @@ namespace Internship2024
 			dynStr.Append(Table_name);
 			dynStr.Append("  Name=");
 			dynStr.Append(Name);
+			dynStr.Append("  Created_date=");
+			dynStr.Append(IsCreated_dateNull ? (object)"<NULL>" : Created_date);
 			dynStr.Append("  Created_by=");
 			dynStr.Append(IsCreated_byNull ? (object)"<NULL>" : Created_by);
 			dynStr.Append("  Modified_date=");

@@ -21,7 +21,7 @@ namespace Internship2024
 	/// Do not change this source code manually. Update the <see cref="pl_booleanRow"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_booleanRow
+	public  class pl_booleanRow
 	{
 		private long _table_pid;
 		private bool _table_pidNull = true;

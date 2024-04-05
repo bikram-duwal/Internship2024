@@ -14,49 +14,49 @@ using System.ComponentModel;
 
 namespace Internship2024
 {
-	/// <summary>
-	/// The base class for <see cref="pl_areaRow"/> that 
-	/// represents a record in the <c>pl_area</c> table.
-	/// </summary>
-	/// <remarks>
-	/// Do not change this source code manually. Update the <see cref="pl_areaRow"/>
-	/// class if you need to add or change some functionality.
-	/// </remarks>
-	public class pl_areaRow
-	{
-		private long _id;
-		private long _table_pid;
-		private bool _table_pidNull = true;
-		private string _name;
-		private string _unique_code;
-		private string _area_code;
-		private string _description;
-		private bool _is_for_dispensing;
-		private bool _is_for_dispensingNull = true;
-		private long _department_id;
-		private bool _department_idNull = true;
-		private bool _status;
-		private bool _statusNull = true;
-		
+    /// <summary>
+    /// The base class for <see cref="pl_areaRow"/> that 
+    /// represents a record in the <c>pl_area</c> table.
+    /// </summary>
+    /// <remarks>
+    /// Do not change this source code manually. Update the <see cref="pl_areaRow"/>
+    /// class if you need to add or change some functionality.
+    /// </remarks>
+    public class pl_areaRow
+    {
+        private long _id;
+        private long _table_pid;
+        private bool _table_pidNull = true;
+        private string _name;
+        private string _unique_code;
+        private string _area_code;
+        private string _description;
+        private bool _is_for_dispensing;
+        private bool _is_for_dispensingNull = true;
+        private long _department_id;
+        private bool _department_idNull = true;
+        private bool _status;
+        private bool _statusNull = true;
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="pl_areaRow"/> class.
-		/// </summary>
-		public pl_areaRow()
-		{
-			// EMPTY
-		}
 
-		/// <summary>
-		/// Gets or sets the <c>id</c> column value.
-		/// </summary>
-		/// <value>The <c>id</c> column value.</value>
-		[Browsable(false)]
-		public long Id
-		{
-			get { return _id; }
-			set { _id = value; }
-		}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="pl_areaRow"/> class.
+        /// </summary>
+        public pl_areaRow()
+        {
+            // EMPTY
+        }
+
+        /// <summary>
+        /// Gets or sets the <c>id</c> column value.
+        /// </summary>
+        /// <value>The <c>id</c> column value.</value>
+        [Browsable(false)]
+        public long Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
 
         /// <summary>
         /// Gets or sets the <c>table_pid</c> column value.
@@ -65,19 +65,19 @@ namespace Internship2024
         /// <value>The <c>table_pid</c> column value.</value>
 		[Browsable(false)]
         public long Table_pid
-		{
-			get
-			{
-				if(IsTable_pidNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _table_pid;
-			}
-			set
-			{
-				_table_pidNull = false;
-				_table_pid = value;
-			}
-		}
+        {
+            get
+            {
+                if (IsTable_pidNull)
+                    throw new InvalidOperationException("Cannot get value because it is DBNull.");
+                return _table_pid;
+            }
+            set
+            {
+                _table_pidNull = false;
+                _table_pid = value;
+            }
+        }
 
         /// <summary>
         /// Indicates whether the <see cref="Table_pid"/>
@@ -86,10 +86,10 @@ namespace Internship2024
         /// <value>true if the property value is null, otherwise false.</value>
         [Browsable(false)]
         public bool IsTable_pidNull
-		{
-			get { return _table_pidNull; }
-			set { _table_pidNull = value; }
-		}
+        {
+            get { return _table_pidNull; }
+            set { _table_pidNull = value; }
+        }
 
         /// <summary>
         /// Gets or sets the <c>unique_code</c> column value.
@@ -109,11 +109,11 @@ namespace Internship2024
         /// </summary>
         /// <value>The <c>name</c> column value.</value>
         [DisplayName("Area Name")]
-		public string Name
-		{
-			get { return _name; }
-			set { _name = value; }
-		}
+        public string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
 
         /// <summary>
         /// Gets or sets the <c>area_code</c> column value.
@@ -122,10 +122,10 @@ namespace Internship2024
         /// <value>The <c>area_code</c> column value.</value>
         [DisplayName("Area Code")]
         public string Area_code
-		{
-			get { return _area_code; }
-			set { _area_code = value; }
-		}
+        {
+            get { return _area_code; }
+            set { _area_code = value; }
+        }
 
         /// <summary>
         /// Gets or sets the <c>description</c> column value.
@@ -134,31 +134,31 @@ namespace Internship2024
         /// <value>The <c>description</c> column value.</value>
         [DisplayName("Description")]
         public string Description
-		{
-			get { return _description; }
-			set { _description = value; }
-		}
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
 
-		/// <summary>
-		/// Gets or sets the <c>is_for_dispensing</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>is_for_dispensing</c> column value.</value>
-		[Browsable(false)]
-		public bool Is_for_dispensing
-		{
-			get
-			{
-				if(IsIs_for_dispensingNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _is_for_dispensing;
-			}
-			set
-			{
-				_is_for_dispensingNull = false;
-				_is_for_dispensing = value;
-			}
-		}
+        /// <summary>
+        /// Gets or sets the <c>is_for_dispensing</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>is_for_dispensing</c> column value.</value>
+        [Browsable(false)]
+        public bool Is_for_dispensing
+        {
+            get
+            {
+                if (IsIs_for_dispensingNull)
+                    throw new InvalidOperationException("Cannot get value because it is DBNull.");
+                return _is_for_dispensing;
+            }
+            set
+            {
+                _is_for_dispensingNull = false;
+                _is_for_dispensing = value;
+            }
+        }
 
 
         [DisplayName("Is For Dispensing")]
@@ -171,70 +171,70 @@ namespace Internship2024
         /// <value>true if the property value is null, otherwise false.</value>
         [Browsable(false)]
         public bool IsIs_for_dispensingNull
-		{
-			get { return _is_for_dispensingNull; }
-			set { _is_for_dispensingNull = value; }
-		}
+        {
+            get { return _is_for_dispensingNull; }
+            set { _is_for_dispensingNull = value; }
+        }
 
-		/// <summary>
-		/// Gets or sets the <c>department_id</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>department_id</c> column value.</value>
-		[Browsable(false)]
-		public long Department_id
-		{
-			get
-			{
-				if(IsDepartment_idNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _department_id;
-			}
-			set
-			{
-				_department_idNull = false;
-				_department_id = value;
-			}
-		}
+        /// <summary>
+        /// Gets or sets the <c>department_id</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>department_id</c> column value.</value>
+        [Browsable(false)]
+        public long Department_id
+        {
+            get
+            {
+                if (IsDepartment_idNull)
+                    throw new InvalidOperationException("Cannot get value because it is DBNull.");
+                return _department_id;
+            }
+            set
+            {
+                _department_idNull = false;
+                _department_id = value;
+            }
+        }
 
-		[DisplayName("Department Name")]
+        [DisplayName("Department Name")]
         public string Department_name { get; set; }
 
-		/// <summary>
-		/// Indicates whether the <see cref="Department_id"/>
-		/// property value is null.
-		/// </summary>
-		/// <value>true if the property value is null, otherwise false.</value>
-		[Browsable(false)]
-		public bool IsDepartment_idNull
-		{
-			get { return _department_idNull; }
-			set { _department_idNull = value; }
-		}
+        /// <summary>
+        /// Indicates whether the <see cref="Department_id"/>
+        /// property value is null.
+        /// </summary>
+        /// <value>true if the property value is null, otherwise false.</value>
+        [Browsable(false)]
+        public bool IsDepartment_idNull
+        {
+            get { return _department_idNull; }
+            set { _department_idNull = value; }
+        }
 
-		/// <summary>
-		/// Gets or sets the <c>status</c> column value.
-		/// This column is nullable.
-		/// </summary>
-		/// <value>The <c>status</c> column value.</value>
-		[Browsable(false)]
-		public bool Status
-		{
-			get
-			{
-				if(IsStatusNull)
-					throw new InvalidOperationException("Cannot get value because it is DBNull.");
-				return _status;
-			}
-			set
-			{
-				_statusNull = false;
-				_status = value;
-			}
-		}
+        /// <summary>
+        /// Gets or sets the <c>status</c> column value.
+        /// This column is nullable.
+        /// </summary>
+        /// <value>The <c>status</c> column value.</value>
+        [Browsable(false)]
+        public bool Status
+        {
+            get
+            {
+                if (IsStatusNull)
+                    throw new InvalidOperationException("Cannot get value because it is DBNull.");
+                return _status;
+            }
+            set
+            {
+                _statusNull = false;
+                _status = value;
+            }
+        }
 
-		[DisplayName("Status")]
-		public string Area_status { get => Status ? "Active" : "Inactive"; }
+        [DisplayName("Status")]
+        public string Area_status { get => Status ? "Active" : "Inactive"; }
 
         /// <summary>
         /// Indicates whether the <see cref="Status"/>
@@ -243,42 +243,42 @@ namespace Internship2024
         /// <value>true if the property value is null, otherwise false.</value>
         [Browsable(false)]
         public bool IsStatusNull
-		{
-			get { return _statusNull; }
-			set { _statusNull = value; }
-		}
+        {
+            get { return _statusNull; }
+            set { _statusNull = value; }
+        }
 
-		/// <summary>
-		
+        /// <summary>
 
-		/// <summary>
-		/// Returns the string representation of this instance.
-		/// </summary>
-		/// <returns>The string representation of this instance.</returns>
-		public override string ToString()
-		{
-			System.Text.StringBuilder dynStr = new System.Text.StringBuilder(GetType().Name);
-			dynStr.Append(':');
-			dynStr.Append("  Id=");
-			dynStr.Append(Id);
-			dynStr.Append("  Table_pid=");
-			dynStr.Append(IsTable_pidNull ? (object)"<NULL>" : Table_pid);
-			dynStr.Append("  Name=");
-			dynStr.Append(Name);
-			dynStr.Append("  Unique_code=");
-			dynStr.Append(Unique_code);
-			dynStr.Append("  Area_code=");
-			dynStr.Append(Area_code);
-			dynStr.Append("  Description=");
-			dynStr.Append(Description);
-			dynStr.Append("  Is_for_dispensing=");
-			dynStr.Append(IsIs_for_dispensingNull ? (object)"<NULL>" : Is_for_dispensing);
-			dynStr.Append("  Department_id=");
-			dynStr.Append(IsDepartment_idNull ? (object)"<NULL>" : Department_id);
-			dynStr.Append("  Status=");
-			dynStr.Append(IsStatusNull ? (object)"<NULL>" : Status);
-			
-			return dynStr.ToString();
-		}
-	} // End of pl_areaRow_Base class
+
+        /// <summary>
+        /// Returns the string representation of this instance.
+        /// </summary>
+        /// <returns>The string representation of this instance.</returns>
+        public override string ToString()
+        {
+            System.Text.StringBuilder dynStr = new System.Text.StringBuilder(GetType().Name);
+            dynStr.Append(':');
+            dynStr.Append("  Id=");
+            dynStr.Append(Id);
+            dynStr.Append("  Table_pid=");
+            dynStr.Append(IsTable_pidNull ? (object)"<NULL>" : Table_pid);
+            dynStr.Append("  Name=");
+            dynStr.Append(Name);
+            dynStr.Append("  Unique_code=");
+            dynStr.Append(Unique_code);
+            dynStr.Append("  Area_code=");
+            dynStr.Append(Area_code);
+            dynStr.Append("  Description=");
+            dynStr.Append(Description);
+            dynStr.Append("  Is_for_dispensing=");
+            dynStr.Append(IsIs_for_dispensingNull ? (object)"<NULL>" : Is_for_dispensing);
+            dynStr.Append("  Department_id=");
+            dynStr.Append(IsDepartment_idNull ? (object)"<NULL>" : Department_id);
+            dynStr.Append("  Status=");
+            dynStr.Append(IsStatusNull ? (object)"<NULL>" : Status);
+
+            return dynStr.ToString();
+        }
+    } // End of pl_areaRow_Base class
 } // End of namespace

@@ -23,7 +23,7 @@ namespace Internship2024
 	/// Do not change this source code. Update the <see cref="pl_areaCollection"/>
 	/// class if you need to add or change some functionality.
 	/// </remarks>
-	public class pl_area
+	public  class pl_area
 	{
 		// Constants
 		public const string IdColumnName = "id";
@@ -134,7 +134,7 @@ namespace Internship2024
 		public virtual pl_areaRow[] GetAsArray(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
-			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
+			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
 			{
 				return MapRecords(reader, startIndex, length, ref totalRecordCount);
 			}
@@ -169,7 +169,7 @@ namespace Internship2024
 		public virtual DataTable GetAsDataTable(string whereSql, string orderBySql,
 							int startIndex, int length, ref int totalRecordCount)
 		{
-			using(IDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
+			using(SqlDataReader reader = _db.ExecuteReader(CreateGetCommand(whereSql, orderBySql)))
 			{
 				return MapRecordsToDataTable(reader, startIndex, length, ref totalRecordCount);
 			}
@@ -393,7 +393,7 @@ namespace Internship2024
 		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
 		protected pl_areaRow[] MapRecords(SqlCommand command)
 		{
-			using(IDataReader reader = _db.ExecuteReader(command))
+			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
 				return MapRecords(reader);
 			}
@@ -403,9 +403,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
-		protected pl_areaRow[] MapRecords(IDataReader reader)
+		protected pl_areaRow[] MapRecords(SqlDataReader reader)
 		{
 			int totalRecordCount = -1;
 			return MapRecords(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -415,13 +415,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// an array of mapped objects.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to map.</param>
 		/// <param name="length">The number of records to map.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>An array of <see cref="pl_areaRow"/> objects.</returns>
-		protected virtual pl_areaRow[] MapRecords(IDataReader reader, 
+		protected virtual pl_areaRow[] MapRecords(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)
@@ -486,7 +486,7 @@ namespace Internship2024
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
 		protected DataTable MapRecordsToDataTable(SqlCommand command)
 		{
-			using(IDataReader reader = _db.ExecuteReader(command))
+			using(SqlDataReader reader = _db.ExecuteReader(command))
 			{
 				return MapRecordsToDataTable(reader);
 			}
@@ -496,9 +496,9 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected DataTable MapRecordsToDataTable(IDataReader reader)
+		protected DataTable MapRecordsToDataTable(SqlDataReader reader)
 		{
 			int totalRecordCount = 0;
 			return MapRecordsToDataTable(reader, 0, int.MaxValue, ref totalRecordCount);
@@ -508,13 +508,13 @@ namespace Internship2024
 		/// Reads data from the provided data reader and returns 
 		/// a filled <see cref="System.Data.DataTable"/> object.
 		/// </summary>
-		/// <param name="reader">The <see cref="System.Data.IDataReader"/> object to read data from the table.</param>
+		/// <param name="reader">The <see cref="System.Data.SqlDataReader"/> object to read data from the table.</param>
 		/// <param name="startIndex">The index of the first record to read.</param>
 		/// <param name="length">The number of records to read.</param>
 		/// <param name="totalRecordCount">A reference parameter that returns the total number 
 		/// of records in the reader object if 0 was passed into the method; otherwise it returns -1.</param>
 		/// <returns>A reference to the <see cref="System.Data.DataTable"/> object.</returns>
-		protected virtual DataTable MapRecordsToDataTable(IDataReader reader, 
+		protected virtual DataTable MapRecordsToDataTable(SqlDataReader reader, 
 										int startIndex, int length, ref int totalRecordCount)
 		{
 			if(0 > startIndex)

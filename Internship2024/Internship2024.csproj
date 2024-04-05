@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Infragistics4.Shared.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinEditors.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.Misc.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.UltraWinGrid.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Infragistics4.Win.v14.2, Version=14.2.20142.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
@@ -60,13 +61,17 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Area.cs" />
+    <Compile Include="Presenter\AreaEditPresenter.cs" />
     <Compile Include="Presenter\AreaLandingPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\AreaEditRepository.cs" />
     <Compile Include="Repository\AreaLandingRepository.cs" />
+    <Compile Include="Repository\IAreaEditRepository.cs" />
     <Compile Include="Repository\IAreaLandingRepository.cs" />
+    <Compile Include="Services\AreaEditService.cs" />
     <Compile Include="Services\AreaLandingService.cs" />
+    <Compile Include="Services\IAreaEditService.cs" />
     <Compile Include="Services\IAreaLandingService.cs" />
     <Compile Include="View\AreaLandingView.cs">
       <SubType>Form</SubType>
@@ -74,6 +79,13 @@
     <Compile Include="View\AreaLandingView.Designer.cs">
       <DependentUpon>AreaLandingView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\AreaEditView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AreaEditView.Designer.cs">
+      <DependentUpon>AreaEditView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\IAreaEditView.cs" />
     <Compile Include="View\IAreaLandingView.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -90,6 +102,9 @@
     </Compile>
     <EmbeddedResource Include="View\AreaLandingView.resx">
       <DependentUpon>AreaLandingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AreaEditView.resx">
+      <DependentUpon>AreaEditView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="OutputFiles\XMLFiles\App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -112,6 +127,9 @@
       <Project>{7643b9f1-bfd3-4197-b17e-e8766cd503e1}</Project>
       <Name>App.DAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

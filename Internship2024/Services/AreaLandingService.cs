@@ -1,5 +1,4 @@
-﻿using Internship2024.Model;
-using Internship2024.Repository;
+﻿using Internship2024.Repository;
 using System.Collections.Generic;
 
 

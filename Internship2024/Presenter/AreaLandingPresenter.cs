@@ -1,5 +1,4 @@
-﻿using Internship2024.Model;
-using Internship2024.Services;
+﻿using Internship2024.Services;
 using Internship2024.View;
 using System;
 using System.Collections.Generic;
