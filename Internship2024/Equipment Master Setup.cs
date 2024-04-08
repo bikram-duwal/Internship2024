@@ -37,31 +37,44 @@ namespace Internship2024
             }
             try
             {
-                EquipmentMaster objpl_object = new EquipmentMaster(objTran);
-                EquipmentMasterRow objpl_objectRow = objpl_object.GetRow("name = 'test_name2'");
+                Make make = new Make(objTran);
+                MakeRow makeRow = make.GetRow("Name = 'name'");
+                pl_string objpl_string = new pl_string(objTran);
+                pl_stringRow objpl_stringRow = null;
 
 
                 objTran.BeginTransaction();
-                if (objpl_objectRow != null)
+                if (makeRow != null)
                 {
-                    MessageBox.Show(objpl_objectRow.Description);
+                  //  MessageBox.Show(makeRow.Name);
                 }
                 else
                 {
-                    objpl_objectRow = new EquipmentMasterRow();
-                    objpl_objectRow.Description = "test_table";
-                    objpl_objectRow.Name = "test_name2";
-                    objpl_objectRow.Details1 = "tesdt";
-                    objpl_objectRow.Details2 = "test 2";
-                    objpl_objectRow.Details3 = "test 3";
-                    objpl_objectRow.Details4 = "test 4";
-                    objpl_objectRow.City = "test";
-                    objpl_objectRow.IsActive = true;
+                    makeRow = new MakeRow();
+                    makeRow.Name = "test_table";
+                    makeRow.CreatedDate = DateTime.Now;
+                    makeRow.ModifiedDate = DateTime.Now;
+                    makeRow.UniqueCode = "durga";
+                    makeRow.Caption = "null";
+                    makeRow.Details1 = "null";
+                    makeRow.Details2 = "null";
+                    makeRow.Details3 = "null";
+                    makeRow.Details4 = "null";
+                    makeRow.Details5 = "null";
+                    makeRow.CreatedBy = 2;
+                    makeRow.ModifiedBy = 3;
 
-                    objpl_object.Insert(objpl_objectRow);
-                    MessageBox.Show($"{objpl_objectRow.Name} has been added successfully");
 
-                    
+                    make.Insert(makeRow);
+                    MessageBox.Show($"{makeRow.Name} has been added successfully");
+
+                    //objpl_stringRow = new pl_stringRow();
+                    //objpl_stringRow.Table_pid = 1;
+                    //objpl_stringRow.Column_type = "test_column_type";
+                    //objpl_stringRow.Data_value = "test_data_value";
+                    //objpl_string.Insert(objpl_stringRow);
+
+
                 }
                 objTran.CommitTransaction();
             }
