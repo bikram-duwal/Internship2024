@@ -36,12 +36,12 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblFax = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.txtContact = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtDetails5 = new System.Windows.Forms.TextBox();
+            this.txtFax = new System.Windows.Forms.TextBox();
             this.ultraButton1 = new Infragistics.Win.Misc.UltraButton();
             this.ultraButton2 = new Infragistics.Win.Misc.UltraButton();
             this.ultraCheckEditor1 = new Infragistics.Win.UltraWinEditors.UltraCheckEditor();
@@ -120,56 +120,56 @@
             this.txtName.Size = new System.Drawing.Size(685, 27);
             this.txtName.TabIndex = 1;
             // 
-            // textBox2
+            // txtDescription
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 50);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(685, 59);
-            this.textBox2.TabIndex = 1;
+            this.txtDescription.Location = new System.Drawing.Point(77, 50);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(685, 59);
+            this.txtDescription.TabIndex = 1;
             // 
-            // textBox1
+            // txtContact
             // 
-            this.textBox1.Location = new System.Drawing.Point(77, 145);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 29);
-            this.textBox1.TabIndex = 3;
+            this.txtContact.Location = new System.Drawing.Point(77, 145);
+            this.txtContact.Multiline = true;
+            this.txtContact.Name = "txtContact";
+            this.txtContact.Size = new System.Drawing.Size(313, 29);
+            this.txtContact.TabIndex = 3;
             // 
-            // textBox3
+            // txtPhone
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(496, 145);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(266, 29);
-            this.textBox3.TabIndex = 3;
+            this.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPhone.Location = new System.Drawing.Point(496, 145);
+            this.txtPhone.Multiline = true;
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(266, 29);
+            this.txtPhone.TabIndex = 3;
             // 
-            // textBox4
+            // txtEmail
             // 
-            this.textBox4.Location = new System.Drawing.Point(77, 196);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(313, 29);
-            this.textBox4.TabIndex = 3;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtEmail.Location = new System.Drawing.Point(77, 196);
+            this.txtEmail.Multiline = true;
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(313, 29);
+            this.txtEmail.TabIndex = 3;
+            this.txtEmail.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox5
+            // txtDetails5
             // 
-            this.textBox5.Location = new System.Drawing.Point(77, 249);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(313, 29);
-            this.textBox5.TabIndex = 3;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.txtDetails5.Location = new System.Drawing.Point(77, 249);
+            this.txtDetails5.Multiline = true;
+            this.txtDetails5.Name = "txtDetails5";
+            this.txtDetails5.Size = new System.Drawing.Size(313, 29);
+            this.txtDetails5.TabIndex = 3;
+            this.txtDetails5.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
-            // textBox6
+            // txtFax
             // 
-            this.textBox6.Location = new System.Drawing.Point(496, 196);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(266, 29);
-            this.textBox6.TabIndex = 3;
+            this.txtFax.Location = new System.Drawing.Point(496, 196);
+            this.txtFax.Multiline = true;
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(266, 29);
+            this.txtFax.TabIndex = 3;
             // 
             // ultraButton1
             // 
@@ -207,12 +207,12 @@
             this.Controls.Add(this.ultraCheckEditor1);
             this.Controls.Add(this.ultraButton2);
             this.Controls.Add(this.ultraButton1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtDetails5);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtFax);
+            this.Controls.Add(this.txtPhone);
+            this.Controls.Add(this.txtContact);
+            this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblFax);
             this.Controls.Add(this.lblPhone);
@@ -239,12 +239,12 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblFax;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.TextBox txtContact;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtDetails5;
+        private System.Windows.Forms.TextBox txtFax;
         private Infragistics.Win.Misc.UltraButton ultraButton1;
         private Infragistics.Win.Misc.UltraButton ultraButton2;
         private Infragistics.Win.UltraWinEditors.UltraCheckEditor ultraCheckEditor1;

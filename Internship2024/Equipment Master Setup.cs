@@ -51,16 +51,16 @@ namespace Internship2024
                 else
                 {
                     makeRow = new MakeRow();
-                    makeRow.Name = "test_table";
+                    makeRow.Name = txtName.Text;
                     makeRow.CreatedDate = DateTime.Now;
                     makeRow.ModifiedDate = DateTime.Now;
-                    makeRow.UniqueCode = "durga";
+                    makeRow.UniqueCode = txtDescription.Text;
                     makeRow.Caption = "null";
-                    makeRow.Details1 = "null";
-                    makeRow.Details2 = "null";
-                    makeRow.Details3 = "null";
-                    makeRow.Details4 = "null";
-                    makeRow.Details5 = "null";
+                    makeRow.Details1 = txtContact.Text;
+                    makeRow.Details2 = txtPhone.Text;
+                    makeRow.Details3 = txtEmail.Text;
+                    makeRow.Details4 = txtFax.Text;
+                    makeRow.Details5 = txtDetails5.Text;
                     makeRow.CreatedBy = 2;
                     makeRow.ModifiedBy = 3;
 

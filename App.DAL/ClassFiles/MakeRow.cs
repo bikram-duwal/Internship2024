@@ -27,7 +27,7 @@ namespace Internship2024
 		private string _uniqueCode;
 		private string _name;
 		private string _caption;
-		private string _details1;
+		private string _contact;
 		private string _details2;
 		private string _details3;
 		private string _details4;
@@ -95,9 +95,9 @@ namespace Internship2024
 		/// </summary>
 		/// <value>The <c>Details1</c> column value.</value>
 		public string Details1
-		{
-			get { return _details1; }
-			set { _details1 = value; }
+        {
+			get { return _contact; }
+			set { _contact = value; }
 		}
 
 		/// <summary>
@@ -105,7 +105,7 @@ namespace Internship2024
 		/// This column is nullable.
 		/// </summary>
 		/// <value>The <c>Details2</c> column value.</value>
-		public string Details2
+		public string Details2	
 		{
 			get { return _details2; }
 			set { _details2 = value; }
@@ -117,7 +117,7 @@ namespace Internship2024
 		/// </summary>
 		/// <value>The <c>Details3</c> column value.</value>
 		public string Details3
-		{
+        {
 			get { return _details3; }
 			set { _details3 = value; }
 		}
